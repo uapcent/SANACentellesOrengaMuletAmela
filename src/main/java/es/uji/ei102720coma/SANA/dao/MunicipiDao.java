@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Repository //En Spring els DAO van anotats amb @Repository
 public class MunicipiDao {
     private JdbcTemplate jdbcTemplate;
 
