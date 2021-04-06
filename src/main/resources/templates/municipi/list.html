@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Municipis</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Municipis</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Localitació</th>
+        <th>Provincia</th>
+        <th>codi Postal</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="municipi: ${municipis}">
+        <td th:text="${municipi.nom}"></td>
+        <td th:text="${municipi.localitzacio_geografica}"></td>
+        <td th:text="${municipi.provincia}"></td>
+        <td th:text="${municipi.codi_postal}"></td>
+        <td><a th:href="@{/municipi/update/{nom}(nom=${municipi.nom})}">Edita</a>
+        </td>
+        <td><a th:href="@{/municipi/delete/{nom}(nom=${municipi.nom})}">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add">Afegeix municipi</a>
+</body>
+</html>
