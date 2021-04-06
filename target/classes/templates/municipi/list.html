@@ -7,13 +7,13 @@
 </head>
 <body>
 <h1>Llista de Municipis</h1>
-<table>
+<table class="table table-striped">
     <thead>
     <tr>
         <th>Nom</th>
         <th>Localitació</th>
         <th>Provincia</th>
-        <th>codi Postal</th>
+        <th>Codi Postal</th>
         <th></th>
         <th></th>
     </tr>
@@ -24,13 +24,13 @@
         <td th:text="${municipi.localitzacioGeografica}"></td>
         <td th:text="${municipi.provincia}"></td>
         <td th:text="${municipi.codPostal}"></td>
-        <td><a th:href="@{/municipi/update/{nom}(nom=${municipi.nom})}">Edita</a>
+        <td><a th:href="@{/municipi/update/{nom}(nom=${municipi.nom})}" class="btn btn-warning" role="button">Edita</a>
         </td>
-        <td><a th:href="@{/municipi/delete/{nom}(nom=${municipi.nom})}">Esborra</a>
+        <td><a th:href="@{/municipi/delete/{nom}(nom=${municipi.nom})}" class="btn btn-danger" role="button">Esborra</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a href="add">Afegeix municipi</a>
+<a href="add" class="btn btn-success" role="button">Afegeix municipi</a>
 </body>
 </html>
