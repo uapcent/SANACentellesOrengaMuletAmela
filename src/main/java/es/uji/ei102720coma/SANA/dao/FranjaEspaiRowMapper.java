@@ -5,12 +5,14 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalTime;
 
 public class FranjaEspaiRowMapper implements RowMapper<FranjaEspai> {
     public FranjaEspai mapRow(ResultSet rs, int rowNum) throws SQLException{
         FranjaEspai franjaEspai = new FranjaEspai();
-        franjaEspai.setTempsInici(rs.getInt("tempsInici"));
-        franjaEspai.setTempsFi(rs.getInt("tempsFi"));
+        franjaEspai.setNom_espai(rs.getString("nom_espai"));
+        franjaEspai.setHora_inici(rs.getObject("hora_inici", LocalTime.class));
+        franjaEspai.setHora_fi(rs.getObject("hora_fi", LocalTime.class));
         return franjaEspai;
     }
 }

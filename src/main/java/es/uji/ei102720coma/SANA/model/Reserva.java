@@ -1,73 +1,114 @@
 package es.uji.ei102720coma.SANA.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Reserva {
 
-    private String codiReserva;
-    private LocalDate dataAsignada;
-    private int numPersones;
-    private EstatReserva estatReserva;
-    private LocalDate dataExpiracio;
-    private LocalDate data;
+    private String codi;
+    private String dni;
+    private String nom_espai;
+    private LocalDate data_creacio;
+    private String estat;
+    private int num_persones;
+    private LocalDate data_asignacio;
+    private LocalDate data_expiracio;
+    private LocalTime hora_inici_espai;
+    private LocalTime hora_fi_espai;
 
-    public String getCodiReserva() {
-        return codiReserva;
+    public String getCodi() {
+        return codi;
     }
 
-    public void setCodiReserva(String codiReserva) {
-        this.codiReserva = codiReserva;
+    public void setCodi(String codi) {
+        this.codi = codi;
     }
 
-    public LocalDate getDataAsignada() {
-        return dataAsignada;
+    public String getDni() {
+        return dni;
     }
 
-    public void setDataAsignada(LocalDate dataAsignada) {
-        this.dataAsignada = dataAsignada;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public int getNumPersones() {
-        return numPersones;
+    public String getNom_espai() {
+        return nom_espai;
     }
 
-    public void setNumPersones(int numPersones) {
-        this.numPersones = numPersones;
+    public void setNom_espai(String nom_espai) {
+        this.nom_espai = nom_espai;
     }
 
-    public EstatReserva getEstatReserva() {
-        return estatReserva;
+    public LocalDate getData_creacio() {
+        return data_creacio;
     }
 
-    public void setEstatReserva(EstatReserva estatReserva) {
-        this.estatReserva = estatReserva;
+    public void setData_creacio(LocalDate data_creacio) {
+        this.data_creacio = data_creacio;
     }
 
-    public LocalDate getDataExpiracio() {
-        return dataExpiracio;
+    public String getEstat() {
+        return estat;
     }
 
-    public void setDataExpiracio(LocalDate dataExpiracio) {
-        this.dataExpiracio = dataExpiracio;
+    public void setEstat(String estat) {
+        this.estat = estat;
     }
 
-    public LocalDate getData() {
-        return data;
+    public int getNum_persones() {
+        return num_persones;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setNum_persones(int num_persones) {
+        this.num_persones = num_persones;
+    }
+
+    public LocalDate getData_asignacio() {
+        return data_asignacio;
+    }
+
+    public void setData_asignacio(LocalDate data_asignacio) {
+        this.data_asignacio = data_asignacio;
+    }
+
+    public LocalDate getData_expiracio() {
+        return data_expiracio;
+    }
+
+    public void setData_expiracio(LocalDate data_expiracio) {
+        this.data_expiracio = data_expiracio;
+    }
+
+    public LocalTime getHora_inici_espai() {
+        return hora_inici_espai;
+    }
+
+    public void setHora_inici_espai(LocalTime hora_inici_espai) {
+        this.hora_inici_espai = hora_inici_espai;
+    }
+
+    public LocalTime getHora_fi_espai() {
+        return hora_fi_espai;
+    }
+
+    public void setHora_fi_espai(LocalTime hora_fi_espai) {
+        this.hora_fi_espai = hora_fi_espai;
     }
 
     @Override
     public String toString() {
         return "Reserva{" +
-                "codiReserva='" + codiReserva + '\'' +
-                ", dataAsignada=" + dataAsignada +
-                ", numPersones=" + numPersones +
-                ", estatReserva=" + estatReserva +
-                ", dataExpiracio=" + dataExpiracio +
-                ", data=" + data +
+                "codi='" + codi + '\'' +
+                ", dni='" + dni + '\'' +
+                ", nom_espai='" + nom_espai + '\'' +
+                ", data_creacio=" + data_creacio +
+                ", estat='" + estat + '\'' +
+                ", num_persones=" + num_persones +
+                ", data_asignacio=" + data_asignacio +
+                ", data_expiracio=" + data_expiracio +
+                ", hora_inici_espai=" + hora_inici_espai +
+                ", hora_fi_espai=" + hora_fi_espai +
                 '}';
     }
 }
