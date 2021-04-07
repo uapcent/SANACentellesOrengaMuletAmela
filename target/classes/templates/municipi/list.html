@@ -21,9 +21,9 @@
     <tbody>
     <tr th:each="municipi: ${municipis}">
         <td th:text="${municipi.nom}"></td>
-        <td th:text="${municipi.localitzacio_geografica}"></td>
+        <td th:text="${municipi.localitzacioGeografica}"></td>
         <td th:text="${municipi.provincia}"></td>
-        <td th:text="${municipi.codi_postal}"></td>
+        <td th:text="${municipi.codPostal}"></td>
         <td><a th:href="@{/municipi/update/{nom}(nom=${municipi.nom})}">Edita</a>
         </td>
         <td><a th:href="@{/municipi/delete/{nom}(nom=${municipi.nom})}">Esborra</a>
