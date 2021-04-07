@@ -10,12 +10,12 @@ import java.time.LocalDate;
 public class CiutadaRowMapper implements RowMapper<Ciutada> {
     public Ciutada mapRow(ResultSet rs, int rowNum) throws SQLException{
         Ciutada ciutada = new Ciutada();
-        ciutada.setDniCiutada(rs.getString("dniCiutada"));
+        ciutada.setDniCiutada(rs.getString("dni"));
         ciutada.setNom(rs.getString("nom"));
         ciutada.setCognom(rs.getString("cognom"));
         ciutada.setEmail(rs.getString("email"));
-        ciutada.setDataNaixement(rs.getObject("dataNaixement", LocalDate.class));
-        ciutada.setAdreça(rs.getString("adreça"));
+        ciutada.setDataNaixement(rs.getObject("data_naixement", LocalDate.class));
+        ciutada.setAdresa(rs.getString("adreça"));
         return ciutada;
     }
 }

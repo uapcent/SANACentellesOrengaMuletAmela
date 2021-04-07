@@ -20,14 +20,14 @@ public class FranjaEspaiDao {
     /*Afegir franjaEspai a la base de dades*/
     public void addFranja(FranjaEspai franjaEspai){
         jdbcTemplate.update("INSERT INTO Franja_Espai VALUES(?, ?, ?)",
-                franjaEspai.getNom_espai(),
-                franjaEspai.getHora_inici(),
-                franjaEspai.getHora_fi());
+                franjaEspai.getNomEspai(),
+                franjaEspai.getHoraInici(),
+                franjaEspai.getHoraFi());
     }
 
     /* Esborra la franja_espai de la base de dades */
     public void deleteFranjaEspai(FranjaEspai franjaEspai) {
-        jdbcTemplate.update("DELETE FROM Franja_Espai WHERE nom = '" + franjaEspai.getNom_espai() + "'");
+        jdbcTemplate.update("DELETE FROM Franja_Espai WHERE nom = '" + franjaEspai.getNomEspai() + "'");
 
     }
 
@@ -35,9 +35,9 @@ public class FranjaEspaiDao {
        (excepte el nom, que és la clau primària) */
     public void updateFranjaEspai(FranjaEspai franjaEspai) {
         jdbcTemplate.update("UPDATE Franja_Espai SET hora_inici = ?, hora_fi = ? WHERE nom_espai =?",
-                franjaEspai.getHora_inici(),
-                franjaEspai.getHora_fi(),
-                franjaEspai.getNom_espai());
+                franjaEspai.getHoraInici(),
+                franjaEspai.getHoraFi(),
+                franjaEspai.getNomEspai());
     }
 
     /* Obté la franja amb el nom donat. Torna null si no existeix. */

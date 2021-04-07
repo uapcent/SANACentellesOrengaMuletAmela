@@ -4,40 +4,40 @@ import java.time.LocalTime;
 
 public class FranjaEspai {
 
-    private String nom_espai;
-    private LocalTime hora_inici;
-    private LocalTime hora_fi;
+    private String nomEspai;
+    private LocalTime horaInici;
+    private LocalTime horaFi;
 
-    public String getNom_espai() {
-        return nom_espai;
+    public String getNomEspai() {
+        return nomEspai;
     }
 
-    public void setNom_espai(String nom_espai) {
-        this.nom_espai = nom_espai;
+    public void setNomEspai(String nomEspai) {
+        this.nomEspai = nomEspai;
     }
 
-    public LocalTime getHora_inici() {
-        return hora_inici;
+    public LocalTime getHoraInici() {
+        return horaInici;
     }
 
-    public void setHora_inici(LocalTime hora_inici) {
-        this.hora_inici = hora_inici;
+    public void setHoraInici(LocalTime horaInici) {
+        this.horaInici = horaInici;
     }
 
-    public LocalTime getHora_fi() {
-        return hora_fi;
+    public LocalTime getHoraFi() {
+        return horaFi;
     }
 
-    public void setHora_fi(LocalTime hora_fi) {
-        this.hora_fi = hora_fi;
+    public void setHoraFi(LocalTime horaFi) {
+        this.horaFi = horaFi;
     }
 
     @Override
     public String toString() {
         return "FranjaEspai{" +
-                "nom_espai='" + nom_espai + '\'' +
-                ", hora_inici=" + hora_inici +
-                ", hora_fi=" + hora_fi +
+                "nom_espai='" + nomEspai + '\'' +
+                ", hora_inici=" + horaInici +
+                ", hora_fi=" + horaFi +
                 '}';
     }
 }

@@ -28,7 +28,7 @@ public class CiutadaDao {
                 ciutada.getCognom(),
                 ciutada.getEmail(),
                 ciutada.getDataNaixement(),
-                ciutada.getAdreça());
+                ciutada.getAdresa());
     }
 
     /* Esborra el Ciutada de la base de dades */
@@ -55,7 +55,7 @@ public class CiutadaDao {
                 ciutada.getCognom(),
                 ciutada.getEmail(),
                 ciutada.getDataNaixement(),
-                ciutada.getAdreça(),
+                ciutada.getAdresa(),
                 ciutada.getDniCiutada());
     }
 

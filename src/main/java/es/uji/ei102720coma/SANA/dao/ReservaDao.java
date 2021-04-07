@@ -22,14 +22,14 @@ public class ReservaDao {
         jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 reserva.getCodi(),
                 reserva.getDni(),
-                reserva.getNom_espai(),
-                reserva.getData_creacio(),
+                reserva.getNomEspai(),
+                reserva.getDataCreacio(),
                 reserva.getEstat(),
-                reserva.getNum_persones(),
-                reserva.getData_asignacio(),
-                reserva.getData_expiracio(),
-                reserva.getHora_inici_espai(),
-                reserva.getHora_fi_espai());
+                reserva.getNumPersones(),
+                reserva.getDataAsignacio(),
+                reserva.getDataExpiracio(),
+                reserva.getHoraIniciEspai(),
+                reserva.getHoraFiEspai());
     }
 
     /* Esborra la reserva de la base de dades */
@@ -50,14 +50,14 @@ public class ReservaDao {
     public void updateReserva(Reserva reserva) {
         jdbcTemplate.update("UPDATE Reserva SET dni = ?, nom_espai = ?, data_creacio = ?, estat = ?, num_persones = ?, data_asignacio = ?, data_expiracio = ?, hora_inici_espai = ?, hora_fi_espai = ? WHERE codi =?",
                 reserva.getDni(),
-                reserva.getNom_espai(),
-                reserva.getData_creacio(),
+                reserva.getNomEspai(),
+                reserva.getDataCreacio(),
                 reserva.getEstat(),
-                reserva.getNum_persones(),
-                reserva.getData_asignacio(),
-                reserva.getData_expiracio(),
-                reserva.getHora_inici_espai(),
-                reserva.getHora_fi_espai(),
+                reserva.getNumPersones(),
+                reserva.getDataAsignacio(),
+                reserva.getDataExpiracio(),
+                reserva.getHoraIniciEspai(),
+                reserva.getHoraFiEspai(),
                 reserva.getCodi());
     }
 

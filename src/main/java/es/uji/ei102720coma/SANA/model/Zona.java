@@ -1,7 +1,7 @@
 package es.uji.ei102720coma.SANA.model;
 
 public class Zona {
-    private String nom_espai;
+    private String nomEspai;
     private int codi;
     private double amplaria;
     private double llargaria;
@@ -41,12 +41,12 @@ public class Zona {
         this.llargaria = llargaria;
     }
 
-    public String getNom_espai() {
-        return nom_espai;
+    public String getNomEspai() {
+        return nomEspai;
     }
 
-    public void setNom_espai(String nom_espai) {
-        this.nom_espai = nom_espai;
+    public void setNomEspai(String nomEspai) {
+        this.nomEspai = nomEspai;
     }
 
     public int getCodi() {
@@ -60,7 +60,7 @@ public class Zona {
     @Override
     public String toString() {
         return "Zona{" +
-                "nom_espai='" + nom_espai + '\'' +
+                "nom_espai='" + nomEspai + '\'' +
                 ", codi=" + codi +
                 ", amplaria=" + amplaria +
                 ", llargaria=" + llargaria +

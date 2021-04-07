@@ -7,6 +7,11 @@ public class Ciutada {
     private String dniCiutada;
     private String nom;
     private String cognom;
+    private String email;
+    private LocalDate dataNaixement;
+    private String adresa;
+
+    public Ciutada(){}
 
     public String getCognom() {
         return cognom;
@@ -23,12 +28,6 @@ public class Ciutada {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private String email;
-    private LocalDate dataNaixement;
-    private String adreça;
-
-    public Ciutada(){}
 
     public String getNom() {
         return nom;
@@ -54,12 +53,12 @@ public class Ciutada {
         this.dataNaixement = dataNaixement;
     }
 
-    public String getAdreça() {
-        return adreça;
+    public String getAdresa() {
+        return adresa;
     }
 
-    public void setAdreça(String adreça) {
-        this.adreça = adreça;
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
     }
 
     @Override
@@ -70,7 +69,7 @@ public class Ciutada {
                 ", cognom='" + cognom + '\'' +
                 ", email='" + email + '\'' +
                 ", dataNaixement=" + dataNaixement +
-                ", adreça='" + adreça + '\'' +
+                ", adreça='" + adresa + '\'' +
                 '}';
     }
 }

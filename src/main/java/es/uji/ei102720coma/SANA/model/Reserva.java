@@ -7,14 +7,14 @@ public class Reserva {
 
     private String codi;
     private String dni;
-    private String nom_espai;
-    private LocalDate data_creacio;
+    private String nomEspai;
+    private LocalDate dataCreacio;
     private String estat;
-    private int num_persones;
-    private LocalDate data_asignacio;
-    private LocalDate data_expiracio;
-    private LocalTime hora_inici_espai;
-    private LocalTime hora_fi_espai;
+    private int numPersones;
+    private LocalDate dataAsignacio;
+    private LocalDate dataExpiracio;
+    private LocalTime horaIniciEspai;
+    private LocalTime horaFiEspai;
 
     public String getCodi() {
         return codi;
@@ -32,20 +32,20 @@ public class Reserva {
         this.dni = dni;
     }
 
-    public String getNom_espai() {
-        return nom_espai;
+    public String getNomEspai() {
+        return nomEspai;
     }
 
-    public void setNom_espai(String nom_espai) {
-        this.nom_espai = nom_espai;
+    public void setNomEspai(String nomEspai) {
+        this.nomEspai = nomEspai;
     }
 
-    public LocalDate getData_creacio() {
-        return data_creacio;
+    public LocalDate getDataCreacio() {
+        return dataCreacio;
     }
 
-    public void setData_creacio(LocalDate data_creacio) {
-        this.data_creacio = data_creacio;
+    public void setDataCreacio(LocalDate dataCreacio) {
+        this.dataCreacio = dataCreacio;
     }
 
     public String getEstat() {
@@ -56,44 +56,44 @@ public class Reserva {
         this.estat = estat;
     }
 
-    public int getNum_persones() {
-        return num_persones;
+    public int getNumPersones() {
+        return numPersones;
     }
 
-    public void setNum_persones(int num_persones) {
-        this.num_persones = num_persones;
+    public void setNumPersones(int numPersones) {
+        this.numPersones = numPersones;
     }
 
-    public LocalDate getData_asignacio() {
-        return data_asignacio;
+    public LocalDate getDataAsignacio() {
+        return dataAsignacio;
     }
 
-    public void setData_asignacio(LocalDate data_asignacio) {
-        this.data_asignacio = data_asignacio;
+    public void setDataAsignacio(LocalDate dataAsignacio) {
+        this.dataAsignacio = dataAsignacio;
     }
 
-    public LocalDate getData_expiracio() {
-        return data_expiracio;
+    public LocalDate getDataExpiracio() {
+        return dataExpiracio;
     }
 
-    public void setData_expiracio(LocalDate data_expiracio) {
-        this.data_expiracio = data_expiracio;
+    public void setDataExpiracio(LocalDate dataExpiracio) {
+        this.dataExpiracio = dataExpiracio;
     }
 
-    public LocalTime getHora_inici_espai() {
-        return hora_inici_espai;
+    public LocalTime getHoraIniciEspai() {
+        return horaIniciEspai;
     }
 
-    public void setHora_inici_espai(LocalTime hora_inici_espai) {
-        this.hora_inici_espai = hora_inici_espai;
+    public void setHoraIniciEspai(LocalTime horaIniciEspai) {
+        this.horaIniciEspai = horaIniciEspai;
     }
 
-    public LocalTime getHora_fi_espai() {
-        return hora_fi_espai;
+    public LocalTime getHoraFiEspai() {
+        return horaFiEspai;
     }
 
-    public void setHora_fi_espai(LocalTime hora_fi_espai) {
-        this.hora_fi_espai = hora_fi_espai;
+    public void setHoraFiEspai(LocalTime horaFiEspai) {
+        this.horaFiEspai = horaFiEspai;
     }
 
     @Override
@@ -101,14 +101,14 @@ public class Reserva {
         return "Reserva{" +
                 "codi='" + codi + '\'' +
                 ", dni='" + dni + '\'' +
-                ", nom_espai='" + nom_espai + '\'' +
-                ", data_creacio=" + data_creacio +
+                ", nom_espai='" + nomEspai + '\'' +
+                ", data_creacio=" + dataCreacio +
                 ", estat='" + estat + '\'' +
-                ", num_persones=" + num_persones +
-                ", data_asignacio=" + data_asignacio +
-                ", data_expiracio=" + data_expiracio +
-                ", hora_inici_espai=" + hora_inici_espai +
-                ", hora_fi_espai=" + hora_fi_espai +
+                ", num_persones=" + numPersones +
+                ", data_asignacio=" + dataAsignacio +
+                ", data_expiracio=" + dataExpiracio +
+                ", hora_inici_espai=" + horaIniciEspai +
+                ", hora_fi_espai=" + horaFiEspai +
                 '}';
     }
 }

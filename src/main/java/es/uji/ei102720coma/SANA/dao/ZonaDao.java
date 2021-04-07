@@ -22,7 +22,7 @@ public class ZonaDao {
     /* Afegeix la zona a la base de dades */
     public void addZona(Zona zona) {
         jdbcTemplate.update("INSERT INTO Zona VALUES(?, ?, ?, ?, ?)",
-                zona.getNom_espai(),
+                zona.getNomEspai(),
                 zona.getCodiZona(),
                 zona.getLlargaria(),
                 zona.getAmplaria(),
@@ -44,7 +44,7 @@ public class ZonaDao {
        (excepte el nom, que és la clau primària) */
     public void updateZona(Zona zona) {
         jdbcTemplate.update("UPDATE Zona SET nom_espai = ?, llargaria = ?, amplaria = ?, capacitat_maxima = ? WHERE codi =?",
-                zona.getNom_espai(),
+                zona.getNomEspai(),
                 zona.getLlargaria(),
                 zona.getAmplaria(),
                 zona.getCapacitatMaxima(),

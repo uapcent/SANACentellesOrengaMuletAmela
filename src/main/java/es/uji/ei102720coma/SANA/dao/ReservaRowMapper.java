@@ -14,15 +14,14 @@ public class ReservaRowMapper implements RowMapper<Reserva> {
 
         reserva.setCodi(rs.getString("codi"));
         reserva.setDni(rs.getString("dni"));
-        reserva.setNom_espai(rs.getString("nom_espai"));
-        reserva.setData_creacio(rs.getObject("data_cracio", LocalDate.class));
+        reserva.setNomEspai(rs.getString("nom_espai"));
+        reserva.setDataCreacio(rs.getObject("data_creacio", LocalDate.class));
         reserva.setEstat(rs.getString("estat"));
-        reserva.setNum_persones(rs.getInt("num_persones"));
-        reserva.setData_asignacio(rs.getObject("data_asignacio", LocalDate.class));
-        reserva.setData_expiracio(rs.getObject("data_expiracio", LocalDate.class));
-        reserva.setHora_inici_espai(rs.getObject("hora_inici_espai", LocalTime.class));
-        reserva.setHora_fi_espai(rs.getObject("hora_fi_espai", LocalTime.class));
-
+        reserva.setNumPersones(rs.getInt("num_persones"));
+        reserva.setDataAsignacio(rs.getObject("data_asignacio", LocalDate.class));
+        reserva.setDataExpiracio(rs.getObject("data_expiracio", LocalDate.class));
+        reserva.setHoraIniciEspai(rs.getObject("hora_inici_espai", LocalTime.class));
+        reserva.setHoraFiEspai(rs.getObject("hora_fi_espai", LocalTime.class));
         return reserva;
     }
 }

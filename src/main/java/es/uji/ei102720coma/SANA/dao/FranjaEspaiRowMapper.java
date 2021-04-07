@@ -10,9 +10,9 @@ import java.time.LocalTime;
 public class FranjaEspaiRowMapper implements RowMapper<FranjaEspai> {
     public FranjaEspai mapRow(ResultSet rs, int rowNum) throws SQLException{
         FranjaEspai franjaEspai = new FranjaEspai();
-        franjaEspai.setNom_espai(rs.getString("nom_espai"));
-        franjaEspai.setHora_inici(rs.getObject("hora_inici", LocalTime.class));
-        franjaEspai.setHora_fi(rs.getObject("hora_fi", LocalTime.class));
+        franjaEspai.setNomEspai(rs.getString("nom_espai"));
+        franjaEspai.setHoraInici(rs.getObject("hora_inici", LocalTime.class));
+        franjaEspai.setHoraFi(rs.getObject("hora_fi", LocalTime.class));
         return franjaEspai;
     }
 }

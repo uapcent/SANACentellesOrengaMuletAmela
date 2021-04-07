@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -44,7 +45,8 @@ public class ServeiPermanentDao {
                 serveiPermanent.getHoraInici(),
                 serveiPermanent.getHoraFi(),
                 serveiPermanent.getDataInici(),
-                serveiPermanent.getDataFi());
+                serveiPermanent.getDataFi(),
+                serveiPermanent.getNom());
     }
 
     public ServeiPermanent getServeiPermanent(String nom) {
@@ -60,7 +62,7 @@ public class ServeiPermanentDao {
         try {
             return jdbcTemplate.query("SELECT * FROM Servei_Permanent", new ServeiPermanentRowMapper());
         }catch (EmptyResultDataAccessException e) {
-            return null;
+            return new ArrayList<>();
         }
     }
 }

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class ZonaRowMapper implements RowMapper<Zona> {
     public Zona mapRow(ResultSet rs, int rowNum) throws SQLException{
         Zona zona = new Zona();
-        zona.setNom_espai(rs.getString("nom_spai"));
+        zona.setNomEspai(rs.getString("nom_espai"));
         zona.setCodiZona(rs.getString("codi"));
         zona.setLlargaria(rs.getDouble("llargaria"));
         zona.setAmplaria(rs.getDouble("amplaria"));
