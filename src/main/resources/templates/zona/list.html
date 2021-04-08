@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Zones</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Zones</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Codi</th>
+        <th>Llargaria</th>
+        <th>Amplaria</th>
+        <th>Capacitat Máxima</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="zona: ${zones}">
+        <td th:text="${zona.nom_espai}"></td>
+        <td th:text="${zona.codi}"></td>
+        <td th:text="${zona.llargaria}"></td>
+        <td th:text="${zona.amplaria}"></td>
+        <td th:text="${zona.capacitat_maxima}"></td>
+        <td><a th:href="@{/zona/update/{codi}(nom=${zona.codi})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/zona/delete/{codi}(nom=${zona.codi})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix Zona</a>
+</body>
+</html>

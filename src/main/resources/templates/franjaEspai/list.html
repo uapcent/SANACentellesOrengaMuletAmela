@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Franjes Espai</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de franjes dels espais</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Hora inici</th>
+        <th>Hora fi</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="franjaEspai: ${franjesEspai}">
+        <td th:text="${franjaEspai.nom_espai}"></td>
+        <td th:text="${franjaEspai.hora_inici}"></td>
+        <td th:text="${franjaEspai.hora_fi}"></td>
+        <td><a th:href="@{/franjaEspai/update/{nom_espai}(nom_espai=${franjaEspai.nom_espai})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/franjaEspai/delete/{nom_espai}(nom_espai=${franjaEspai.nom_espai})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix franja horaria</a>
+</body>
+</html>
