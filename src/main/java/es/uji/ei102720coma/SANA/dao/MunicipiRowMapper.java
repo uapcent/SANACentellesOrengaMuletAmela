@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MunicipiRowMapper implements RowMapper<Municipi>{
+
+    @Override
     public Municipi mapRow(ResultSet rs, int rowNum) throws SQLException{
         Municipi municipi = new Municipi();
         municipi.setNom(rs.getString("nom"));

@@ -9,9 +9,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class ReservaRowMapper implements RowMapper<Reserva> {
+
+    @Override
     public Reserva mapRow(ResultSet rs, int rowNum) throws SQLException{
         Reserva reserva = new Reserva();
-
         reserva.setCodi(rs.getString("codi"));
         reserva.setDni(rs.getString("dni"));
         reserva.setNomEspai(rs.getString("nom_espai"));

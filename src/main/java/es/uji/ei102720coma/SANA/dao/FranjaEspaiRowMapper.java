@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.time.LocalTime;
 
 public class FranjaEspaiRowMapper implements RowMapper<FranjaEspai> {
+
+    @Override
     public FranjaEspai mapRow(ResultSet rs, int rowNum) throws SQLException{
         FranjaEspai franjaEspai = new FranjaEspai();
         franjaEspai.setNomEspai(rs.getString("nom_espai"));
