@@ -23,15 +23,15 @@
         </thead>
         <tbody>
         <tr th:each="ciutada: ${ciutadans}">
-            <td th:text="${ciutada.dni}"></td>
+            <td th:text="${ciutada.dniCiutada}"></td>
             <td th:text="${ciutada.nom}"></td>
             <td th:text="${ciutada.cognom}"></td>
             <td th:text="${ciutada.email}"></td>
-            <td th:text="${ciutada.data_naixement}"></td>
-            <td th:text="${ciutada.adreça}"></td>
-            <td><a th:href="@{/ciutada/update/{dni}(dni=${ciutada.dni})}" class="btn btn-warning" role="button">Edita</a>
+            <td th:text="${ciutada.dataNaixement}"></td>
+            <td th:text="${ciutada.adresa}"></td>
+            <td><a th:href="@{/ciutada/update/{dni}(dni=${ciutada.dniCiutada})}" class="btn btn-warning" role="button">Edita</a>
             </td>
-            <td><a th:href="@{/ciutada/delete/{dni}(dni=${ciutada.dni})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/ciutada/delete/{dni}(dni=${ciutada.dniCiutada})}" class="btn btn-danger" role="button">Esborra</a>
             </td>
         </tr>
         </tbody>
