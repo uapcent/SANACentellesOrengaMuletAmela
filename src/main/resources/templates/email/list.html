@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestionar Emails</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Emails</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Contrasenya</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="email: ${emails}">
+    <td th:text="${email.email}"></td>
+    <td th:text="${email.contrasenya}"></td>
+    <td><a th:href="@{/email/update/{email}(email=${email.email})}" class="btn btn-warning" role="button">Edita</a>
+    </td>
+    <td><a th:href="@{/email/delete/{email}(email=${email.email})}" class="btn btn-danger" role="button">Esborra</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix email</a>
+</body>
+</html>

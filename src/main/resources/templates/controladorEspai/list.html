@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Controladors Espai</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Controladors Espai</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Dni</th>
+        <th>Nom Espai</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="controladorespai: ${controladorsespais}">
+        <td th:text="${controladorespai.dni_controlador}"></td>
+        <td th:text="${controladorespai.codi}"></td>
+        <td><a th:href="@{/controladorespai/update/{controlador}/{codi}(controlador=${controladorespai.dni_controlador}, codi=${controladorespai.codi})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/controladorespai/delete/{dni_controlador}/{codi}(dni_controlador=${controladorespai.dni_controlador}, codi=${controladorespai.codi})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix Controlador en Zona</a>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Espais Publics</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Espais Publics</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Tipus accés</th>
+        <th>Tipus sòl</th>
+        <th>Tipus espai</th>
+        <th>Localització geográfica</th>
+        <th>Descripció</th>
+        <th>Llargaria</th>
+        <th>Amplaria</th>
+        <th>Orientació</th>
+        <th>Comentaris</th>
+        <th>Imatges</th>
+        <th>Nom municipi</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="espaipublic: ${espaipublics}">
+        <td th:text="${espaipublic.nom}"></td>
+        <td th:text="${espaipublic.tipus_acces}"></td>
+        <td th:text="${espaipublic.tipus_sol}"></td>
+        <td th:text="${espaipublic.tipus_espai}"></td>
+        <td th:text="${espaipublic.localitzacio_geografica}"></td>
+        <td th:text="${espaipublic.descripcio}"></td>
+        <td th:text="${espaipublic.llargaria}"></td>
+        <td th:text="${espaipublic.amplaria}"></td>
+        <td th:text="${espaipublic.orientacio}"></td>
+        <td th:text="${espaipublic.comentaris}"></td>
+        <td th:text="${espaipublic.imatges}"></td>
+        <td th:text="${espaipublic.nom_municipi}"></td>
+        <td><a th:href="@{/espaipublic/update/{nom}(nom=${espaipublic.nom})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/espaipublic/delete/{nom}(nom=${espaipublic.nom})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix espai públic</a>
+</body>
+</html>

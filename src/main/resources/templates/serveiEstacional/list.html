@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Serveis Estacionals</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Serveis Estacionals</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Lloc contracte</th>
+        <th>Hora inici</th>
+        <th>Hora fi</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="serveiestacional: ${serveisestacionals}">
+        <td th:text="${serveiestacional.nom}"></td>
+        <td th:text="${serveiestacional.lloc_contracte}"></td>
+        <td th:text="${serveiestacional.hora_inici}"></td>
+        <td th:text="${serveiestacional.hora_fi}"></td>
+        <td><a th:href="@{/serveiestacional/update/{nom}(nom=${serveiestacional.nom})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/serveiestacional/delete/{nom}(nom=${serveiestacional.nom})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix Servei Estacional</a>
+</body>
+</html>

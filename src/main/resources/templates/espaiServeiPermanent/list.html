@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestionar Serveis Permanents en Espai</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Serveis Permanents en Espai</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Nom espai</th>
+    <th>Nom servei</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="espaiserveipermanent: ${espaiserveispermanents}">
+    <td th:text="${espaiserveipermanent.nom_espai}"></td>
+    <td th:text="${espaiserveipermanent.nom_servei_perm}"></td>
+
+    <td><a th:href="@{/espaiserveipermanent/update/{nom_espai}{nom_servei_perm}(nom_espai=${espaiserveipermanent.nom_espai}, nom_servei_perm=${espaiserveipermanent.nom_servei_perm})}" class="btn btn-warning" role="button">Edita</a>
+    </td>
+    <td><a th:href="@{/espaiserveipermanent/delete/{nom_espai}{nom_servei_perm}(nom_espai=${espaiserveipermanent.nom_espai}, nom_servei_perm=${espaiserveipermanent.nom_servei_perm})}" class="btn btn-danger" role="button">Esborra</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix Servei Permanent en Espai</a>
+</body>
+</html>

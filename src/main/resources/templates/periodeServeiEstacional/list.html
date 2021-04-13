@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar Periodes Servei Estacional</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Periodes Servei Estacional</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Nom espai</th>
+        <th>Nom Servei est</th>
+        <th>Data inici</th>
+        <th>Data fi</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="periodeserveiestacional: ${periodeserveisestacionals}">
+        <td th:text="${periodeserveiestacional.nom_espai}"></td>
+        <td th:text="${periodeserveiestacional.nom_servei_est}"></td>
+        <td th:text="${periodeserveiestacional.data_inici}"></td>
+        <td th:text="${periodeserveiestacional.data_fi}"></td>
+        <td><a th:href="@{/periodeserveiestacional/update/{nom_espai}{nom_servei_est}(nom_espai=${periodeserveiestacional.nom_espai}, nom_servei_est=${periodeserveiestacional.nom_servei_est})}" class="btn btn-warning" role="button">Edita</a>
+        </td>
+        <td><a th:href="@{/periodeserveiestacional/delete/{nom_espai}{nom_servei_est}(nom_espai=${periodeserveiestacional.nom_espai}, nom_servei_est=${periodeserveiestacional.nom_servei_est})}" class="btn btn-danger" role="button">Esborra</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix periode servei estacional</a>
+</body>
+</html>

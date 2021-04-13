@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestionar Gestors Municipals</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+<h1>Llista de Gestors</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Dni</th>
+    <th>Nom</th>
+    <th>Cognom</th>
+    <th>Nom usuari</th>
+    <th>Email</th>
+    <th>Contrasenya</th>
+    <th>Data naixement</th>
+    <th>Nom municipi</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="gestormunicipal: ${gestorsmunicipals}">
+    <td th:text="${gestormunicipal.dni}"></td>
+    <td th:text="${gestormunicipal.nom}"></td>
+    <td th:text="${gestormunicipal.cognoms}"></td>
+    <td th:text="${gestormunicipal.nom_usuari}"></td>
+    <td th:text="${gestormunicipal.email}"></td>
+    <td th:text="${gestormunicipal.contrasenya}"></td>
+    <td th:text="${gestormunicipal.data_naixement}"></td>
+    <td th:text="${gestormunicipal.nom_municipi}"></td>
+    <td><a th:href="@{/gestormunicipal/update/{dni}(dni=${gestormunicipal.dni})}" class="btn btn-warning" role="button">Edita</a>
+    </td>
+    <td><a th:href="@{/gestormunicipal/delete/{dni}(dni=${gestormunicipal.dni})}" class="btn btn-danger" role="button">Esborra</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="add" class="btn btn-success" role="button">Afegeix Gestor Municipal</a>
+</body>
+</html>
