@@ -13,7 +13,9 @@ public class MunicipiController {
     private MunicipiDao municipiDao;
 
     @Autowired
-    public void setMunicipiDao(MunicipiDao municipiDao){ this.municipiDao = municipiDao; }
+    public void setMunicipiDao(MunicipiDao municipiDao) {
+        this.municipiDao = municipiDao;
+    }
 
     // Operacions: Crear, llistar, actualitzar, esborrar
 
