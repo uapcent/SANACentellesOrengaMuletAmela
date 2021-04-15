@@ -21,7 +21,7 @@ public class ControladorDao {
     }
 
     public void addControlador(Controlador controlador) {
-        jdbcTemplate.update("INSERTO INTO Controlador VALUES(?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Controlador VALUES(?, ?, ?, ?, ?)",
                 controlador.getDni(),
                 controlador.getNom(),
                 controlador.getCognom(),

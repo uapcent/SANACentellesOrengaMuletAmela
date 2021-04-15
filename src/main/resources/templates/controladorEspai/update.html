@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifica el controlador d'un espai</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar un controlador de l'espai</h2>
+<form action="#" th:action="@{/controladorespai/update}"
+      th:object="${controladorespai}" method="post">
+  <table>
+    <td><label>Dni Controlador</label></td>
+    <td><input type="text" th:field="*{dni_controlador}" /></td>
+    </tr>
+    <tr>
+      <td><label>Nom del Espai</label></td>
+      <td><input type="text" th:field="*{nom_espai}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Modificar el controlador del l'espai" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

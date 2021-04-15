@@ -1,5 +1,7 @@
 package es.uji.ei102720coma.SANA.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -8,12 +10,17 @@ public class Reserva {
     private String codi;
     private String dni;
     private String nomEspai;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataCreacio;
     private String estat;
     private int numPersones;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataAsignacio;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataExpiracio;
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaIniciEspai;
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaFiEspai;
 
     public String getCodi() {

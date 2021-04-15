@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestionar les reserves</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <h2>Nova reserva</h2>
+    <form class="form-horizontal" action="#" th:action="@{/reserva/add}"
+          th:object="${reserva}" method="post">
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for=codi>Codi Reserva:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="codi" th:field="*{codi}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="dni">Dni Ciutada:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="dni" th:field="*{dni}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="nom_espai">Nom Espai:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="data_creacio">Data Creacio:</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="data_creacio" th:field="*{dataCreacio}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="estat">Estat:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="estat" th:field="*{estat}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="num_persones">Nombre Persones:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="num_persones" th:field="*{numPersones}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="data_asignacio">Data Asignacio:</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="data_asignacio" th:field="*{dataAsignacio}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="data_expiracio">Data Expiracio:</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="data_expiracio" th:field="*{dataExpiracio}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="hora_inici_espai">Hora Inici Espai:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="hora_inici_espai" th:field="*{horaIniciEspai}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="hora_fi_espai">Hora Fi Espai:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="hora_fi_espai" th:field="*{horaFiEspai}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-primary">Afegeix Reserva</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

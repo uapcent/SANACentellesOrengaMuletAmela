@@ -26,12 +26,12 @@ public class ControladorEspaiDao {
                 controladorEspai.getNomEspai());
     }
 
-    public void deleteControladorEspai(String dni) {
-        jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =?", dni);
+    public void deleteControladorEspai(String dni, String nom) {
+        jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", dni, nom);
     }
 
     public void deleteControladorEspai(ControladorEspai controladorEspai) {
-        jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =?", controladorEspai.getDniControlador());
+        jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", controladorEspai.getDniControlador(), controladorEspai.getNomEspai());
     }
 
     public void updateControladorEspai(ControladorEspai controladorEspai) {
@@ -40,9 +40,9 @@ public class ControladorEspaiDao {
                 controladorEspai.getDniControlador());
     }
 
-    public ControladorEspai getControladorEspai(String dni) {
+    public ControladorEspai getControladorEspai(String dni, String nom) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM Controlador_Espai WHERE dni_controlador =?", new ControladorEspaiRowMapper(), dni);
+            return jdbcTemplate.queryForObject("SELECT * FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", new ControladorEspaiRowMapper(), dni, nom);
         }catch (EmptyResultDataAccessException e) {
             return null;
         }

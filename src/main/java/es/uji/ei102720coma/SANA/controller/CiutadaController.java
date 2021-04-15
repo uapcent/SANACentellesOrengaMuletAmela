@@ -65,6 +65,19 @@ public class CiutadaController {
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(@ModelAttribute("ciutada") Ciutada ciutada, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
+            for (Object object : bindingResult.getAllErrors()) {
+                if(object instanceof FieldError) {
+                    FieldError fieldError = (FieldError) object;
+
+                    System.out.println(fieldError.getCode());
+                }
+
+                if(object instanceof ObjectError) {
+                    ObjectError objectError = (ObjectError) object;
+
+                    System.out.println(objectError.getCode());
+                }
+            }
             return "ciutada/update";
         }
         ciutadaDao.updateCiutada(ciutada);

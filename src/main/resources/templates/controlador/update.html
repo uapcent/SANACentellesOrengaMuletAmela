@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifica un controlador</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar un controlador</h2>
+<form action="#" th:action="@{/controlador/update}"
+      th:object="${controlador}" method="post">
+  <table>
+    <tr>
+      <td><label>Dni Controlador</label></td>
+      <td><input type="text" th:field="*{dni}" /></td>
+    </tr>
+    <tr>
+      <td><label>Nom</label></td>
+      <td><input type="text" th:field="*{nom}" /></td>
+    </tr>
+    <tr>
+      <td><label>Cognom</label></td>
+      <td><input type="text" th:field="*{cognom}" /></td>
+    </tr>
+    <tr>
+      <td><label>Email</label></td>
+      <td><input type="text" th:field="*{email}" /></td>
+    </tr>
+    <tr>
+      <td><label>Adresa</label></td>
+      <td><input type="text" th:field="*{adresa}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Modificar controlador" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

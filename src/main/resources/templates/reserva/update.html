@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifica una reserva</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar reserva</h2>
+<form action="#" th:action="@{/reserva/update}"
+      th:object="${reserva}" method="post">
+  <table>
+    <tr>
+      <td><label>Codi</label></td>
+      <td><input type="text" th:field="*{codi}" /></td>
+    </tr>
+    <tr>
+      <td><label>Dni Ciutada</label></td>
+      <td><input type="text" th:field="*{dni}" /></td>
+    </tr>
+    <tr>
+      <td><label>Nom Espai</label></td>
+      <td><input type="text" th:field="*{nomEspai}" /></td>
+    </tr>
+    <tr>
+      <td><label>Data Creacio</label></td>
+      <td><input type="date" th:field="*{dataCreacio}" /></td>
+    </tr>
+    <tr>
+      <td><label>Estat</label></td>
+      <td><input type="text" th:field="*{estat}" /></td>
+    </tr>
+    <tr>
+      <td><label>Nombre Persones</label></td>
+      <td><input type="number" th:field="*{numPersones}" /></td>
+    </tr>
+    <tr>
+      <td><label>Data Asignacio</label></td>
+      <td><input type="date" th:field="*{dataAsignacio}" /></td>
+    </tr>
+    <tr>
+      <td><label>Data Expiracio</label></td>
+      <td><input type="date" th:field="*{dataExpiracio}" /></td>
+    </tr>
+    <tr>
+      <td><label>Hora Inici Espai</label></td>
+      <td><input type="text" th:field="*{horaIniciEspai}" /></td>
+    </tr>
+    <tr>
+      <td><label>Hora Fi Espai</label></td>
+      <td><input type="text" th:field="*{horaFiEspai}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Modificar reserva" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
