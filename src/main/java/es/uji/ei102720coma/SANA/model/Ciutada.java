@@ -1,5 +1,7 @@
 package es.uji.ei102720coma.SANA.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class Ciutada {
@@ -8,6 +10,7 @@ public class Ciutada {
     private String nom;
     private String cognom;
     private String email;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNaixement;
     private String adresa;
 
