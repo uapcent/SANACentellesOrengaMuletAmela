@@ -20,9 +20,22 @@
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="contrasenya">Nom:</label>
+      <label class="control-label col-sm-2" for="contrasenya">Contrasenya:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="contrasenya" th:field="*{contrasenya}" />
+        <input type="password" class="form-control" id="contrasenya" th:field="*{contrasenya}" />
+        <br><br>
+        <input type="checkbox" onclick="myFunction()">Mostrar contrasenya
+
+        <script>
+          function myFunction() {
+            var x = document.getElementById("contrasenya");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+        </script>
       </div>
     </div>
 
