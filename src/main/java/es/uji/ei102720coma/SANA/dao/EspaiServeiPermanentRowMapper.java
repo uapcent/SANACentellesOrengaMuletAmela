@@ -10,9 +10,10 @@ public class EspaiServeiPermanentRowMapper implements RowMapper<EspaiServeiPerma
 
     @Override
     public EspaiServeiPermanent mapRow(ResultSet rs, int rowNum) throws SQLException {
+        //TODO el list.html no encuentra nom_espai
         EspaiServeiPermanent espai = new EspaiServeiPermanent();
         espai.setNomEspai(rs.getString("nom_espai"));
-        espai.setNomServeiPermanent(rs.getString("nom_servei_permanent"));
+        espai.setNomServeiPermanent(rs.getString("nom_servei_perm"));
         return espai;
     }
 }

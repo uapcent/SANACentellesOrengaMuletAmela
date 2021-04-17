@@ -19,7 +19,7 @@ public class EspaiPublicRowMapper implements RowMapper<EspaiPublic> {
         espaiPublic.setDescripcio(rs.getString("descripcio"));
         espaiPublic.setLlargaria(rs.getDouble("llargaria"));
         espaiPublic.setAmplaria(rs.getDouble("amplaria"));
-        espaiPublic.setOrientacio(rs.getString("oriantacio"));
+        espaiPublic.setOrientacio(rs.getString("orientacio"));
         espaiPublic.setComentaris(rs.getString("comentaris"));
         espaiPublic.setImatges(rs.getString("imatges"));
         espaiPublic.setNomMunicipi(rs.getString("nom_municipi"));

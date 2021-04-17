@@ -19,11 +19,11 @@
     <tbody>
 
     <tr th:each="controladorespai: ${controladorsespais}">
-        <td th:text="${controladorespai.dni_controlador}"></td>
-        <td th:text="${controladorespai.nom_espai}"></td>
-        <td><a th:href="@{/controladorespai/update/{dni_controlador}/{codi}(controlador=${controladorespai.dni_controlador}, codi=${controladorespai.nom_espai})}" class="btn btn-warning" role="button">Edita</a>
+        <td th:text="${controladorespai.dniControlador}"></td>
+        <td th:text="${controladorespai.nomEspai}"></td>
+        <td><a th:href="@{/controladorespai/update/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-warning" role="button">Edita</a>
         </td>
-        <td><a th:href="@{/controladorespai/delete/{dni_controlador}/{codi}(dni_controlador=${controladorespai.dni_controlador}, codi=${controladorespai.nom_espai})}" class="btn btn-danger" role="button">Esborra</a>
+        <td><a th:href="@{/controladorespai/delete/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-danger" role="button">Esborra</a>
         </td>
     </tr>
     </tbody>
