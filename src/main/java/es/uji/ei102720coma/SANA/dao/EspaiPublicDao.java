@@ -23,7 +23,7 @@ public class EspaiPublicDao {
     public void addEspaiPublic(EspaiPublic espaiPublic) {
         jdbcTemplate.update("INSERT INTO Espai_Public VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 espaiPublic.getNom(),
-                espaiPublic.getTipusAccess(),
+                espaiPublic.getTipusAcces(),
                 espaiPublic.getTipusSol(),
                 espaiPublic.getTipusEspai(),
                 espaiPublic.getLocalitzacioGeografica(),
@@ -46,7 +46,7 @@ public class EspaiPublicDao {
 
     public void updateEspaiPublic(EspaiPublic espaiPublic) {
         jdbcTemplate.update("UPDATE Espai_Public SET tipus_acces =?, tipus_sol =?, tipus_espai =?, localitzacio_geografica =?, descripcio =?, llargaria =?, amplaria =?, orientacio =?, comentaris =?, imatges =?, nom_municipi =? WHERE nom =?",
-                espaiPublic.getTipusAccess(),
+                espaiPublic.getTipusAcces(),
                 espaiPublic.getTipusSol(),
                 espaiPublic.getTipusEspai(),
                 espaiPublic.getLocalitzacioGeografica(),

@@ -23,11 +23,11 @@ public class EspaiPublic {
         this.nom = nom;
     }
 
-    public String getTipusAccess() {
+    public String getTipusAcces() {
         return tipusAcces;
     }
 
-    public void setTipusAccess(String tipusAcces) {
+    public void setTipusAcces(String tipusAcces) {
         this.tipusAcces = tipusAcces;
     }
 
@@ -115,17 +115,17 @@ public class EspaiPublic {
     public String toString() {
         return "EspaiPublic{" +
                 "nom='" + nom + '\'' +
-                ", tipusAcces='" + tipusAcces + '\'' +
-                ", tipusSol='" + tipusSol + '\'' +
-                ", tipusEspai='" + tipusEspai + '\'' +
-                ", localitzacioGeografica='" + localitzacioGeografica + '\'' +
+                ", tipus_acces='" + tipusAcces + '\'' +
+                ", tipus_sol='" + tipusSol + '\'' +
+                ", tipus_espai='" + tipusEspai + '\'' +
+                ", localitzacio_geografica='" + localitzacioGeografica + '\'' +
                 ", descripcio='" + descripcio + '\'' +
                 ", llargaria=" + llargaria +
                 ", amplaria=" + amplaria +
                 ", orientacio='" + orientacio + '\'' +
                 ", comentaris='" + comentaris + '\'' +
                 ", imatges='" + imatges + '\'' +
-                ", nomMunicipi='" + nomMunicipi + '\'' +
+                ", nom_municipi='" + nomMunicipi + '\'' +
                 '}';
     }
 }

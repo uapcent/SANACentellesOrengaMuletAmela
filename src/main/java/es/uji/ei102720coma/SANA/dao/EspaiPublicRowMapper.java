@@ -12,7 +12,7 @@ public class EspaiPublicRowMapper implements RowMapper<EspaiPublic> {
     public EspaiPublic mapRow(ResultSet rs, int rowNum) throws SQLException {
         EspaiPublic espaiPublic = new EspaiPublic();
         espaiPublic.setNom(rs.getString("nom"));
-        espaiPublic.setTipusAccess(rs.getString("tipus_acces"));
+        espaiPublic.setTipusAcces(rs.getString("tipus_acces"));
         espaiPublic.setTipusSol(rs.getString("tipus_sol"));
         espaiPublic.setTipusEspai(rs.getString("tipus_espai"));
         espaiPublic.setLocalitzacioGeografica(rs.getString("localitzacio_geografica"));
