@@ -15,9 +15,9 @@ public class ServeiEstacionalRowMapper implements RowMapper<ServeiEstacional> {
         serveiEstacional.setNom(rs.getString("nom"));
         serveiEstacional.setLlocContracte(rs.getString("lloc_contracte"));
         Time tI = rs.getTime("hora_inici");
-        serveiEstacional.setHoraInici(tI.toLocalTime());
+        serveiEstacional.setHoraInici(tI != null ? tI.toLocalTime() : null);
         Time tF = rs.getTime("hora_fi");
-        serveiEstacional.setHoraFi(tF.toLocalTime());
+        serveiEstacional.setHoraFi(tF != null ? tF.toLocalTime() : null);
         return serveiEstacional;
     }
 }

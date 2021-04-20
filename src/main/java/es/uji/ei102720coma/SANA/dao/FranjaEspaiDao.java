@@ -27,7 +27,7 @@ public class FranjaEspaiDao {
 
     /* Esborra la franja_espai de la base de dades */
     public void deleteFranjaEspai(FranjaEspai franjaEspai) {
-        jdbcTemplate.update("DELETE FROM Franja_Espai WHERE nom = '" + franjaEspai.getNomEspai() + "'");
+        jdbcTemplate.update("DELETE FROM Franja_Espai WHERE nom_espai = '" + franjaEspai.getNomEspai() + "'");
 
     }
 

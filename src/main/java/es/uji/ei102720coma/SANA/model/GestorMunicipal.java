@@ -1,5 +1,7 @@
 package es.uji.ei102720coma.SANA.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class GestorMunicipal {
@@ -10,6 +12,7 @@ public class GestorMunicipal {
     private String nomUsuari;
     private String email;
     private String contrasenya;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNaixement;
     private String nomMunicipi;
 
@@ -86,11 +89,12 @@ public class GestorMunicipal {
         return "GestorMunicipal{" +
                 "dni='" + dni + '\'' +
                 ", nom='" + nom + '\'' +
-                ", nomUsuari='" + nomUsuari + '\'' +
+                ", cognoms='" + cognoms + '\'' +
+                ", nom_usuari='" + nomUsuari + '\'' +
                 ", email='" + email + '\'' +
                 ", contrasenya='" + contrasenya + '\'' +
-                ", dataNaixement=" + dataNaixement +
-                ", nomMunicipi='" + nomMunicipi + '\'' +
+                ", data_naixement=" + dataNaixement +
+                ", nom_municipi='" + nomMunicipi + '\'' +
                 '}';
     }
 }

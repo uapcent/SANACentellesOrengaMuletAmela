@@ -6,28 +6,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-<h1>Llista de Controladors Espai</h1>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Dni</th>
-        <th>Nom Espai</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="container">
+    <h1>Llista de Controladors Espai</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Dni</th>
+            <th>Nom Espai</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
 
-    <tr th:each="controladorespai: ${controladorsespais}">
-        <td th:text="${controladorespai.dniControlador}"></td>
-        <td th:text="${controladorespai.nomEspai}"></td>
-        <td><a th:href="@{/controladorespai/update/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-warning" role="button">Edita</a>
-        </td>
-        <td><a th:href="@{/controladorespai/delete/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-danger" role="button">Esborra</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<a href="add" class="btn btn-success" role="button">Afegeix Controlador en Zona</a>
+        <tr th:each="controladorespai: ${controladorsespais}">
+            <td th:text="${controladorespai.dniControlador}"></td>
+            <td th:text="${controladorespai.nomEspai}"></td>
+            <td><a th:href="@{/controladorespai/update/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-warning" role="button">Edita</a>
+            </td>
+            <td><a th:href="@{/controladorespai/delete/{dniControlador}/{codi}(dniControlador=${controladorespai.dniControlador}, codi=${controladorespai.nomEspai})}" class="btn btn-danger" role="button">Esborra</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="add" class="btn btn-success" role="button">Afegeix Controlador en Zona</a>
+</div>
 </body>
 </html>

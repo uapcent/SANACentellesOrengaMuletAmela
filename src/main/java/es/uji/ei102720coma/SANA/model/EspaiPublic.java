@@ -3,7 +3,7 @@ package es.uji.ei102720coma.SANA.model;
 public class EspaiPublic {
 
     private String nom;
-    private String tipusAccess;
+    private String tipusAcces;
     private String tipusSol;
     private String tipusEspai;
     private String localitzacioGeografica;
@@ -24,11 +24,11 @@ public class EspaiPublic {
     }
 
     public String getTipusAccess() {
-        return tipusAccess;
+        return tipusAcces;
     }
 
-    public void setTipusAccess(String tipusAccess) {
-        this.tipusAccess = tipusAccess;
+    public void setTipusAccess(String tipusAcces) {
+        this.tipusAcces = tipusAcces;
     }
 
     public String getTipusSol() {
@@ -115,7 +115,7 @@ public class EspaiPublic {
     public String toString() {
         return "EspaiPublic{" +
                 "nom='" + nom + '\'' +
-                ", tipusAccess='" + tipusAccess + '\'' +
+                ", tipusAcces='" + tipusAcces + '\'' +
                 ", tipusSol='" + tipusSol + '\'' +
                 ", tipusEspai='" + tipusEspai + '\'' +
                 ", localitzacioGeografica='" + localitzacioGeografica + '\'' +

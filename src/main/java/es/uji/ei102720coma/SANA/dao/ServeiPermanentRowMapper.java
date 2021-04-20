@@ -13,11 +13,11 @@ public class ServeiPermanentRowMapper implements RowMapper<ServeiPermanent> {
     public ServeiPermanent mapRow(ResultSet rs, int rowNum) throws SQLException {
         ServeiPermanent serveiPermanent = new ServeiPermanent();
         serveiPermanent.setNom(rs.getString("nom"));
-        serveiPermanent.setLlocContracte("lloc_contracte");
+        serveiPermanent.setLlocContracte(rs.getString("lloc_contracte"));
         Time tI = rs.getTime("hora_inici");
-        serveiPermanent.setHoraInici(tI.toLocalTime());
+        serveiPermanent.setHoraInici(tI != null ? tI.toLocalTime() : null);
         Time tF = rs.getTime("hora_fi");
-        serveiPermanent.setHoraFi(tF.toLocalTime());
+        serveiPermanent.setHoraFi(tF != null ? tF.toLocalTime() : null);
         serveiPermanent.setDataInici(rs.getObject("data_inici", LocalDate.class));
         serveiPermanent.setDataFi(rs.getObject("data_fi", LocalDate.class));
         return serveiPermanent;

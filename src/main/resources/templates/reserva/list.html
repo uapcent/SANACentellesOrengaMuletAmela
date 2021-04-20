@@ -28,7 +28,7 @@
         <tbody>
         <tr th:each="reserva: ${reserves}">
             <td th:text="${reserva.codi}"></td>
-            <td th:text="${reserva.nom}"></td>
+            <td th:text="${reserva.dni}"></td>
             <td th:text="${reserva.nomEspai}"></td>
             <td th:text="${reserva.dataCreacio}"></td>
             <td th:text="${reserva.estat}"></td>
@@ -37,9 +37,9 @@
             <td th:text="${reserva.dataExpiracio}"></td>
             <td th:text="${reserva.horaIniciEspai}"></td>
             <td th:text="${reserva.horaFiEspai}"></td>
-            <td><a th:href="@{/reserva/update/{codi}(nom=${reserva.codi})}" class="btn btn-warning" role="button">Edita</a>
+            <td><a th:href="@{/reserva/update/{codi}(codi=${reserva.codi})}" class="btn btn-warning" role="button">Edita</a>
             </td>
-            <td><a th:href="@{/reserva/delete/{codi}(nom=${reserva.codi})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.codi})}" class="btn btn-danger" role="button">Esborra</a>
             </td>
         </tr>
         </tbody>

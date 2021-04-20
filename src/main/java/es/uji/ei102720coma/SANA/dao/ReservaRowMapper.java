@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -21,8 +22,10 @@ public class ReservaRowMapper implements RowMapper<Reserva> {
         reserva.setNumPersones(rs.getInt("num_persones"));
         reserva.setDataAsignacio(rs.getObject("data_asignacio", LocalDate.class));
         reserva.setDataExpiracio(rs.getObject("data_expiracio", LocalDate.class));
-        reserva.setHoraIniciEspai(rs.getObject("hora_inici_espai", LocalTime.class));
-        reserva.setHoraFiEspai(rs.getObject("hora_fi_espai", LocalTime.class));
+        Time t1 = rs.getTime("hora_inici_espai");
+        reserva.setHoraIniciEspai(t1 != null ? t1.toLocalTime() : null);
+        Time t2 = rs.getTime("hora_fi_espai");
+        reserva.setHoraFiEspai(t2 != null ? t2.toLocalTime() : null);
         return reserva;
     }
 }

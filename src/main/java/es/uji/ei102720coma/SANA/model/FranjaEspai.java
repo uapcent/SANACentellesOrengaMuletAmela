@@ -1,11 +1,15 @@
 package es.uji.ei102720coma.SANA.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalTime;
 
 public class FranjaEspai {
 
     private String nomEspai;
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaInici;
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaFi;
 
     public String getNomEspai() {

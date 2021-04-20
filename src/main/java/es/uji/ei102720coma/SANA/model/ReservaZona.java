@@ -1,41 +1,41 @@
 package es.uji.ei102720coma.SANA.model;
 
 public class ReservaZona {
-	private String codi_reserva;
-    private String nom_espai;
-    private String nom_zona;
+	private String codiReserva;
+    private String nomEspai;
+    private String nomZona;
 
 
     public String getCodiReserva() {
-        return codi_reserva;
+        return codiReserva;
     }
 
-    public void setCodiReserva(String codi_reserva) {
-        this.codi_reserva = codi_reserva;
+    public void setCodiReserva(String codiReserva) {
+        this.codiReserva = codiReserva;
     }
 
     public String getNomEspai() {
-        return nom_espai;
+        return nomEspai;
     }
 
-    public void setNomEspai(String nom_espai) {
-        this.nom_espai = nom_espai;
+    public void setNomEspai(String nomEspai) {
+        this.nomEspai = nomEspai;
     }
 
     public String getNomZona() {
-        return nom_zona;
+        return nomZona;
     }
 
-    public void setNomZona(String nom_zona) {
-        this.nom_zona = nom_zona;
+    public void setNomZona(String nomZona) {
+        this.nomZona = nomZona;
     }
 
     @Override
     public String toString() {
         return "ReservaZona{" +
-                "codi_reserva='" + codi_reserva + '\'' +
-                ", nom_espai=" + nom_espai +
-                ", nom_zona='" + nom_zona + '\'' +
+                "codi_reserva='" + codiReserva + '\'' +
+                ", nom_espai=" + nomEspai +
+                ", nom_zona='" + nomZona +
                 '}';
     }
 }

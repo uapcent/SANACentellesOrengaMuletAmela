@@ -23,7 +23,7 @@ public class ZonaDao {
     public void addZona(Zona zona) {
         jdbcTemplate.update("INSERT INTO Zona VALUES(?, ?, ?, ?, ?)",
                 zona.getNomEspai(),
-                zona.getCodiZona(),
+                zona.getCodi(),
                 zona.getLlargaria(),
                 zona.getAmplaria(),
                 zona.getCapacitatMaxima());
@@ -31,7 +31,7 @@ public class ZonaDao {
 
     /* Esborra la zona de la base de dades */
     public void deleteZona(Zona zona) {
-        jdbcTemplate.update("DELETE FROM Zona WHERE codi = '" + zona.getCodiZona() + "'");
+        jdbcTemplate.update("DELETE FROM Zona WHERE codi = '" + zona.getCodi() + "'");
 
     }
 
@@ -48,7 +48,7 @@ public class ZonaDao {
                 zona.getLlargaria(),
                 zona.getAmplaria(),
                 zona.getCapacitatMaxima(),
-                zona.getCodiZona());
+                zona.getCodi());
     }
 
     /* Obté la zona amb el codi donat. Torna null si no existeix. */

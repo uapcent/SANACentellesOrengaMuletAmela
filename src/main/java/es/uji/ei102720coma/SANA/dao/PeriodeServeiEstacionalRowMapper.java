@@ -13,7 +13,7 @@ public class PeriodeServeiEstacionalRowMapper implements RowMapper<PeriodeServei
     public PeriodeServeiEstacional mapRow(ResultSet rs, int rowNum) throws SQLException {
         PeriodeServeiEstacional servei = new PeriodeServeiEstacional();
         servei.setNomEspai(rs.getString("nom_espai"));
-        servei.setNomServeiEstacional(rs.getString("nom_servei_estacional"));
+        servei.setNomServeiEstacional(rs.getString("nom_servei_est"));
         servei.setDataInici(rs.getObject("data_inici", LocalDate.class));
         servei.setDataFi(rs.getObject("data_fi", LocalDate.class));
         return servei;

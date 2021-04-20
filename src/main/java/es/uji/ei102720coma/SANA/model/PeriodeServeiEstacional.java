@@ -1,55 +1,59 @@
 package es.uji.ei102720coma.SANA.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class PeriodeServeiEstacional {
 
-    private String nom_espai;
-    private String nom_servei_estacional;
-    private LocalDate data_inici;
-    private LocalDate data_fi;
+    private String nomEspai;
+    private String nomServeiEstacional;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dataInici;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dataFi;
 
     public PeriodeServeiEstacional(){}
 
     public String getNomEspai() {
-        return nom_espai;
+        return nomEspai;
     }
 
-    public void setNomEspai(String nom_espai) {
-        this.nom_espai = nom_espai;
+    public void setNomEspai(String nomEspai) {
+        this.nomEspai = nomEspai;
     }
 
     public String getNomServeiEstacional() {
-        return nom_servei_estacional;
+        return nomServeiEstacional;
     }
 
-    public void setNomServeiEstacional(String nom_servei_estacional) {
-        this.nom_servei_estacional = nom_servei_estacional;
+    public void setNomServeiEstacional(String nomServeiEstacional) {
+        this.nomServeiEstacional = nomServeiEstacional;
     }
 
     public LocalDate getDataInici() {
-        return data_inici;
+        return dataInici;
     }
 
-    public void setDataInici(LocalDate data_inici) {
-        this.data_inici = data_inici;
+    public void setDataInici(LocalDate dataInici) {
+        this.dataInici = dataInici;
     }
 
     public LocalDate getDataFi() {
-        return data_fi;
+        return dataFi;
     }
 
-    public void setDataFi(LocalDate data_fi) {
-        this.data_fi = data_fi;
+    public void setDataFi(LocalDate dataFi) {
+        this.dataFi = dataFi;
     }
 
     @Override
     public String toString() {
         return "PeriodeServeiEstacional{" +
-                "nom_espai='" + nom_espai + '\'' +
-                ", nom_servei_estacional='" + nom_servei_estacional + '\'' +
-                ", data_inici='" + data_inici + '\'' +
-                ", data_fi='" + data_fi + '\'' +
+                "nom_espai='" + nomEspai + '\'' +
+                ", nom_servei_est='" + nomServeiEstacional + '\'' +
+                ", data_inici='" + dataInici + '\'' +
+                ", data_fi='" + dataFi + '\'' +
                 '}';
     }
 }

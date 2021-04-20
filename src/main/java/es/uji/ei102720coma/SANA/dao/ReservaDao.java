@@ -36,13 +36,13 @@ public class ReservaDao {
 
     /* Esborra la reserva de la base de dades */
     public void deleteProva(Reserva reserva) {
-        jdbcTemplate.update("DELETE FROM Reserva WHERE nom = '" + reserva.getCodi() + "'");
+        jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + reserva.getCodi() + "'");
 
     }
 
     /* Esborra la reserva de la base de dades */
     public void deleteProva(String codi) {
-        jdbcTemplate.update("DELETE FROM Reserva WHERE nom = '" + codi + "'");
+        jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + codi + "'");
 
     }
 
@@ -67,7 +67,7 @@ public class ReservaDao {
     public Reserva getReserva(String codiReserva) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Reserva WHERE nom =?",
+                    "SELECT * FROM Reserva WHERE codi =?",
                     new ReservaRowMapper(),
                     codiReserva);
         }

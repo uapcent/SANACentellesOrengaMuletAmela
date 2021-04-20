@@ -38,7 +38,7 @@ public class PeriodeServeiEstacionalDao {
     }
 
     public void updateServeiPermanent(PeriodeServeiEstacional serveiPermanent) {
-        jdbcTemplate.update("UPDATE Periode_Servei_Estacional SET nom_servei_estacional =?, data_inici =?, data_fi =? WHERE nom_espai =?",
+        jdbcTemplate.update("UPDATE Periode_Servei_Estacional SET nom_servei_est =?, data_inici =?, data_fi =? WHERE nom_espai =?",
                 serveiPermanent.getNomServeiEstacional(),
                 serveiPermanent.getDataInici(),
                 serveiPermanent.getDataFi(),

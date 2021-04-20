@@ -12,7 +12,7 @@ public class ZonaRowMapper implements RowMapper<Zona> {
     public Zona mapRow(ResultSet rs, int rowNum) throws SQLException{
         Zona zona = new Zona();
         zona.setNomEspai(rs.getString("nom_espai"));
-        zona.setCodiZona(rs.getString("codi"));
+        zona.setCodi(rs.getString("codi"));
         zona.setLlargaria(rs.getDouble("llargaria"));
         zona.setAmplaria(rs.getDouble("amplaria"));
         zona.setCapacitatMaxima(rs.getInt("capacitat_maxima"));

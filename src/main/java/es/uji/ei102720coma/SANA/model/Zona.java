@@ -2,11 +2,10 @@ package es.uji.ei102720coma.SANA.model;
 
 public class Zona {
     private String nomEspai;
-    private int codi;
-    private double amplaria;
+    private String codi;
     private double llargaria;
+    private double amplaria;
     private int capacitatMaxima;
-    private String codiZona;
 
 
     public int getCapacitatMaxima() {
@@ -15,14 +14,6 @@ public class Zona {
 
     public void setCapacitatMaxima(int capacitatMaxima) {
         this.capacitatMaxima = capacitatMaxima;
-    }
-
-    public String getCodiZona() {
-        return codiZona;
-    }
-
-    public void setCodiZona(String codiZona) {
-        this.codiZona = codiZona;
     }
 
     public double getAmplaria() {
@@ -49,11 +40,11 @@ public class Zona {
         this.nomEspai = nomEspai;
     }
 
-    public int getCodi() {
+    public String getCodi() {
         return codi;
     }
 
-    public void setCodi(int codi) {
+    public void setCodi(String codi) {
         this.codi = codi;
     }
 
@@ -64,8 +55,7 @@ public class Zona {
                 ", codi=" + codi +
                 ", amplaria=" + amplaria +
                 ", llargaria=" + llargaria +
-                ", capacitatMaxima=" + capacitatMaxima +
-                ", codiZona='" + codiZona + '\'' +
+                ", capacitat_maxima=" + capacitatMaxima +
                 '}';
     }
 }

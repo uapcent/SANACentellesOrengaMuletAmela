@@ -8,9 +8,9 @@ public class ServeiEstacional {
 
     private String nom;
     private String llocContracte;
-    @DateTimeFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaInici;
-    @DateTimeFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
     private LocalTime horaFi;
 
 
@@ -50,9 +50,9 @@ public class ServeiEstacional {
     public String toString() {
         return "Servei_Estacional{" +
                 "nom='" + nom + '\'' +
-                ", llocContracte='" + llocContracte + '\'' +
-                ", horaInici=" + horaInici +
-                ", horaFi=" + horaFi +
+                ", lloc_contracte='" + llocContracte + '\'' +
+                ", hora_inici=" + horaInici +
+                ", hora_fi=" + horaFi +
                 '}';
     }
 }

@@ -36,7 +36,7 @@ public class EspaiServeiPermanentDao {
     }
 
     public void updateEspaiServeiPermanent(EspaiServeiPermanent espaiServeiPermanent) {
-        jdbcTemplate.update("UPDATE Espai_Servei_Perm SET nom_servei_permanent =? WHERE nom_espai =?",
+        jdbcTemplate.update("UPDATE Espai_Servei_Perm SET nom_servei_perm =? WHERE nom_espai =?",
                 espaiServeiPermanent.getNomServeiPermanent(),
                 espaiServeiPermanent.getNomEspai());
     }
