@@ -7,9 +7,9 @@ import java.time.LocalTime;
 public class FranjaEspai {
 
     private String nomEspai;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaInici;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaFi;
 
     public String getNomEspai() {

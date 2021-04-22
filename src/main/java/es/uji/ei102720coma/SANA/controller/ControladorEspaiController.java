@@ -61,8 +61,8 @@ public class ControladorEspaiController {
     }
 
     @RequestMapping(value="/update/{dni_controlador}/{nom_espai}", method = RequestMethod.GET)
-    public String editControladorEspai(Model model, @PathVariable String dni, @PathVariable String nom) {
-        model.addAttribute("controladorespai", controladorEspaiDao.getControladorEspai(dni, nom));
+    public String editControladorEspai(Model model, @PathVariable String dni_controlador, @PathVariable String nom_espai) {
+        model.addAttribute("controladorespai", controladorEspaiDao.getControladorEspai(dni_controlador, nom_espai));
         return "controladorespai/update";
     }
 
@@ -89,8 +89,8 @@ public class ControladorEspaiController {
     }
 
     @RequestMapping(value="/delete/{dni_controlador}/{nom_espai}")
-    public String processDelete(@PathVariable String dni, @PathVariable String nom) {
-        controladorEspaiDao.deleteControladorEspai(dni, nom);
+    public String processDelete(@PathVariable String dni_controlador, @PathVariable String nom_espai) {
+        controladorEspaiDao.deleteControladorEspai(dni_controlador, nom_espai);
         return "redirect:../list";
     }
 

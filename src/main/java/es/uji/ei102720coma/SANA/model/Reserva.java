@@ -18,9 +18,9 @@ public class Reserva {
     private LocalDate dataAsignacio;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataExpiracio;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaIniciEspai;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaFiEspai;
 
     public String getCodi() {

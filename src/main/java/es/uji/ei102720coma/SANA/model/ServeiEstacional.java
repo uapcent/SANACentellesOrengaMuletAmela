@@ -8,9 +8,9 @@ public class ServeiEstacional {
 
     private String nom;
     private String llocContracte;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaInici;
-    @DateTimeFormat(pattern = "HH:mm:ss.SSS")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaFi;
 
 

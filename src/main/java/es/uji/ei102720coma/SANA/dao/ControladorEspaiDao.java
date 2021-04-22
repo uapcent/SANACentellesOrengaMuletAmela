@@ -21,17 +21,13 @@ public class ControladorEspaiDao {
     }
 
     public void addControladorEspai(ControladorEspai controladorEspai) {
-        jdbcTemplate.update("INSERTO INTO Controlador_Espai VALUES(?, ?)",
+        jdbcTemplate.update("INSERT INTO Controlador_Espai VALUES(?, ?)",
                 controladorEspai.getDniControlador(),
                 controladorEspai.getNomEspai());
     }
 
     public void deleteControladorEspai(String dni, String nom) {
         jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", dni, nom);
-    }
-
-    public void deleteControladorEspai(ControladorEspai controladorEspai) {
-        jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", controladorEspai.getDniControlador(), controladorEspai.getNomEspai());
     }
 
     public void updateControladorEspai(ControladorEspai controladorEspai) {
