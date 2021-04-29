@@ -72,13 +72,10 @@ public class ControladorEspaiController {
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
                     FieldError fieldError = (FieldError) object;
-
                     System.out.println(fieldError.getCode());
                 }
-
                 if(object instanceof ObjectError) {
                     ObjectError objectError = (ObjectError) object;
-
                     System.out.println(objectError.getCode());
                 }
             }
@@ -91,7 +88,7 @@ public class ControladorEspaiController {
     @RequestMapping(value="/delete/{dni_controlador}/{nom_espai}")
     public String processDelete(@PathVariable String dni_controlador, @PathVariable String nom_espai) {
         controladorEspaiDao.deleteControladorEspai(dni_controlador, nom_espai);
-        return "redirect:../list";
+        return "redirect:../../list";
     }
 
 }
