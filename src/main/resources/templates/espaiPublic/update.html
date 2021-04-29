@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica un espai public</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar un espai public</h2>
+<form action="#" th:action="@{/espaipublic/update}"
+      th:object="${espaipublic}" method="post">
+    <table>
+        <tr>
+            <td><label>Nom Espai</label></td>
+            <td><input type="text" th:field="*{nom}" /></td>
+        </tr>
+        <tr>
+            <td><label>Tipus Acces</label></td>
+            <td><input type="text" th:field="*{tipusAcces}" /></td>
+        </tr>
+        <tr>
+            <td><label>Tipus Sol</label></td>
+            <td><input type="text" th:field="*{tipusSol}" /></td>
+        </tr>
+        <tr>
+            <td><label>Tipus Espai</label></td>
+            <td><input type="text" th:field="*{tipusEspai}" /></td>
+        </tr>
+        <tr>
+            <td><label>Localitzacio Geografica</label></td>
+            <td><input type="text" th:field="*{localitzacioGeografica}" /></td>
+        </tr>
+        <tr>
+            <td><label>Descripcio</label></td>
+            <td><input type="text" th:field="*{descripcio}" /></td>
+        </tr>
+        <tr>
+            <td><label>Llargaria</label></td>
+            <td><input type="number" th:field="*{llargaria}" /></td>
+        </tr>
+        <tr>
+            <td><label>Amplaria</label></td>
+            <td><input type="number" th:field="*{amplaria}" /></td>
+        </tr>
+        <tr>
+            <td><label>Orientacio</label></td>
+            <td><input type="text" th:field="*{orientacio}" /></td>
+        </tr>
+        <tr>
+            <td><label>Comentaris</label></td>
+            <td><input type="text" th:field="*{comentaris}" /></td>
+        </tr>
+        <tr>
+            <td><label>Imatges</label></td>
+            <td><input type="text" th:field="*{imatges}" /></td>
+        </tr>
+        <tr>
+            <td><label>Nom Municipi</label></td>
+            <td><input type="text" th:field="*{nomMunicipi}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modificar Espai Public" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
