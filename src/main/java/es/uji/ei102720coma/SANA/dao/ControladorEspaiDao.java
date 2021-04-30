@@ -30,12 +30,6 @@ public class ControladorEspaiDao {
         jdbcTemplate.update("DELETE FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", dni, nom);
     }
 
-    public void updateControladorEspai(ControladorEspai controladorEspai) {
-        jdbcTemplate.update("UPDATE Controlador_Espai SET nom_espai =? WHERE dni_controlador =?",
-                controladorEspai.getNomEspai(),
-                controladorEspai.getDniControlador());
-    }
-
     public ControladorEspai getControladorEspai(String dni, String nom) {
         try {
             return jdbcTemplate.queryForObject("SELECT * FROM Controlador_Espai WHERE dni_controlador =? AND nom_espai =?", new ControladorEspaiRowMapper(), dni, nom);

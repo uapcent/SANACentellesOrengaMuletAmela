@@ -54,31 +54,6 @@ public class FranjaEspaiController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{nom_espai}", method = RequestMethod.GET)
-    public String editFranjaEspai(Model model, @PathVariable String nom_espai) {
-        model.addAttribute("franjaEspai", franjaEspaiDao.getFranjaEspai(nom_espai));
-        return "franjaEspai/update";
-    }
-
-    @RequestMapping(value="/update", method = RequestMethod.POST)
-    public String processUpdateSubmit(@ModelAttribute("franjaEspai") FranjaEspai franjaEspai, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
-            for (Object object : bindingResult.getAllErrors()) {
-                if(object instanceof FieldError) {
-                    FieldError fieldError = (FieldError) object;
-                    System.out.println(fieldError.getCode());
-                }
-                if(object instanceof ObjectError) {
-                    ObjectError objectError = (ObjectError) object;
-                    System.out.println(objectError.getCode());
-                }
-            }
-            return "franjaEspai/update";
-        }
-        franjaEspaiDao.updateFranjaEspai(franjaEspai);
-        return "redirect:list";
-    }
-
     @RequestMapping(value="/delete/{nom_espai}")
     public String processDelete(@PathVariable String nom_espai) {
         franjaEspaiDao.deleteFranjaEspai(nom_espai);

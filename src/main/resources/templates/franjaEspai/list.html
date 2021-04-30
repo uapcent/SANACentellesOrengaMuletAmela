@@ -23,8 +23,7 @@
             <td th:text="${franjaEspai.nomEspai}"></td>
             <td th:text="${franjaEspai.horaInici}"></td>
             <td th:text="${franjaEspai.horaFi}"></td>
-            <td><a th:href="@{/franjaEspai/update/{nom_espai}(nom_espai=${franjaEspai.nomEspai})}" class="btn btn-warning" role="button">Edita</a>
-            </td>
+
             <td><a th:href="@{/franjaEspai/delete/{nom_espai}(nom_espai=${franjaEspai.nomEspai})}" class="btn btn-danger" role="button">Esborra</a>
             </td>
         </tr>

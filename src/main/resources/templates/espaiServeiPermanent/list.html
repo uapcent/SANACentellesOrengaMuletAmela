@@ -22,9 +22,7 @@
       <td th:text="${espaiserveipermanent.nomEspai}"></td>
       <td th:text="${espaiserveipermanent.nomServeiPermanent}"></td>
 
-      <td><a th:href="@{/espaiserveipermanent/update/{nom_espai}/{nom_servei_permanent}(nom_espai=${espaiserveipermanent.nomEspai}, nom_servei_permanent=${espaiserveipermanent.nomServeiPermanent})}" class="btn btn-warning" role="button">Edita</a>
-      </td>
-      <td><a th:href="@{/espaiserveipermanent/delete/{nom_espai}/{nom_servei_permanent}(nom_espai=${espaiserveipermanent.nomEspai}, nom_servei_permanent=${espaiserveipermanent.nomServeiPermanent})}" class="btn btn-danger" role="button">Esborra</a>
+      <td><a th:href="@{/espaiserveipermanent/delete/{nom_espai}/{nom_servei_perm}(nom_espai=${espaiserveipermanent.nomEspai}, nom_servei_perm=${espaiserveipermanent.nomServeiPermanent})}" class="btn btn-danger" role="button">Esborra</a>
       </td>
     </tr>
     </tbody>

@@ -29,25 +29,25 @@ public class PeriodeServeiEstacionalDao {
                 periodeServeiEstacional.getDataFi());
     }
 
-    public void deletePeriodeServeiEstacional(String nom) {
-        jdbcTemplate.update("DELETE FROM Periode_Servei_Estacional WHERE nom_espai =?", nom);
+    public void deletePeriodeServeiEstacional(String nom, String nom_servei) {
+        jdbcTemplate.update("DELETE FROM Periode_Servei_Estacional WHERE nom_espai =? AND nom_servei_est =?", nom, nom_servei);
     }
 
     public void deletePeriodeServeiEstacional(PeriodeServeiEstacional periodeServeiEstacional) {
-        jdbcTemplate.update("DELETE FROM Periode_Servei_Estacional WHERE nom_espai =?", periodeServeiEstacional.getNomEspai());
+        jdbcTemplate.update("DELETE FROM Periode_Servei_Estacional WHERE nom_espai =? AND nom_servei_est =?", periodeServeiEstacional.getNomEspai(), periodeServeiEstacional.getNomServeiEstacional());
     }
 
     public void updateServeiPermanent(PeriodeServeiEstacional serveiPermanent) {
-        jdbcTemplate.update("UPDATE Periode_Servei_Estacional SET nom_servei_est =?, data_inici =?, data_fi =? WHERE nom_espai =?",
-                serveiPermanent.getNomServeiEstacional(),
+        jdbcTemplate.update("UPDATE Periode_Servei_Estacional SET data_inici =?, data_fi =? WHERE nom_espai =? AND nom_servei_est =?",
                 serveiPermanent.getDataInici(),
                 serveiPermanent.getDataFi(),
-                serveiPermanent.getNomEspai());
+                serveiPermanent.getNomEspai(),
+                serveiPermanent.getNomServeiEstacional());
     }
 
-    public PeriodeServeiEstacional getPeriodeServeiEstacional(String nom) {
+    public PeriodeServeiEstacional getPeriodeServeiEstacional(String nom, String nom_servei) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM Periode_Servei_Estacional WHERE nom_espai =?", new PeriodeServeiEstacionalRowMapper(), nom);
+            return jdbcTemplate.queryForObject("SELECT * FROM Periode_Servei_Estacional WHERE nom_espai =? AND nom_servei_est =?", new PeriodeServeiEstacionalRowMapper(), nom, nom_servei);
         }catch (EmptyResultDataAccessException e) {
             return null;
         }

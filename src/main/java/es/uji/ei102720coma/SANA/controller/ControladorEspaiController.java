@@ -60,31 +60,6 @@ public class ControladorEspaiController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/update/{dni_controlador}/{nom_espai}", method = RequestMethod.GET)
-    public String editControladorEspai(Model model, @PathVariable String dni_controlador, @PathVariable String nom_espai) {
-        model.addAttribute("controladorespai", controladorEspaiDao.getControladorEspai(dni_controlador, nom_espai));
-        return "controladorespai/update";
-    }
-
-    @RequestMapping(value="/update", method = RequestMethod.POST)
-    public String processUpdateSubmit(@ModelAttribute("controladorespai") ControladorEspai controladorEspai, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
-            for (Object object : bindingResult.getAllErrors()) {
-                if(object instanceof FieldError) {
-                    FieldError fieldError = (FieldError) object;
-                    System.out.println(fieldError.getCode());
-                }
-                if(object instanceof ObjectError) {
-                    ObjectError objectError = (ObjectError) object;
-                    System.out.println(objectError.getCode());
-                }
-            }
-            return "controladorespai/update";
-        }
-        controladorEspaiDao.updateControladorEspai(controladorEspai);
-        return "redirect:list";
-    }
-
     @RequestMapping(value="/delete/{dni_controlador}/{nom_espai}")
     public String processDelete(@PathVariable String dni_controlador, @PathVariable String nom_espai) {
         controladorEspaiDao.deleteControladorEspai(dni_controlador, nom_espai);

@@ -27,23 +27,17 @@ public class EspaiServeiPermanentDao {
                 espaiServeiPermanent.getNomServeiPermanent());
     }
 
-    public void deleteEspaiServeiPermanent(String nom) {
-        jdbcTemplate.update("DELETE FROM Espai_Servei_Perm WHERE nom_espai =?", nom);
+    public void deleteEspaiServeiPermanent(String nom, String nomServei) {
+        jdbcTemplate.update("DELETE FROM Espai_Servei_Perm WHERE nom_espai =? AND nom_servei_perm =?", nom, nomServei);
     }
 
     public void deleteEspaiServeiPermanent(EspaiServeiPermanent espaiServeiPermanent) {
-        jdbcTemplate.update("DELETE FROM Espai_Servei_Perm WHERE nom_espai =?", espaiServeiPermanent.getNomEspai());
+        jdbcTemplate.update("DELETE FROM Espai_Servei_Perm WHERE nom_espai =? AND nom_servei_perm =?", espaiServeiPermanent.getNomEspai(), espaiServeiPermanent.getNomServeiPermanent());
     }
 
-    public void updateEspaiServeiPermanent(EspaiServeiPermanent espaiServeiPermanent) {
-        jdbcTemplate.update("UPDATE Espai_Servei_Perm SET nom_servei_perm =? WHERE nom_espai =?",
-                espaiServeiPermanent.getNomServeiPermanent(),
-                espaiServeiPermanent.getNomEspai());
-    }
-
-    public EspaiServeiPermanent getEspaiServeiPermanent(String nom) {
+    public EspaiServeiPermanent getEspaiServeiPermanent(String nom, String nomServei) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * FROM Espai_Servei_Perm WHERE nom_espai =?", new EspaiServeiPermanentRowMapper(), nom);
+            return jdbcTemplate.queryForObject("SELECT * FROM Espai_Servei_Perm WHERE nom_espai =? AND nom_servei_perm =?", new EspaiServeiPermanentRowMapper(), nom, nomServei);
         }catch (EmptyResultDataAccessException e) {
             return null;
         }
