@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifica el Servei Estacional</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar un servei estacional</h2>
+<form action="#" th:action="@{/serveiestacional/update}"
+      th:object="${serveiestacional}" method="post">
+  <table>
+    <tr>
+      <td><label>Nom Servei</label></td>
+      <td><input type="text" th:field="*{nom}" /></td>
+    </tr>
+    <tr>
+      <td><label>Lloc de Contracte</label></td>
+      <td><input type="text" th:field="*{llocContracte}" /></td>
+    </tr>
+    <tr>
+      <td><label>Hora inici</label></td>
+      <td><input type="time" th:field="*{horaInici}" /></td>
+    </tr>
+    <tr>
+      <td><label>Hora Fi</label></td>
+      <td><input type="time" th:field="*{horaFi}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Modificar el servei estacional" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -2,7 +2,6 @@ package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.ControladorEspaiDao;
 import es.uji.ei102720coma.SANA.model.ControladorEspai;
-import es.uji.ei102720coma.SANA.model.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;

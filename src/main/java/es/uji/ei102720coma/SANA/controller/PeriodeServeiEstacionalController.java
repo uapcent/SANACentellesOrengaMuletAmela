@@ -1,7 +1,6 @@
 package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.PeriodeServeiEstacionalDao;
-import es.uji.ei102720coma.SANA.model.Ciutada;
 import es.uji.ei102720coma.SANA.model.PeriodeServeiEstacional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

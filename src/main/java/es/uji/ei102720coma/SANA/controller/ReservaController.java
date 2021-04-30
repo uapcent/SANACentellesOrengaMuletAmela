@@ -1,7 +1,6 @@
 package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.ReservaDao;
-import es.uji.ei102720coma.SANA.model.Ciutada;
 import es.uji.ei102720coma.SANA.model.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
