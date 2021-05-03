@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica un Servei Permanent</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar un Servei Permanent</h2>
+<form action="#" th:action="@{/serveipermanent/update}"
+      th:object="${serveipermanent}" method="post">
+    <table>
+        <tr>
+            <td><label>Nom Servei</label></td>
+            <td><input type="text" th:field="*{nom}" /></td>
+        </tr>
+        <tr>
+            <td><label>Lloc de Contracte</label></td>
+            <td><input type="text" th:field="*{llocContracte}" /></td>
+        </tr>
+        <tr>
+            <td><label>Hora Inici</label></td>
+            <td><input type="time" th:field="*{horaInici}" /></td>
+        </tr>
+        <tr>
+            <td><label>Hora Fi</label></td>
+            <td><input type="time" th:field="*{horaFi}" /></td>
+        </tr>
+        <tr>
+            <td><label>Data Inici</label></td>
+            <td><input type="date" th:field="*{dataInici}" /></td>
+        </tr>
+        <tr>
+            <td><label>Data Fi</label></td>
+            <td><input type="date" th:field="*{dataFi}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modificar Servei Permanent" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
