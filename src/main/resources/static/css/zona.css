@@ -11,11 +11,30 @@ body, div, form, input, select, p {
 }
 h1 {
     margin: 0;
+    color: #000000;
     font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
 }
+
+h2 {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+
 h3 {
     margin: 12px 0;
-    color: #8ebf42;
+    color: #042254;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+    color: #042254;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h5{
+    color: #045451;
+    font-family: 'Montserrat', sans-serif;
 }
 .main-block {
     display: flex;
