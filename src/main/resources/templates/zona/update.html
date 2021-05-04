@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica una Zona</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h2>Modificar una Zona</h2>
+<form action="#" th:action="@{/zona/update}"
+      th:object="${zona}" method="post">
+    <table>
+        <tr>
+            <td><label>Nom Espai</label></td>
+            <td><input type="text" th:field="*{nomEspai}" /></td>
+        </tr>
+        <tr>
+            <td><label>Codi</label></td>
+            <td><input type="text" th:field="*{codi}" /></td>
+        </tr>
+        <tr>
+            <td><label>Llargaria</label></td>
+            <td><input type="number" th:field="*{llargaria}" /></td>
+        </tr>
+        <tr>
+            <td><label>Amplaria</label></td>
+            <td><input type="number" th:field="*{amplaria}" /></td>
+        </tr>
+        <tr>
+            <td><label>Capacitat Maxima</label></td>
+            <td><input type="number" th:field="*{capacitatMaxima}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modificar zona" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

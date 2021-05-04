@@ -31,33 +31,33 @@ public class ZonaDao {
 
     /* Esborra la zona de la base de dades */
     public void deleteZona(Zona zona) {
-        jdbcTemplate.update("DELETE FROM Zona WHERE codi = '" + zona.getCodi() + "'");
+        jdbcTemplate.update("DELETE FROM Zona WHERE codi =? AND nom_espai =?", zona.getCodi(), zona.getNomEspai());
 
     }
 
     /* Esborra la zona a partir de un codi de la base de dades */
-    public void deleteZona(String codi) {
-        jdbcTemplate.update("DELETE FROM Zona WHERE codi = '" + codi + "'");
+    public void deleteZona(String codi, String nom_espai) {
+        jdbcTemplate.update("DELETE FROM Zona WHERE codi =? AND nom_espai =? ", codi, nom_espai);
     }
 
     /* Actualitza els atributs de la zona
        (excepte el nom, que és la clau primària) */
     public void updateZona(Zona zona) {
-        jdbcTemplate.update("UPDATE Zona SET nom_espai = ?, llargaria = ?, amplaria = ?, capacitat_maxima = ? WHERE codi =?",
-                zona.getNomEspai(),
+        jdbcTemplate.update("UPDATE Zona SET llargaria = ?, amplaria = ?, capacitat_maxima = ? WHERE codi =? AND nom_espai =?",
                 zona.getLlargaria(),
                 zona.getAmplaria(),
                 zona.getCapacitatMaxima(),
-                zona.getCodi());
+                zona.getCodi(),
+                zona.getNomEspai());
     }
 
     /* Obté la zona amb el codi donat. Torna null si no existeix. */
-    public Zona getZona(String codiZona) {
+    public Zona getZona(String codiZona, String nom_espai) {
         try {
             return jdbcTemplate.queryForObject(
-                    "SELECT * FROM Zona WHERE codi =?",
+                    "SELECT * FROM Zona WHERE codi =? AND nom_espai =?",
                     new ZonaRowMapper(),
-                    codiZona);
+                    codiZona, nom_espai);
         }
         catch(EmptyResultDataAccessException e) {
             return null;
