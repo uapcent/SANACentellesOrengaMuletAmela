@@ -18,6 +18,7 @@
             <legend>
                 <h3>Detalls de la Reserva</h3>
             </legend>
+            <!--
             <div  class="account-details">
                 <div><label>Num Persones*</label><select class="day" required>
                     <option value=""></option>
@@ -28,11 +29,44 @@
                     <option value="05">5</option>
                 </select></div>
 
-                <div><label>Data*</label><input type="date" name="name" required></div>
+                <div>
+                    <label>Data*</label>
+                    <input type="date" name="name" required>
+                </div>
+            </div>-->
 
+            <div class="form-group">
+                <label class="labelBoot"
+                       for="exampleFormControlSelect1">Zona: </label>
+                <input class="form-control" type="text" placeholder="A023" readonly>
             </div>
+
+
+
+            <div class="form-group">
+                <label class="labelBoot"
+                       for="exampleFormControlSelect1">Num persones: </label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot"
+                       for="exampleFormControlSelect2">Franja horaria: </label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                    <option>09:00-11:00</option>
+                    <option>11:00-13:00</option>
+                    <option>15:00-17:00</option>
+                </select>
+            </div>
+
         </fieldset>
-        <button type="submit" href="/">Submit</button>
+        <button type="submit" href="/">Reservar</button>
     </form>
 </div>
 </body>
