@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/base}">
+<head>
+    <title>Identifica't</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/zona.css">
+</head>
+<body>
+<div    class="main-block"
+        layout:fragment="content">
+
+    <form action="#" th:action="@{/login}"
+          th:object="${user}" method="post">
+        <p>
+            <label>Nom d'usuari:</label>
+            <input class="form_control" type="text" th:field="*{username}"/>
+        <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        </p>
+        <p>
+            <label>Contrasenya:</label>
+            <input class="form_control" type="password" th:field="*{password}"/>
+        <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </p>
+        <input type="submit" value="Accedir" />
+    </form>
+</div>
+</body>
+</html>

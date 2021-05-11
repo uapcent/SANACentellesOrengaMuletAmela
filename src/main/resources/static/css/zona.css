@@ -36,6 +36,14 @@ h5{
     color: #045451;
     font-family: 'Montserrat', sans-serif;
 }
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
 .main-block {
     display: flex;
     justify-content: center;
