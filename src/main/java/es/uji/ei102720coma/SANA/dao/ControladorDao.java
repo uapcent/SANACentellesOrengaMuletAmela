@@ -21,12 +21,13 @@ public class ControladorDao {
     }
 
     public void addControlador(Controlador controlador) {
-        jdbcTemplate.update("INSERT INTO Controlador VALUES(?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Controlador VALUES(?, ?, ?, ?, ?, ?)",
                 controlador.getDni(),
                 controlador.getNom(),
                 controlador.getCognom(),
+                controlador.getAdresa(),
                 controlador.getEmail(),
-                controlador.getAdresa());
+                controlador.getContrasenya());
     }
 
     public void deleteControlador(String dni) {
@@ -38,11 +39,12 @@ public class ControladorDao {
     }
 
     public void updateControlador(Controlador controlador) {
-        jdbcTemplate.update("UPDATE Controlador SET nom =?, cognom =?, email =?, adreça =? WHERE dni =?",
+        jdbcTemplate.update("UPDATE Controlador SET nom =?, cognom =?, adreça =?, email =?, contrasenya =? WHERE dni =?",
                 controlador.getNom(),
                 controlador.getCognom(),
-                controlador.getEmail(),
                 controlador.getAdresa(),
+                controlador.getEmail(),
+                controlador.getContrasenya(),
                 controlador.getDni());
     }
 

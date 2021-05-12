@@ -25,8 +25,9 @@
             <td th:text="${controlador.dni}"></td>
             <td th:text="${controlador.nom}"></td>
             <td th:text="${controlador.cognom}"></td>
-            <td th:text="${controlador.email}"></td>
             <td th:text="${controlador.adresa}"></td>
+            <td th:text="${controlador.email}"></td>
+            <td th:text="${controlador.getContrasenya()}"></td>
             <td><a th:href="@{/controlador/update/{dni}(dni=${controlador.dni})}" class="btn btn-warning" role="button">Edita</a>
             </td>
             <td><a th:href="@{/controlador/delete/{dni}(dni=${controlador.dni})}" class="btn btn-danger" role="button">Esborra</a>

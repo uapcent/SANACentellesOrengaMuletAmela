@@ -10,7 +10,8 @@ public class Ciutada {
     private String nom;
     private String cognom;
     private String email;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String contrasenya;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNaixement;
     private String adresa;
 
@@ -62,6 +63,14 @@ public class Ciutada {
 
     public void setAdresa(String adresa) {
         this.adresa = adresa;
+    }
+
+    public String getContrasenya() {
+        return contrasenya;
+    }
+
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
     }
 
     @Override

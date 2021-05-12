@@ -22,13 +22,14 @@ public class CiutadaDao {
 
     /* Afegeix el ciutada a la base de dades */
     public void addCiutada(Ciutada ciutada) {
-        jdbcTemplate.update("INSERT INTO Ciutada VALUES(?, ?, ?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO Ciutada VALUES(?, ?, ?, ?, ?, ?,?)",
                 ciutada.getDniCiutada(),
                 ciutada.getNom(),
                 ciutada.getCognom(),
-                ciutada.getEmail(),
                 ciutada.getDataNaixement(),
-                ciutada.getAdresa());
+                ciutada.getAdresa(),
+                ciutada.getEmail(),
+                ciutada.getContrasenya());
     }
 
     /* Esborra el Ciutada de la base de dades */
@@ -42,7 +43,7 @@ public class CiutadaDao {
         jdbcTemplate.update("DELETE FROM Ciutada WHERE dni = '" + dni + "'");
     }
 
-    /* Esborra el ciutada a partir de un dni de la base de dades */
+    /* Esborra el ciutada a partir de un email de la base de dades */
     public void deleteCiutadaEmail(String email) {
         jdbcTemplate.update("DELETE FROM Ciutada WHERE email = '" + email + "'");
     }
@@ -50,12 +51,13 @@ public class CiutadaDao {
     /* Actualitza els atributs del ciutada
        (excepte el dni, que és la clau primària) */
     public void updateCiutada(Ciutada ciutada) {
-        jdbcTemplate.update("UPDATE Ciutada SET nom = ?, cognom = ?, email = ?, data_naixement = ? , adreça = ? WHERE dni =?",
+        jdbcTemplate.update("UPDATE Ciutada SET nom = ?, cognom = ?, data_naixement = ? , adreça = ?, email = ?, contrasenya = ? WHERE dni =?",
                 ciutada.getNom(),
                 ciutada.getCognom(),
-                ciutada.getEmail(),
                 ciutada.getDataNaixement(),
                 ciutada.getAdresa(),
+                ciutada.getEmail(),
+                ciutada.getContrasenya(),
                 ciutada.getDniCiutada());
     }
 

@@ -6,6 +6,7 @@ public class Controlador {
     private String nom;
     private String cognom;
     private String email;
+    private String contrasenya;
     private String adresa;
 
     public String getDni() {
@@ -46,6 +47,14 @@ public class Controlador {
 
     public void setAdresa(String adresa) {
         this.adresa = adresa;
+    }
+
+    public String getContrasenya() {
+        return contrasenya;
+    }
+
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
     }
 
     @Override

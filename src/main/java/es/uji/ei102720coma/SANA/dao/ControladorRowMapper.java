@@ -15,6 +15,7 @@ public class ControladorRowMapper implements RowMapper<Controlador> {
         controlador.setNom(rs.getString("nom"));
         controlador.setCognom(rs.getString("cognom"));
         controlador.setEmail(rs.getString("email"));
+        controlador.setContrasenya(rs.getString("contrasenya"));
         controlador.setAdresa(rs.getString("adreça"));
         return controlador;
     }

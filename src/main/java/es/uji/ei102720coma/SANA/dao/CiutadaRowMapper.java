@@ -15,6 +15,7 @@ public class CiutadaRowMapper implements RowMapper<Ciutada> {
         ciutada.setNom(rs.getString("nom"));
         ciutada.setCognom(rs.getString("cognom"));
         ciutada.setEmail(rs.getString("email"));
+        ciutada.setContrasenya(rs.getString("contrasenya"));
         ciutada.setDataNaixement(rs.getObject("data_naixement", LocalDate.class));
         ciutada.setAdresa(rs.getString("adreça"));
         return ciutada;

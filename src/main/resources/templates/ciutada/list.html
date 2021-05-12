@@ -14,9 +14,10 @@
             <th>Dni</th>
             <th>Nom</th>
             <th>Cognom</th>
-            <th>Email</th>
             <th>Data Naixement</th>
             <th>Adreça</th>
+            <th>Email</th>
+            <th>Contrasenya</th>
             <th></th>
             <th></th>
         </tr>
@@ -26,9 +27,10 @@
             <td th:text="${ciutada.dniCiutada}"></td>
             <td th:text="${ciutada.nom}"></td>
             <td th:text="${ciutada.cognom}"></td>
-            <td th:text="${ciutada.email}"></td>
             <td th:text="${ciutada.dataNaixement}"></td>
             <td th:text="${ciutada.adresa}"></td>
+            <td th:text="${ciutada.email}"></td>
+            <td th:text="${ciutada.contrasenya}"></td>
             <td><a th:href="@{/ciutada/update/{dni}(dni=${ciutada.dniCiutada})}" class="btn btn-warning" role="button">Edita</a>
             </td>
             <td><a th:href="@{/ciutada/delete/{dni}(dni=${ciutada.dniCiutada})}" class="btn btn-danger" role="button">Esborra</a>
