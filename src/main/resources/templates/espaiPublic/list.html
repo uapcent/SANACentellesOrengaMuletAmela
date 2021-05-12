@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
-    <title>Gestionar Espais Publics</title>
+    <title>Espais Publics</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
-<div class="container">
-    <h1>Llista de Espais Publics</h1>
-    <table class="table table-striped">
+<div class="container" layout:fragment="content">
+    <h1>Espais Publics disponibles</h1>
+    <div th:if="${#lists.isEmpty(espaispublics)}">
+        <p>En aquest moment no hi han Espais Públics Disponibles. Torna en un alte moment.</p>
+    </div>
+    <br>
+    <p style="font-style: italic">Utilitza el botó 'Més informació' per trobar més informació sobre l'espai.</p>
+    <table th:unless="${#lists.isEmpty(espaispublics)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom</th>
-            <th>Tipus accés</th>
+            <th>Nom de l'espai</th>
+            <th>Tipus accés a l'espai</th>
             <th>Tipus sòl</th>
             <th>Tipus espai</th>
-            <th>Localització geográfica</th>
-            <th>Descripció</th>
-            <th>Llargaria</th>
-            <th>Amplaria</th>
-            <th>Orientació</th>
-            <th>Comentaris</th>
-            <th>Imatges</th>
-            <th>Nom municipi</th>
-            <th></th>
+            <th>Municipi on es troba</th>
             <th></th>
         </tr>
         </thead>
@@ -33,22 +31,12 @@
             <td th:text="${espaipublic.tipusAcces}"></td>
             <td th:text="${espaipublic.tipusSol}"></td>
             <td th:text="${espaipublic.tipusEspai}"></td>
-            <td th:text="${espaipublic.localitzacioGeografica}"></td>
-            <td th:text="${espaipublic.descripcio}"></td>
-            <td th:text="${espaipublic.llargaria}"></td>
-            <td th:text="${espaipublic.amplaria}"></td>
-            <td th:text="${espaipublic.orientacio}"></td>
-            <td th:text="${espaipublic.comentaris}"></td>
-            <td th:text="${espaipublic.imatges}"></td>
             <td th:text="${espaipublic.nomMunicipi}"></td>
-            <td><a th:href="@{/espaipublic/update/{nom}(nom=${espaipublic.nom})}" class="btn btn-warning" role="button">Edita</a>
-            </td>
-            <td><a th:href="@{/espaipublic/delete/{nom}(nom=${espaipublic.nom})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/}" class="btn btn-info btn-lg" role="button">Més informació</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a href="add" class="btn btn-success" role="button">Afegeix espai públic</a>
 </div>
 </body>
 </html>
