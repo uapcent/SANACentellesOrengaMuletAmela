@@ -49,6 +49,12 @@ h5{
     justify-content: center;
     align-items: center;
     background: #fff;
+    max-width: 540px;
+    margin: auto;
+}
+
+.navbar-color{
+    background-color: #8ebf42;
 }
 form {
     width: 100%;

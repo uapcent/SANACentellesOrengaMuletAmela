@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/base}">
+<head>
+    <title>Identifica't</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/zona.css">
+
+
+</head>
+<body>
+<div    class="main-block"
+        layout:fragment="content">
+
+    <form action="#" th:action="@{/ciutada/add}"
+        th:object="${ciutada}" method="post">
+        <h1>Crear un nou compte</h1>
+        <fieldset>
+            <legend>
+                <h3>Introdueix les teves dades</h3>
+            </legend>
+            <div class="form-group">
+                <label class="labelBoot" for="dni">Dni: </label>
+                <input type="text" class="form-control" id="dni" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot" for="dni">Nom: </label>
+                <input type="text" class="form-control" id="nom" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot">Cognom: </label>
+                <input type="text" class="form-control" id="cognom" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot">Data naixement: </label>
+                <input type="text" class="form-control" id="data_naixement" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot">Adresa: </label>
+                <input type="text" class="form-control" id="adreça" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot">Email: </label>
+                <input type="text" class="form-control" id="email" th:field="*{dniCiutada}" />
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="labelBoot">Contrasenya: </label>
+                <input type="password" class="form-control" id="contrasenya" th:field="*{contrasenya}"/>
+                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </div>
+        </fieldset>
+        <button type="submit">Crear compte</button>
+    </form>
+</div>
+</body>
+</html>
