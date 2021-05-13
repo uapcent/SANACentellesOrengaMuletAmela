@@ -86,4 +86,10 @@ public class EspaiPublicController {
         return "redirect:../list";
     }
 
+    @RequestMapping(value = "/informacio/{nom}")
+    public String informacioEspaiPublic(Model model, @PathVariable String nom) {
+        model.addAttribute("espaipublic", espaiPublicDao.getEspaiPublic(nom));
+        return "espaipublic/informacio";
+    }
+
 }
