@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Zones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1><span th:text="${nomespaipublic}"></span></h1>
+    <br>
+    <h3>Zones disponibles per a reservar</h3>
+    <div th:if="${#lists.isEmpty(zonasespacio)}">
+        <br>
+        <p>En aquest moment no hi ha zones disponibles per a aquest espai. Torna en un altre moment.</p>
+    </div>
+    <br>
+    <p style="font-style: italic">Utilitza el botó 'Reservar' per poder reservar la zona.</p>
+    <table th:unless="${#lists.isEmpty(zonasespacio)}" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom de l'espai</th>
+            <th>Zona</th>
+            <th>Llargaria (en metres)</th>
+            <th>Aplaria (en metres)</th>
+            <th>Capacitat màxima de persones</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="zona : ${zonasespacio}">
+                <td th:text="${zona.nomEspai}"></td>
+                <td th:text="${zona.codi}"></td>
+                <td th:text="${zona.llargaria}"></td>
+                <td th:text="${zona.amplaria}"></td>
+                <td th:text="${zona.capacitatMaxima}"></td>
+                <td><a th:href="@{/}" class="btn btn-success" role="button">Reservar</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

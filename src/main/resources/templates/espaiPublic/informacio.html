@@ -62,7 +62,7 @@
         </tr>
     </table>
     <div th:if="${#strings.equals(espaipublic.tipusAcces, 'Restringido')}">
-            <button type="button">Consultar zones disponibles</button>
+            <a th:href="@{/zona/listzonesespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar zones disponibles</button></a>
             <button type="button">Consultar serveis permanents</button>
             <button type="button">Consultar serveis estacionals</button>
     </div>

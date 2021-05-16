@@ -84,4 +84,13 @@ public class ZonaController {
         return "redirect:../../list";
     }
 
+    @RequestMapping(value = "/listzonesespai/{nom_espai}")
+    public String listZonasEspacio(Model model, @PathVariable String nom_espai) {
+        model.addAttribute("zonasespacio", zonaDao.getZonesEspai(nom_espai));
+        model.addAttribute("nomespaipublic", nom_espai);
+        return "zona/listzonesespai";
+
+    }
+
+
 }
