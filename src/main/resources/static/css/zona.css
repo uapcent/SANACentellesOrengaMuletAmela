@@ -154,9 +154,12 @@ button:hover {
 label {
     width: 40%;
 }
+
 input {
     width: 60%;
 }
+
+
 select, .children, .gender, .bdate-block {
     width: calc(60% + 16px);
 }

@@ -23,8 +23,7 @@ class UserValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         // Exercici: Afegeix codi per comprovar que
-        // l'usuari i la contrasenya no estiguen buits
-        // ...
+        // l'usuari i la contrasenya no estiguen buit
         UserDetails user = (UserDetails) obj;
         if (user.getUsername().trim().equals(""))
             errors.rejectValue("username","usuari incorrecte",  "No pot estar buit");

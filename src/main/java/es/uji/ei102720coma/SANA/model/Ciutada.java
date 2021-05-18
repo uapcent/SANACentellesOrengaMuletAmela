@@ -11,7 +11,7 @@ public class Ciutada {
     private String cognom;
     private String email;
     private String contrasenya;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate dataNaixement;
     private String adresa;
 

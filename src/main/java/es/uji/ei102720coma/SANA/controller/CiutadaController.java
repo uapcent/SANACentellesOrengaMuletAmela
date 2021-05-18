@@ -28,6 +28,13 @@ public class CiutadaController {
         return "ciutada/list";
     }
 
+
+/*    @RequestMapping(value="/add")
+    public String addCiutada(Model model) {
+        model.addAttribute("ciutada", new Ciutada());
+        return "ciutada/add";
+    }*/
+
     @RequestMapping(value="/add")
     public String addCiutada(Model model) {
         model.addAttribute("ciutada", new Ciutada());
@@ -41,16 +48,24 @@ public class CiutadaController {
                 if(object instanceof FieldError) {
                     FieldError fieldError = (FieldError) object;
                     System.out.println(fieldError.getCode());
+                    System.out.println(ciutada.getNom());
+                    System.out.println(ciutada.getDataNaixement());
                 }
                 if(object instanceof ObjectError) {
                     ObjectError objectError = (ObjectError) object;
                     System.out.println(objectError.getCode());
                 }
             }
-            return "ciutada/add";
+            return "ciutada/registrar";
         }
         ciutadaDao.addCiutada(ciutada);
         return "redirect:list";
+    }
+
+    @RequestMapping(value="/registrar")
+    public String registrarCiutada(Model model) {
+        model.addAttribute("ciutada", new Ciutada());
+        return "ciutada/registrar";
     }
 
     @RequestMapping(value="/update/{dni}", method = RequestMethod.GET)
