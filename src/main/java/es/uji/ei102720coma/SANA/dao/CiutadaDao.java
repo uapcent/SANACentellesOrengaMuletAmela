@@ -74,6 +74,19 @@ public class CiutadaDao {
         }
     }
 
+    public Ciutada getCiutadaEmail(String email) {
+        try {
+            return jdbcTemplate.queryForObject(
+                    "SELECT * FROM Ciutada WHERE email =?",
+                    new CiutadaRowMapper(),
+                    email);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+
     /* Obté tots els ciutadans. Torna una llista buida si no n'hi ha cap. */
     public List<Ciutada> getCiutadans() {
         try {

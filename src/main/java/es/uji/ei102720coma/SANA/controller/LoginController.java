@@ -25,10 +25,10 @@ class UserValidator implements Validator {
         // Exercici: Afegeix codi per comprovar que
         // l'usuari i la contrasenya no estiguen buit
         UserDetails user = (UserDetails) obj;
-        if (user.getUsername().trim().equals(""))
-            errors.rejectValue("username","usuari incorrecte",  "No pot estar buit");
+        if (user.getEmail().trim().equals(""))
+            errors.rejectValue("email","email incorrecte",  "No pot estar buit");
         if (user.getPassword().trim().equals(""))
-            errors.rejectValue("username", "contrasenya incorrecta", "No pot estar buit");
+            errors.rejectValue("password", "contrasenya incorrecta", "No pot estar buit");
     }
 }
 
@@ -44,8 +44,7 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String checkLogin(@ModelAttribute("user") UserDetails user,
-                             BindingResult bindingResult, HttpSession session) {
+    public String checkLogin(@ModelAttribute("user") UserDetails user, BindingResult bindingResult, HttpSession session) {
         UserValidator userValidator = new UserValidator();
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -53,7 +52,7 @@ public class LoginController {
         }
         // Comprova que el login siga correcte
         // intentant carregar les dades de l'usuari
-        user = userDao.loadUserByUsername(user.getUsername(), user.getPassword());
+        user = userDao.loadUserByUsername(user.getEmail(), user.getPassword());
         if (user == null) {
             bindingResult.rejectValue("password", "badpw", "Contrasenya incorrecta");
             return "login";
