@@ -2,6 +2,7 @@ package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.ReservaDao;
 import es.uji.ei102720coma.SANA.model.Reserva;
+import es.uji.ei102720coma.SANA.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/reserva")
@@ -29,8 +32,13 @@ public class ReservaController {
     }
 
     @RequestMapping(value="/add")
-    public String addReserva(Model model) {
+    public String addReserva(Model model, HttpSession session) {
+        if(session.getAttribute("ciutada") == null) {
+            model.addAttribute("user", new UserDetails());
+            return "login";
+        }
         model.addAttribute("reserva", new Reserva());
+        model.addAttribute("ciutada", session.getAttribute("ciutada"));
         return "reserva/add";
     }
 
@@ -40,13 +48,10 @@ public class ReservaController {
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
                     FieldError fieldError = (FieldError) object;
-
                     System.out.println(fieldError.getCode());
                 }
-
                 if(object instanceof ObjectError) {
                     ObjectError objectError = (ObjectError) object;
-
                     System.out.println(objectError.getCode());
                 }
             }

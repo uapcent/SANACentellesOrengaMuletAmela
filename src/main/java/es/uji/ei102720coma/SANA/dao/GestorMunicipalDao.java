@@ -60,6 +60,14 @@ public class GestorMunicipalDao {
 
     }
 
+    public GestorMunicipal getGestorMunicipalEmail(String email) {
+        try {
+            return this.jdbcTemplate.queryForObject("SELECT * FROM Gestor_Municipal WHERE email =? ", new GestorMunicipalRowMapper(), email);
+        }catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
     public List<GestorMunicipal> getGestorsMunicipals() {
         try {
             return jdbcTemplate.query("SELECT * FROM Gestor_Municipal", new GestorMunicipalRowMapper());

@@ -7,10 +7,10 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<div class="container">
+<div class="container" th:object="${session}">
     <h2>Nova reserva</h2>
     <form class="form-horizontal" action="#" th:action="@{/reserva/add}"
-          th:object="${reserva}" method="post">
+          th:object="${reserva}"  method="post">
 
         <div class="form-group row">
             <label class="control-label col-sm-2" for=codi>Codi Reserva:</label>
@@ -22,7 +22,7 @@
         <div class="form-group row">
             <label class="control-label col-sm-2" for="dni">Dni Ciutada:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="dni" th:field="*{dni}" />
+                <input type="text" class="form-control" id="dni" th:field="*{dni}" th:text="${ciutada.dniCiutada}"/>
             </div>
         </div>
 
@@ -87,7 +87,6 @@
                 <button type="submit" class="btn btn-primary">Afegeix Reserva</button>
             </div>
         </div>
-
     </form>
 </div>
 </body>

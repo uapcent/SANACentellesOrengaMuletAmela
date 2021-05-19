@@ -2,7 +2,11 @@ package es.uji.ei102720coma.SANA.controller;
 
 import javax.servlet.http.HttpSession;
 
+import es.uji.ei102720coma.SANA.dao.CiutadaDao;
+import es.uji.ei102720coma.SANA.dao.GestorMunicipalDao;
 import es.uji.ei102720coma.SANA.dao.UserDao;
+import es.uji.ei102720coma.SANA.model.Ciutada;
+import es.uji.ei102720coma.SANA.model.GestorMunicipal;
 import es.uji.ei102720coma.SANA.model.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +38,15 @@ class UserValidator implements Validator {
 
 @Controller
 public class LoginController {
+
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private CiutadaDao ciutadaDao;
+
+    @Autowired
+    private GestorMunicipalDao gestorMunicipalDao;
 
     @RequestMapping("/login")
     public String login(Model model) {
@@ -58,10 +69,16 @@ public class LoginController {
             return "login";
         }
         // Autenticats correctament.
-        // Guardem les dades de l'usuari autenticat a la sessió
-        session.setAttribute("user", user);
-
-        // Torna a la pàgina principal
+        // Guardem les dades de l'usuar autenticat a la sessioo
+        Ciutada ciutada = ciutadaDao.getCiutadaEmail(user.getEmail());
+        if(ciutada != null) { //Si es un ciutada.
+            session.setAttribute("ciutada", ciutada); //Guardem tots els datos del ciutada.
+            //Aquí vendrá el return de la web a donde vaya el ciudadano cuando inicie sesión.
+        }else { // Si es un gestor municipal
+            GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGestorMunicipalEmail(user.getEmail()); //Agafem les dades del gestor municipal.
+            session.setAttribute("gestor", gestorMunicipal); //Guardem les dades com un atribut de sessió.
+            //Aquí vendrá el return de la web a donde vaya el gestor Municipal cuando inicie sesión.
+        }
         return "redirect:/";
     }
 
