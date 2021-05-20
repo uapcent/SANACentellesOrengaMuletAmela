@@ -35,7 +35,7 @@
                 <td th:text="${zona.llargaria}"></td>
                 <td th:text="${zona.amplaria}"></td>
                 <td th:text="${zona.capacitatMaxima}"></td>
-                <td><a th:href="@{/reserva/add}" class="btn btn-success" role="button">Reservar</a></td>
+                <td><a th:href="@{/reserva/add/{nom_espai}/{codi_zona}(nom_espai=${zona.nomEspai}, codi_zona=${zona.codi})}" class="btn btn-success" role="button">Reservar</a></td>
             </tr>
         </tbody>
     </table>
