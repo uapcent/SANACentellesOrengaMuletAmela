@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
-    <title>Gestionar les reserves</title>
+    <title>Reservar zona en area</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/zona.css">
 </head>
 <body>
-<div class="container">
-    <h2>Nova reserva</h2>
+
+<div class="container" layout:fragment="content">
+    <h2>Reservar zona <span th:text="${reservazona.nomZona}"></span> en <span th:text="${reservazona.nomEspai}"></span></h2>
     <form class="form-horizontal" action="#" th:action="@{/reserva/add}"
           th:object="${reserva}"  method="post">
         <div class="form-group row">
