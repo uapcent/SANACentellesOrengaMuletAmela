@@ -50,8 +50,8 @@ public class ReservaController {
         }
         Reserva reserva = new Reserva();
         ReservaZona reservaZona = new ReservaZona();
-        Ciutada ciutada = (Ciutada) session.getAttribute("ciutada");
         FranjaEspai franjaEspai = franjaEspaiDao.getFranjaEspai(nom_espai);
+        Ciutada ciutada = (Ciutada) session.getAttribute("ciutada");
         reserva.setDni(ciutada.getDniCiutada());
         reserva.setNomEspai(nom_espai);
         reserva.setHoraIniciEspai(franjaEspai.getHoraInici());
@@ -60,15 +60,16 @@ public class ReservaController {
         reservaZona.setNomEspai(nom_espai);
         model.addAttribute("reserva", reserva);
         model.addAttribute("reservazona", reservaZona);
-//        model.addAttribute("reserva", new Reserva());
-//        model.addAttribute("ciutada", session.getAttribute("ciutada"));
-//        model.addAttribute("franjaespai", franjaEspaiDao.getFranjaEspai(nom_espai));
-//        model.addAttribute("zona", zonaDao.getZona(nom_espai, codi_zona));
+        model.addAttribute("codi_zona", codi_zona);
+        session.setAttribute("codi_zona", codi_zona);
+        //model.addAttribute("ciutada", session.getAttribute("ciutada"));
+        //model.addAttribute("franjaespai", franjaEspaiDao.getFranjaEspai(nom_espai));
+        model.addAttribute("zona", zonaDao.getZona(codi_zona, nom_espai));
         return "reserva/add";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva, @ModelAttribute("reservazona") ReservaZona reservaZona,BindingResult bindingResult) {
+    public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva, HttpSession session,BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
@@ -82,17 +83,18 @@ public class ReservaController {
             }
             return "reserva/add";
         }
-        reserva.setCodi("R0" + numeroReserva+1); //Codigo de la reserva asignado automaticamente.
+        reserva.setCodi("R0" + (numeroReserva+1)); //Codigo de la reserva asignado automaticamente.
         reserva.setDataCreacio(LocalDate.now()); //Ponemos como fecha de creación la fecha de ese dia según el pc de esa persona
         reserva.setDataExpiracio(reserva.getDataAsignacio()); //Para la fecha de expiración ponemos que sea igual que la que elige para visitar el espacio.
         reserva.setEstat("Activo"); //Estado asignado automaticamente al reservar.
-//      ReservaZona reservaZona = new ReservaZona();
-//      reservaZona.setCodiReserva(reserva.getCodi());
-//      reservaZona.setNomEspai(reserva.getNomEspai());
+        ReservaZona reservaZona = new ReservaZona();
         reservaZona.setCodiReserva(reserva.getCodi());
+        reservaZona.setNomEspai(reserva.getNomEspai());
+        String codigoZona = (String) session.getAttribute("codi_zona");
+        reservaZona.setNomZona(codigoZona);
         reservaDao.addReserva(reserva);
         reservaZonaDao.addReservaZona(reservaZona);
-        return "redirect:list";
+        return "redirect:/";
     }
 
     @RequestMapping(value="/update/{codi}", method = RequestMethod.GET)

@@ -10,13 +10,13 @@ public class Reserva {
     private String codi;
     private String dni;
     private String nomEspai;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate dataCreacio;
     private String estat;
     private int numPersones;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate dataAsignacio;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
     private LocalDate dataExpiracio;
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaIniciEspai;

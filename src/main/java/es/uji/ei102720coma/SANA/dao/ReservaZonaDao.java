@@ -30,13 +30,13 @@ public class ReservaZonaDao {
     /* Esborra la reservaZona de la base de dades */
     public void deleteReservaZona(ReservaZona reservaZona) {
         jdbcTemplate.update("DELETE FROM Reserva_Zona WHERE codi_reserva =?", reservaZona.getCodiReserva());
-
     }
+
+
 
     /* Esborra la reserva de la base de dades */
     public void deleteReservaZona(String codi) {
         jdbcTemplate.update("DELETE FROM Reserva_Zona WHERE codi_reserva =?", codi);
-
     }
 
 

@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,5 +57,11 @@ public class ReservaZonaController {
         }
         reservaZonaDao.addReservaZona(reservaZona);
         return "redirect:list";
+    }
+
+    @RequestMapping(value = "/delete/{codi}")
+    public String processDelete(@PathVariable String codi) {
+        reservaZonaDao.deleteReservaZona(codi);
+        return "redirect:../list";
     }
 }
