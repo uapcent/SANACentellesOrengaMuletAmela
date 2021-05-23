@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#">Inici <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="espaipublic/list">Llista de municipis</a>
+                <a class="nav-link" href="espaipublic/list">Llista de espais públics</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Enllaç 2</a>
@@ -47,22 +47,26 @@
         </p>
     </div>
 
-    <div class="main-block">
+    <div class="secondary-block">
 
         <div>
         <h1>SANA</h1>
         <h2>Safe Access to Natural Areas</h2>
         <h4> Aquesta pàgina conté una llista de totes les arees naturals registrades, on es podrá consultar la seva
-            ocupació, o reservar una zona si es un espai restringit. </h4>
-
+            ocupació, o reservar una zona si es un espai restringit. <br>
+            Clica açí si vols consultar els espais públics disponibles
+        </h4>
+            <form action="/espaipublic/list">
+                <button type="submit" >Llista d'espais Públic</button>
+            </form>
         </div>
         <div>
             <h4>Per a poder fer una reserva, es necessita un compte en SANA</h4>
 
-            <form action="/login" th:href="@{/login}">
-                <button type="submit" >Iniciar sesió" </button>
+            <form class="no-padding" action="/login" th:href="@{/login}">
+                <button type="submit" >Iniciar sesió</button>
             </form>
-            <form action="/ciutada/registrar">
+            <form class="no-padding" action="/ciutada/registrar">
                 <button type="submit">Crear compte</button>
             </form>
 

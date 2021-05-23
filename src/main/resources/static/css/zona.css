@@ -53,6 +53,18 @@ h5{
     margin: auto;
 }
 
+.secondary-block {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    max-width: 540px;
+    margin: auto;
+}
+
+.no-padding{
+    padding: 0px;
+}
 .navbar-color{
     background-color: #8ebf42;
 }
