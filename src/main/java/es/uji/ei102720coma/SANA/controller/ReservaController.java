@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/reserva")
@@ -52,38 +54,48 @@ public class ReservaController {
         ReservaZona reservaZona = new ReservaZona();
         FranjaEspai franjaEspai = franjaEspaiDao.getFranjaEspai(nom_espai);
         Ciutada ciutada = (Ciutada) session.getAttribute("ciutada");
+        Zona zona = zonaDao.getZona(codi_zona, nom_espai);
+        ArrayList<Integer> cantidadList = new ArrayList<>();
         reserva.setDni(ciutada.getDniCiutada());
         reserva.setNomEspai(nom_espai);
         reserva.setHoraIniciEspai(franjaEspai.getHoraInici());
         reserva.setHoraFiEspai(franjaEspai.getHoraFi());
         reservaZona.setNomZona(codi_zona);
         reservaZona.setNomEspai(nom_espai);
+        for(int i = 1; i <= zona.getCapacitatMaxima(); i++) {
+            cantidadList.add(i);
+        }
         model.addAttribute("reserva", reserva);
         model.addAttribute("reservazona", reservaZona);
-        model.addAttribute("codi_zona", codi_zona);
+        //model.addAttribute("codi_zona", codi_zona);
         session.setAttribute("codi_zona", codi_zona);
-        //model.addAttribute("ciutada", session.getAttribute("ciutada"));
-        //model.addAttribute("franjaespai", franjaEspaiDao.getFranjaEspai(nom_espai));
-        model.addAttribute("zona", zonaDao.getZona(codi_zona, nom_espai));
+        session.setAttribute("cantidadList", cantidadList);
         return "reserva/add";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva, HttpSession session,BindingResult bindingResult) {
+        ReservaValidator reservaValidator = new ReservaValidator();
+        reservaValidator.validate(reserva, bindingResult);
         if (bindingResult.hasErrors()){
-            for (Object object : bindingResult.getAllErrors()) {
-                if(object instanceof FieldError) {
-                    FieldError fieldError = (FieldError) object;
-                    System.out.println(fieldError.getCode());
-                }
-                if(object instanceof ObjectError) {
-                    ObjectError objectError = (ObjectError) object;
-                    System.out.println(objectError.getCode());
-                }
-            }
+//                for (Object object : bindingResult.getAllErrors()) {
+//                    if(object instanceof FieldError) {
+//                        FieldError fieldError = (FieldError) object;
+//                        System.out.println(fieldError.getCode());
+//                    }
+//                    if(object instanceof ObjectError) {
+//                        ObjectError objectError = (ObjectError) object;
+//                        System.out.println(objectError.getCode());
+//                    }
+//                }
             return "reserva/add";
         }
-        reserva.setCodi("R0" + (numeroReserva+1)); //Codigo de la reserva asignado automaticamente.
+        List<Reserva> reservas = reservaDao.getReserves(); //Obtenemos todas las reservas hasta la fecha.
+        Reserva ultimaReserva = reservas.get(reservas.size()-1);
+        String codigoUltimaReserva = ultimaReserva.getCodi();
+        String [] ultimoNumeroReserva = codigoUltimaReserva.split("0"); //Sacamos la parte del numero de la reserva
+        int numeroActualReserva = Integer.valueOf(ultimoNumeroReserva[1]) + 1;
+        reserva.setCodi("R0" + numeroActualReserva); //Codigo de la reserva asignado automaticamente.
         reserva.setDataCreacio(LocalDate.now()); //Ponemos como fecha de creación la fecha de ese dia según el pc de esa persona
         reserva.setDataExpiracio(reserva.getDataAsignacio()); //Para la fecha de expiración ponemos que sea igual que la que elige para visitar el espacio.
         reserva.setEstat("Activo"); //Estado asignado automaticamente al reservar.

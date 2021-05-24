@@ -41,11 +41,14 @@
     </div>
 </nav>
 
-    <div class="loggeduser" th:object="${session}">
-        <p th:if="*{user == null}">
+   <!-- <div class="loggeduser" th:object="${session}">
+        <p th:if="*{ciutada == null}">
             No autenticat <a href="/login" th:href="@{/login}">Entrar</a>
         </p>
-    </div>
+        <p th:unless="*{ciutada == null}">
+            Autenticat com <span th:text="*{ciutada.email}"></span> <a href="/logout" th:href="@{/logout}">Eixir</a>
+        </p>
+    </div> -->
 
     <div class="secondary-block">
 
