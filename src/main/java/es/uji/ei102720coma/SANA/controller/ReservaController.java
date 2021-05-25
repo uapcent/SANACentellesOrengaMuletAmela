@@ -48,6 +48,7 @@ public class ReservaController {
     public String addReserva(Model model, HttpSession session, @PathVariable String nom_espai, @PathVariable String codi_zona) {
         if(session.getAttribute("ciutada") == null) {
             model.addAttribute("user", new UserDetails());
+            session.setAttribute("nextUrl", "reserva/add/" + nom_espai + "/" + codi_zona);
             return "login";
         }
         Reserva reserva = new Reserva();
