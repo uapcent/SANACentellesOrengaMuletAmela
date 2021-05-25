@@ -75,7 +75,7 @@ public class LoginController {
             session.setAttribute("ciutada", ciutada); //Guardem tots els datos del ciutada.
             //Aquí vendrá el return de la web a donde vaya el ciudadano cuando inicie sesión.
             String nextUrl = (String) session.getAttribute("nextUrl");
-            System.out.println("La url a la que queria ir es: " + nextUrl);
+            //System.out.println("La url a la que queria ir es: " + nextUrl);
             if (nextUrl != null){
                 session.removeAttribute("nextUrl");
                 return "redirect:/" + nextUrl;
