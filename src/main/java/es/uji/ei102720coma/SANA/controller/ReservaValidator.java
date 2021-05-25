@@ -7,11 +7,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ReservaValidator implements Validator {
 
+    private ReservaDao reservaDao;
+
     @Autowired
-    ReservaDao reservaDao;
+    public void setReservaDao(ReservaDao reservaDao){this.reservaDao = reservaDao;}
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -26,5 +29,20 @@ public class ReservaValidator implements Validator {
         if(reserva.getDataAsignacio().compareTo(hoy) < 0) {
             errors.rejectValue("dataAsignacio", "Valor incorrecte", "La data ha de ser per a hui o un dia posterior");
         }
+
+        /*try {
+            List<Reserva> reserves = reservaDao.getReserves();
+            if (reserves != null) {
+                for (int i = 0; i < reserves.size(); i++) {
+                    Reserva previa = reserves.get(i);
+                    if (previa.getDataAsignacio().compareTo(reserva.getDataAsignacio())==0){
+                        errors.rejectValue("dataAsignacio", "Valor incorrecte", "Ja hi ha una reserva en este dia");
+                    }
+                }
+            }
+        }catch (NullPointerException ex){
+            errors.rejectValue("dataAsignacio", "Valor incorrecte", "Null exception?");
+        }*/
+
     }
 }

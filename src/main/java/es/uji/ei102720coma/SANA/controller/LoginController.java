@@ -74,6 +74,8 @@ public class LoginController {
         if(ciutada != null) { //Si es un ciutada.
             session.setAttribute("ciutada", ciutada); //Guardem tots els datos del ciutada.
             //Aquí vendrá el return de la web a donde vaya el ciudadano cuando inicie sesión.
+            String nextUrl = (String) session.getAttribute("nextUrl");
+
         }else { // Si es un gestor municipal
             GestorMunicipal gestorMunicipal = gestorMunicipalDao.getGestorMunicipalEmail(user.getEmail()); //Agafem les dades del gestor municipal.
             session.setAttribute("gestor", gestorMunicipal); //Guardem les dades com un atribut de sessió.

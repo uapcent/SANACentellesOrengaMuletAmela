@@ -78,16 +78,16 @@ public class ReservaController {
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
         if (bindingResult.hasErrors()){
-//                for (Object object : bindingResult.getAllErrors()) {
-//                    if(object instanceof FieldError) {
-//                        FieldError fieldError = (FieldError) object;
-//                        System.out.println(fieldError.getCode());
-//                    }
-//                    if(object instanceof ObjectError) {
-//                        ObjectError objectError = (ObjectError) object;
-//                        System.out.println(objectError.getCode());
-//                    }
-//                }
+//          for (Object object : bindingResult.getAllErrors()) {
+//              if(object instanceof FieldError) {
+//                  FieldError fieldError = (FieldError) object;
+//                  System.out.println(fieldError.getCode());
+//               }
+//               if(object instanceof ObjectError) {
+//                  ObjectError objectError = (ObjectError) object;
+//                  System.out.println(objectError.getCode());
+//               }
+//          }
             return "reserva/add";
         }
         List<Reserva> reservas = reservaDao.getReserves(); //Obtenemos todas las reservas hasta la fecha.
