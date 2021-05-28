@@ -87,4 +87,14 @@ public class ReservaDao {
             return new ArrayList<>();
         }
     }
+
+    public Object getReserves(String dni_ciutada) {
+        try {
+            return jdbcTemplate.query(
+                    "SELECT * FROM Reserva WHERE dni=?", new ReservaRowMapper(), dni_ciutada);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<>();
+        }
+    }
 }

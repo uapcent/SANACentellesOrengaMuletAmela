@@ -22,12 +22,6 @@ public class ZonaController {
     @Autowired
     public void setZonaDao(ZonaDao zonaDao){ this.zonaDao = zonaDao; }
 
-    @RequestMapping("/list")
-    public String listZones(Model model){
-        model.addAttribute("zones", zonaDao.getZones());
-        return "zona/list";
-    }
-
     @RequestMapping(value="/add")
     public String addZona(Model model) {
         model.addAttribute("zona", new Zona());
@@ -82,6 +76,12 @@ public class ZonaController {
     public String processDelete(@PathVariable String nom_espai, @PathVariable String codi) {
         zonaDao.deleteZona(codi, nom_espai);
         return "redirect:../../list";
+    }
+
+    @RequestMapping("/list")
+    public String listZones(Model model){
+        model.addAttribute("zones", zonaDao.getZones());
+        return "zona/list";
     }
 
     @RequestMapping(value = "/listzonesespai/{nom_espai}")

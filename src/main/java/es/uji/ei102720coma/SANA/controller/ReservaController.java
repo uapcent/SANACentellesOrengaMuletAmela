@@ -44,6 +44,13 @@ public class ReservaController {
         return "reserva/list";
     }
 
+    @RequestMapping(value = "/listreservesciutada/{dni_ciutada}")
+    public String listReservesCiutada(Model model, @PathVariable String dni_ciutada){
+        model.addAttribute("reserves", reservaDao.getReserves(dni_ciutada));
+        model.addAttribute("dniCiutada", dni_ciutada);
+        return "reserva/listReservaCiutada";
+    }
+
     @RequestMapping(value="/add/{nom_espai}/{codi_zona}")
     public String addReserva(Model model, HttpSession session, @PathVariable String nom_espai, @PathVariable String codi_zona) {
         if(session.getAttribute("ciutada") == null) {
