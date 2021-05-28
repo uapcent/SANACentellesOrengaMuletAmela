@@ -51,4 +51,12 @@ public class EspaiServeiPermanentDao {
             return new ArrayList<>();
         }
     }
+
+    public List<EspaiServeiPermanent> getEspaisServeisPermanents(String nomEspai) {
+        try {
+            return jdbcTemplate.query("SELECT *  FROM Espai_Servei_Perm WHERE nom_espai =?", new EspaiServeiPermanentRowMapper(), nomEspai);
+        }catch (EmptyResultDataAccessException e) {
+            return new ArrayList<>();
+        }
+    }
 }

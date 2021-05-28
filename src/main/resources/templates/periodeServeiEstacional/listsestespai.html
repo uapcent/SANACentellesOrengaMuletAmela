@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Informació serveis estacionals</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Serveis estacionals disponibles en <span th:text="${nom_espai}"></span></h1>
+    <div th:if="${#lists.isEmpty(serveiespai)}">
+        <br>
+        <h4>En aquest moment este espai no conté serveis estacionals disponibles. Torna en un altre moment.</h4>
+    </div>
+    <br>
+    <table th:unless="${#lists.isEmpty(serveiespai)}" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom Servei</th>
+            <th>Lloc de contracte</th>
+            <th>Hora apertura</th>
+            <th>Hora tancament</th>
+            <th>Día d'apertura</th>
+            <th>Día de tancament</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="serveiestacional : ${informacioserveisest}" >
+                <td th:text="${serveiestacional.key.nom}"></td>
+                <td th:text="${serveiestacional.key.llocContracte}"></td>
+                <td th:text="${serveiestacional.key.horaInici}"></td>
+                <td th:text="${serveiestacional.key.horaFi}"></td>
+                <td th:text="${serveiestacional.value.dataInici}"></td>
+                <td th:text="${serveiestacional.value.dataFi}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
