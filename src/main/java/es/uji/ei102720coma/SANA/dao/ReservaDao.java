@@ -88,7 +88,7 @@ public class ReservaDao {
         }
     }
 
-    public Object getReserves(String dni_ciutada) {
+    public List<Reserva> getReserves(String dni_ciutada) {
         try {
             return jdbcTemplate.query(
                     "SELECT * FROM Reserva WHERE dni=?", new ReservaRowMapper(), dni_ciutada);

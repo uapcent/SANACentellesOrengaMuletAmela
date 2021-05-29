@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -44,11 +45,23 @@ public class ReservaController {
         return "reserva/list";
     }
 
-    @RequestMapping(value = "/listreservesciutada/{dni_ciutada}")
-    public String listReservesCiutada(Model model, @PathVariable String dni_ciutada){
-        model.addAttribute("reserves", reservaDao.getReserves(dni_ciutada));
+    //Llista de les reserves de un ciutadà
+    @RequestMapping(value = "/listreservesciutada")
+    public String listReservesCiutada(Model model, HttpSession session){
+        Ciutada ciutada = (Ciutada) session.getAttribute("ciutada");
+        String dni_ciutada = ciutada.getDniCiutada();
+        List<Reserva> listReservesCiudada = reservaDao.getReserves(dni_ciutada);
+        HashMap<Reserva, ReservaZona> reservaZonaHashMap = new HashMap<>();
+        for (Reserva reserva : listReservesCiudada){
+            ReservaZona zona = reservaZonaDao.getReservaZona(reserva.getCodi());
+            reservaZonaHashMap.put(reserva, zona);
+            System.out.println(reserva.toString());
+            //System.out.println(zona.getNomZona());
+        }
+        model.addAttribute("reservaZonaHashMap", reservaZonaHashMap);
+        model.addAttribute("llistaReserves", listReservesCiudada);
         model.addAttribute("dniCiutada", dni_ciutada);
-        return "reserva/listReservaCiutada";
+        return "reserva/listreservesciutada";
     }
 
     @RequestMapping(value="/add/{nom_espai}/{codi_zona}")

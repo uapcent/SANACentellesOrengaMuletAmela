@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <title>Gestionar Reserves</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Les teves reserves</h1>
+    <div th:if="${#lists.isEmpty(llistaReserves)}">
+        <br>
+        <h4>En aquest moment este espai no conté serveis estacionals disponibles. Torna en un altre moment.</h4>
+    </div>
+    <table th:unless="${#lists.isEmpty(llistaReserves)}"
+           class="table table-striped">
+        <thead>
+        <tr>
+            <th>Codi</th>
+            <!--<th>Dni</th>-->
+            <th>Nom del Espai</th>
+            <th>Zona</th>
+            <th>Data de creació</th>
+            <th>Estat</th>
+            <th>Num persones</th>
+            <th>Data asignació</th>
+            <th>Data expiració</th>
+            <th>Hora inici espai</th>
+            <th>Hora fi espai</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reserva: ${reservaZonaHashMap}">
+            <td th:text="${reserva.key.codi}"></td>
+            <!--<td th:text="${reserva.dni}"></td>-->
+            <td th:text="${reserva.key.nomEspai}"></td>
+            <td th:text="${reserva.value.nomZona}"></td>
+            <td th:text="${reserva.key.dataCreacio}"></td>
+            <td th:text="${reserva.key.estat}"></td>
+            <td th:text="${reserva.key.numPersones}"></td>
+            <td th:text="${reserva.key.dataAsignacio}"></td>
+            <td th:text="${reserva.key.dataExpiracio}"></td>
+            <td th:text="${reserva.key.horaIniciEspai}"></td>
+            <td th:text="${reserva.key.horaFiEspai}"></td>
+            <td><a th:href="@{/reserva/update/{codi}(codi=${reserva.key.codi})}" class="btn btn-warning" role="button">Editar</a>
+            </td>
+            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" class="btn btn-danger" role="button">Cancelar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
