@@ -47,11 +47,16 @@
             <td th:text="${reserva.key.horaFiEspai}"></td>
             <td><a th:href="@{/reserva/update/{codi}(codi=${reserva.key.codi})}" class="btn btn-warning" role="button">Editar</a>
             </td>
-            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" class="btn btn-danger" role="button">Cancelar</a>
+            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Cancelar</a>
             </td>
         </tr>
         </tbody>
     </table>
+    <script>
+        function myFunction() {
+            confirm("Estás seguro que quieres borrarla?");
+        }
+</script>
 </div>
 </body>
 </html>

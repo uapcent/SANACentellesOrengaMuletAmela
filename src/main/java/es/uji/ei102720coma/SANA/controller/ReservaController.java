@@ -127,7 +127,7 @@ public class ReservaController {
         reservaZona.setNomZona(codigoZona);
         reservaDao.addReserva(reserva);
         reservaZonaDao.addReservaZona(reservaZona);
-        return "redirect:/";
+        return "reserva/correcto";
     }
 
     @RequestMapping(value="/update/{codi}", method = RequestMethod.GET)
