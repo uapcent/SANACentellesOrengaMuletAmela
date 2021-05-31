@@ -34,7 +34,7 @@ public class ReservaDao {
                 reserva.getHoraFiEspai());
     }
 
-    /* Esborra la reserva de la base de dades */
+    /* Esborra la reserva de la base de    dades */
     public void deleteProva(Reserva reserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + reserva.getCodi() + "'");
 
