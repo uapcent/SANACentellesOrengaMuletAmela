@@ -6,8 +6,4 @@
         Autenticat com <span th:text="*{ciutada.email}"></span> <a
             href="/logout" th:href="@{/logout}">Eixir</a>
     </p>
-    <p th:unless="*{gestor == null}">
-        Autenticat com gestor <span th:text="*{gestor.email}"></span> <a
-            href="/logout" th:href="@{/logout}">Eixir</a>
-    </p>
 </div>
