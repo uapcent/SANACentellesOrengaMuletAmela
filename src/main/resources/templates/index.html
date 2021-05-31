@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>SANA</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css">
+</head>
+
+<body>
+
+<div class="secondary-block" layout:fragment="content">
+
+    <div>
+        <h1>SANA</h1>
+        <h2>Safe Access to Natural Areas</h2>
+        <h4> Aquesta pàgina conté una llista de totes les arees naturals registrades, on es podrá consultar la seva
+            ocupació, o reservar una zona si es un espai restringit. <br>
+            Clica açí si vols consultar els espais públics disponibles
+        </h4>
+        <form class="no-padding" action="/espaipublic/list">
+            <button type="submit" >Llista d'espais Públic</button>
+        </form>
+    </div>
+    <div th:object="${session}">
+        <div th:if="*{ciutada == null}">
+        <h4>Per a poder fer una reserva, es necessita un compte en SANA</h4>
+
+        <form class="no-padding" action="/login" th:href="@{/login}">
+            <button type="submit" >Iniciar sesió</button>
+        </form>
+        <form class="no-padding" action="/ciutada/registrar">
+            <button type="submit">Crear compte</button>
+        </form>
+        </div>
+    </div>
+    <!--
+<ul>
+    <li><a href="municipi/list">Gestió de Municipis</a></li>
+    <li><a href="ciutada/list">Gestió de Ciutadans</a></li>
+    <li><a href="controlador/list">Gestió de Controladors</a></li>
+    <li><a href="controladorespai/list">Gestió de Controladors en Espais</a></li>
+    <li><a href="email/list">Gestió de Emails</a></li>
+    <li><a href="espaipublic/list">Gestió d'Espais Públics</a></li>
+    <li><a href="espaiserveipermanent/list">Gestió d'Espais de Servei Permanent</a></li>
+    <li><a href="franjaEspai/list">Gestió de Franja d'Espais</a></li>
+    <li><a href="gestormunicipal/list">Gestió de Gestors Municipals</a></li>
+    <li><a href="periodeserveiestacional/list">Gestió de Periode Serveis Estacionals</a></li>
+    <li><a href="reserva/list">Gestió de Reserves</a></li>
+    <li><a href="reservazona/list">Gestió de Reserves en Zones</a></li>
+    <li><a href="serveiestacional/list">Gestió de Serveis Estacionals</a></li>
+    <li><a href="serveipermanent/list">Gestió de Serveis Permanents</a></li>
+    <li><a href="zona/list">Gestió de Zones</a></li>
+    <br>
+    <li><a href="reservazona/add">Reservar Zona</a></li>
+    <li><a href="ciutada/registrar">Registrar Ciutada</a></li>
+</ul>
+-->
+</div>
+</body>
+</html>

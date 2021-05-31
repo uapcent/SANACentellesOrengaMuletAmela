@@ -85,7 +85,7 @@ public class LoginController {
             session.setAttribute("gestor", gestorMunicipal); //Guardem les dades com un atribut de sessió.
             //Aquí vendrá el return de la web a donde vaya el gestor Municipal cuando inicie sesión.
         }
-        return "redirect:/";
+        return "index";
     }
 
     @RequestMapping("/logout")

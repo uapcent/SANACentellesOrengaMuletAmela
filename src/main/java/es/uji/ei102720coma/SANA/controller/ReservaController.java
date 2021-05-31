@@ -157,7 +157,7 @@ public class ReservaController {
 
     @RequestMapping(value="/delete/{codi}")
     public String processDelete(@PathVariable String codi) {
-        reservaDao.deleteProva(codi);
+        reservaDao.deleteReserva(codi);
         return "redirect:../list";
     }
 

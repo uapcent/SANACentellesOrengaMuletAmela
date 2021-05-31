@@ -20,6 +20,7 @@ public class ReservaDao {
     }
 
     /*Afegir Reserva a la base de dades*/
+    //TODO comprorvar que no se fajen 2 reserves en el mateix dia
     public void addReserva(Reserva reserva){
         jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 reserva.getCodi(),
@@ -35,14 +36,16 @@ public class ReservaDao {
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteProva(Reserva reserva) {
+    public void deleteReserva(Reserva reserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + reserva.getCodi() + "'");
 
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteProva(String codi) {
-        jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + codi + "'");
+    public void deleteReserva(String codi) {
+        jdbcTemplate.update("UPDATE Reserva " +
+                "SET estat = cancel·lat" +
+                "WHERE codi = '" + codi + "'");
 
     }
 

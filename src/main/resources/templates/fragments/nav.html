@@ -9,30 +9,31 @@
     </div>
 </nav>-->
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand" href="/">SANA</a>
-    <div>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Inici <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/espaipublic/list">Llista de espais públics</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/reserva/listreservesciutada">Les meves reserves</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Mes links
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Algo 1</a>
-                    <a class="dropdown-item" href="#">Algo 2</a>
-                    <a class="dropdown-item" href="#">Algo 3</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success"
+     th:object="${session}">
+        <a class="navbar-brand" href="index">SANA</a>
+        <div>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index">Inici <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/espaipublic/list">Llista de espais públics</a>
+                </li>
+                <li class="nav-item"
+                    th:unless="*{ciutada == null}">
+                    <a class="nav-link" href="/reserva/listreservesciutada">Les meves reserves</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mes links
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Algo 1</a>
+                        <a class="dropdown-item" href="#">Algo 2</a>
+                        <a class="dropdown-item" href="#">Algo 3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 </nav>
