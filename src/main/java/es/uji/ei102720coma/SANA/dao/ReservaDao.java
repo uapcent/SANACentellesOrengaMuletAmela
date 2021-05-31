@@ -35,13 +35,13 @@ public class ReservaDao {
     }
 
     /* Esborra la reserva de la base de    dades */
-    public void deleteProva(Reserva reserva) {
+    public void deleteReserva(Reserva reserva) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + reserva.getCodi() + "'");
 
     }
 
     /* Esborra la reserva de la base de dades */
-    public void deleteProva(String codi) {
+    public void deleteReserva(String codi) {
         jdbcTemplate.update("DELETE FROM Reserva WHERE codi = '" + codi + "'");
 
     }

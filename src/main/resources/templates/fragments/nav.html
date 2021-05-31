@@ -1,16 +1,5 @@
-
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" ><a class="nav-link" href="/" th:href="@{/}">Pàgina principal</a></li>
-            <li class="nav-item" ><a class="nav-link" href="/" th:href="@{/}">Enllaç 1</a></li>
-            <li class="nav-item" ><a class="nav-link" href="/" th:href="@{/}">Enllaç 2</a></li>
-        </ul>
-    </div>
-</nav>-->
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success"
+    th:object="${session}">
     <a class="navbar-brand" href="/">SANA</a>
     <div>
         <ul class="navbar-nav">
@@ -20,8 +9,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/espaipublic/list">Llista de espais públics</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"
+            th:unless="*{ciutada == null}">
                 <a class="nav-link" href="/reserva/listreservesciutada">Les meves reserves</a>
+            </li>
+
+            <li class="nav-item"
+                th:unless="*{gestor == null}">
+                <a class="nav-link" href="/reserva/listreservesciutada">Manejar parques</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
