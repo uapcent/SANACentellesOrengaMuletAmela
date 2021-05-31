@@ -55,7 +55,6 @@ public class ReservaController {
         for (Reserva reserva : listReservesCiudada){
             ReservaZona zona = reservaZonaDao.getReservaZona(reserva.getCodi());
             reservaZonaHashMap.put(reserva, zona);
-            System.out.println(reserva.toString());
             //System.out.println(zona.getNomZona());
         }
         model.addAttribute("reservaZonaHashMap", reservaZonaHashMap);
@@ -155,10 +154,10 @@ public class ReservaController {
         return "redirect:list";
     }
 
-    @RequestMapping(value="/delete/{codi}")
-    public String processDelete(@PathVariable String codi) {
-        reservaDao.deleteReserva(codi);
-        return "redirect:../list";
-    }
+//    @RequestMapping(value="/delete/{codi}")
+//    public String processDelete(@PathVariable String codi) {
+//        reservaDao.deleteReserva(codi);
+//        return "redirect:../list";
+//    }
 
 }
