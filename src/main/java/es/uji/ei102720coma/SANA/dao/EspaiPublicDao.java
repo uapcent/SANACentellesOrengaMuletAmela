@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -73,6 +74,14 @@ public class EspaiPublicDao {
             return jdbcTemplate.query("SELECT * FROM Espai_Public", new EspaiPublicRowMapper());
         }catch (EmptyResultDataAccessException e) {
             return null;
+        }
+    }
+
+    public List<EspaiPublic> getEspaisPublicsMunicipi(String nomMunicipi) {
+        try {
+            return jdbcTemplate.query("SELECT * FROM Espai_Public WHERE nom_municipi =?", new EspaiPublicRowMapper(), nomMunicipi);
+        }catch (EmptyResultDataAccessException e) {
+            return new ArrayList<>();
         }
     }
 }

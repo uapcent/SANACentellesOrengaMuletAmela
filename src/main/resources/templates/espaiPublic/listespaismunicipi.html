@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content" th:object="${session}">
+    <h1>Espais del municipi: <span th:text="${session.gestor.nomMunicipi}"></span></h1>
+    <div th:if="${#lists.isEmpty(listespaismunicipi)}">
+        <br>
+        <h4>En aquest moment no hi ha Espais en aquest municipi. Afegeix un espai públic!</h4>
+        <button type="button">Afegir espai públic</button>
+    </div>
+    <br>
+    <p style="font-style: italic">Utilitza el botó 'Gestionar' per fer gestions sobre un espai.</p>
+    <table th:unless="${#lists.isEmpty(listespaismunicipi)}" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom de l'espai</th>
+                <th>Tipus accés espai</th>
+                <th>Tipus sòl</th>
+                <th>Tipus espai</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="espaipublic : ${listespaismunicipi}">
+                <td th:text="${espaipublic.nom}"></td>
+                <td th:text="${espaipublic.tipusAcces}"></td>
+                <td th:text="${espaipublic.tipusSol}"></td>
+                <td th:text="${espaipublic.tipusEspai}"></td>
+                <td><a th:href="@{/}" class="btn btn-info btn-lg" role="button">Gestionar espai</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button">Afegeix un espai</button>
+</div>
+</body>
+</html>

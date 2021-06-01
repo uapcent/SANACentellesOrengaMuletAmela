@@ -2,6 +2,7 @@ package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.EspaiPublicDao;
 import es.uji.ei102720coma.SANA.model.EspaiPublic;
+import es.uji.ei102720coma.SANA.model.GestorMunicipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/espaipublic")
@@ -90,6 +94,15 @@ public class EspaiPublicController {
     public String informacioEspaiPublic(Model model, @PathVariable String nom) {
         model.addAttribute("espaipublic", espaiPublicDao.getEspaiPublic(nom));
         return "espaipublic/informacio";
+    }
+
+    @RequestMapping(value = "/listespaismunicipi")
+    public String llistaEspaisMunicipi(Model model, HttpSession session) {
+        GestorMunicipal gestorMunicipal = (GestorMunicipal) session.getAttribute("gestor");
+        String municipiGestor = gestorMunicipal.getNomMunicipi();
+        List<EspaiPublic> llistaEspaisMunicipi = espaiPublicDao.getEspaisPublicsMunicipi(municipiGestor);
+        model.addAttribute("listespaismunicipi", llistaEspaisMunicipi);
+        return "espaipublic/listespaismunicipi";
     }
 
 }

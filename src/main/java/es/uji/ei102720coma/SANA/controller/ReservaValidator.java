@@ -5,16 +5,14 @@ import es.uji.ei102720coma.SANA.model.Reserva;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-
 import java.time.LocalDate;
 import java.util.List;
 
+
 public class ReservaValidator implements Validator {
 
-    private ReservaDao reservaDao;
-
     @Autowired
-    public void setReservaDao(ReservaDao reservaDao){this.reservaDao = reservaDao;}
+    private ReservaDao reservaDao;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -31,16 +29,15 @@ public class ReservaValidator implements Validator {
         }
 
         //TODO está roto el DAO
-        /*
-        List<Reserva> reservas = reservaDao.getReserves();
-        System.out.println(reservas.size());
-        for (Reserva reservaExistente : reservas){
-            if (reservaExistente.getDataAsignacio().compareTo(reserva.getDataAsignacio())==0
-                    && reservaExistente.getEstat().equals("Activo")){
 
-                errors.rejectValue("dataAsignacio", "Valor incorrecte", "Ja hi ha una reserva per a aquest dia, prova un altre dia o zona");
-            }
-        }*/
+//        List<Reserva> reservas = reservaDao.getReserves();
+//        System.out.println(reservas.size());
+//        for (Reserva reservaExistente : reservas){
+//            if (reservaExistente.getDataAsignacio().compareTo(reserva.getDataAsignacio())==0
+//                    && reservaExistente.getEstat().equals("Activo")){
+//                errors.rejectValue("dataAsignacio", "Valor incorrecte", "Ja hi ha una reserva per a aquest dia, prova un altre dia o zona");
+//            }
+//        }
 
         /*try {
             List<Reserva> reserves = reservaDao.getReserves();
@@ -55,6 +52,5 @@ public class ReservaValidator implements Validator {
         }catch (NullPointerException ex){
             errors.rejectValue("dataAsignacio", "Valor incorrecte", "Null exception?");
         }*/
-
     }
 }
