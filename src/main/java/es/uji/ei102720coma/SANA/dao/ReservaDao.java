@@ -85,7 +85,7 @@ public class ReservaDao {
     public List<Reserva> getReserves() {
         try {
             return jdbcTemplate.query(
-                    "SELECT * FROM Reserva",
+                    "SELECT * FROM Reserva ORDER BY codi",
                     new ReservaRowMapper());
         }
         catch(EmptyResultDataAccessException e) {

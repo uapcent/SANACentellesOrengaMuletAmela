@@ -117,7 +117,7 @@ public class ReservaController {
 
         Reserva ultimaReserva = reservas.get(reservas.size()-1);
         String codigoUltimaReserva = ultimaReserva.getCodi();
-        String [] ultimoNumeroReserva = codigoUltimaReserva.split("0"); //Sacamos la parte del numero de la reserva
+        String [] ultimoNumeroReserva = codigoUltimaReserva.split("R0"); //Sacamos la parte del numero de la reserva
         int numeroActualReserva = Integer.valueOf(ultimoNumeroReserva[1]) + 1;
         reserva.setCodi("R0" + numeroActualReserva); //Codigo de la reserva asignado automaticamente.
         reserva.setDataCreacio(LocalDate.now()); //Ponemos como fecha de creación la fecha de ese dia según el pc de esa persona
