@@ -111,6 +111,10 @@ public class ReservaController {
             return "reserva/add";
         }
         List<Reserva> reservas = reservaDao.getReserves(); //Obtenemos todas las reservas hasta la fecha.
+
+        //Comprova que no hi hajen reserves en eixe dia
+
+
         Reserva ultimaReserva = reservas.get(reservas.size()-1);
         String codigoUltimaReserva = ultimaReserva.getCodi();
         String [] ultimoNumeroReserva = codigoUltimaReserva.split("0"); //Sacamos la parte del numero de la reserva
@@ -154,10 +158,11 @@ public class ReservaController {
         return "redirect:list";
     }
 
-//    @RequestMapping(value="/delete/{codi}")
-//    public String processDelete(@PathVariable String codi) {
-//        reservaDao.deleteReserva(codi);
-//        return "redirect:../list";
-//    }
+    @RequestMapping(value="/delete/{codi}")
+    public String processDelete(@PathVariable String codi) {
+        //reservaZonaDao.deleteReservaZona(codi);
+        reservaDao.cancelReserva(codi);
+        return "redirect:../list";
+    }
 
 }

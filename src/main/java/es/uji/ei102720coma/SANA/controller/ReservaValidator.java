@@ -30,6 +30,17 @@ public class ReservaValidator implements Validator {
             errors.rejectValue("dataAsignacio", "Valor incorrecte", "La data ha de ser per a hui o un dia posterior");
         }
 
+        //TODO está roto el DAO
+        List<Reserva> reservas = reservaDao.getReserves();
+        System.out.println(reservas.size());
+        for (Reserva reservaExistente : reservas){
+            if (reservaExistente.getDataAsignacio().compareTo(reserva.getDataAsignacio())==0
+                    && reservaExistente.getEstat().equals("Activo")){
+
+                errors.rejectValue("dataAsignacio", "Valor incorrecte", "Ja hi ha una reserva per a aquest dia, prova un altre dia o zona");
+            }
+        }
+
         /*try {
             List<Reserva> reserves = reservaDao.getReserves();
             if (reserves != null) {
