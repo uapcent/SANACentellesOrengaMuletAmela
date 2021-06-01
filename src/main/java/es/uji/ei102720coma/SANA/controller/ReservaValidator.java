@@ -31,6 +31,7 @@ public class ReservaValidator implements Validator {
         }
 
         //TODO está roto el DAO
+        /*
         List<Reserva> reservas = reservaDao.getReserves();
         System.out.println(reservas.size());
         for (Reserva reservaExistente : reservas){
@@ -39,7 +40,7 @@ public class ReservaValidator implements Validator {
 
                 errors.rejectValue("dataAsignacio", "Valor incorrecte", "Ja hi ha una reserva per a aquest dia, prova un altre dia o zona");
             }
-        }
+        }*/
 
         /*try {
             List<Reserva> reserves = reservaDao.getReserves();
