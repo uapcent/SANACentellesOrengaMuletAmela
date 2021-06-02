@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Gestio de l'espai públic: <span th:text="${gestioespai.nom}"></span></h1>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Característiques</th>
+                <th scope="col">Informació</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Nombre</th>
+                <td th:text="${gestioespai.nom}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Municipi</th>
+                <td th:text="${gestioespai.nomMunicipi}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Acces a l'espai</th>
+                <td th:text="${gestioespai.tipusAcces}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Sòl de l'espai</th>
+                <td th:text="${gestioespai.tipusSol}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Tipus d'Espai</th>
+                <td th:text="${gestioespai.tipusEspai}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Hora d'apertura</th>
+                <td th:text="${franjaespai.horaInici}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Hora de tancada</th>
+                <td th:text="${franjaespai.horaFi}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Ubicació Geogràfica</th>
+                <td th:text="${gestioespai.localitzacioGeografica}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Amplaria de l'espai (en metres)</th>
+                <td th:text="${gestioespai.amplaria}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Llargaria de l'espai (en metres)</th>
+                <td th:text="${gestioespai.llargaria}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Orientacio</th>
+                <td th:text="${gestioespai.orientacio}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Descripcio</th>
+                <td th:text="${gestioespai.descripcio}"></td>
+            </tr>
+            <tr>
+                <th scope="row">Ruta imatges</th>
+                <td>
+                    <span th:if="${gestioespai.imatges == 'NULL'}">Vacío</span>
+                    <span th:unless="${gestioespai.imatges == 'NULL'}" th:text="${gestioespai.imatges}"></span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Comentaris</th>
+                <td>
+                    <span th:if="${gestioespai.comentaris == 'NULL'}">Vacío</span>
+                    <span th:unless="${gestioespai.comentaris == 'NULL'}" th:text="${gestioespai.comentaris}"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
+        <button type="button">Editar espai</button>
+        <button type="button">Gestionar zones</button>
+        <button type="button">Gestionar serveis permanents</button>
+        <button type="button">Gestionar serveis estacionals</button>
+    </div>
+    <div th:unless="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
+        <button type="button">Editar espai</button>
+        <button type="button">Gestionar serveis permanents</button>
+        <button type="button">Gestionar serveis estacionals</button>
+    </div>
+</div>
+</body>
+</html>

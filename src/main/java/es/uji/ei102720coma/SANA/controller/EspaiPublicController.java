@@ -1,6 +1,7 @@
 package es.uji.ei102720coma.SANA.controller;
 
 import es.uji.ei102720coma.SANA.dao.EspaiPublicDao;
+import es.uji.ei102720coma.SANA.dao.FranjaEspaiDao;
 import es.uji.ei102720coma.SANA.model.EspaiPublic;
 import es.uji.ei102720coma.SANA.model.GestorMunicipal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class EspaiPublicController {
     public void setEspaiPublicDao(EspaiPublicDao espaiPublicDao) {
         this.espaiPublicDao = espaiPublicDao;
     }
+
+    @Autowired
+    private FranjaEspaiDao franjaEspaiDao;
 
     @RequestMapping("/list")
     public String listEspaisPublics(Model model) {
@@ -105,4 +109,10 @@ public class EspaiPublicController {
         return "espaipublic/listespaismunicipi";
     }
 
+    @RequestMapping(value = "/gestionarespai/{nom}")
+    public String gestionarEspaiPublic(Model model, @PathVariable String nom) {
+        model.addAttribute("gestioespai", espaiPublicDao.getEspaiPublic(nom));
+        model.addAttribute("franjaespai", franjaEspaiDao.getFranjaEspai(nom));
+        return "espaipublic/gestionarespai";
+    }
 }
