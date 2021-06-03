@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <title>Gestionar els espais publics</title>
   <meta charset="UTF-8" />
@@ -8,34 +8,53 @@
 <body>
 <div class="container">
   <h2>Nou espai public</h2>
+  <br>
+  <p style="font-style: italic">(*) camps obligatoris</p>
   <form class="form-horizontal" action="#" th:action="@{/espaipublic/add}"
         th:object="${espaipublic}" method="post">
-
     <div class="form-group row">
       <label class="control-label col-sm-2" for="nom">Nom Espai:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="nom" th:field="*{nom}" />
+        <input type="text" class="form-control" id="nom" th:field="*{nom}"/>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_acces">Tipus Acces:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="tipus_acces" th:field="*{tipusAcces}" />
+        <select class="form-control" id="tipus_acces" th:field="*{tipusAcces}">
+          <option value="No seleccionat">Selecciona el tipus d'Accés</option>
+          <option value="Obert">Obert</option>
+          <option value="Restringit">Restringit</option>
+          <option value="Tancat">Tancat</option>
+        </select>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_sol">Tipus Sol:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="tipus_sol" th:field="*{tipusSol}" />
+        <select class="form-control" id="tipus_sol" th:field="*{tipusSol}">
+          <option value="No seleccionat">Selecciona el tipus de sòl</option>
+          <option value="Sorra"></option>
+          <option value="Pedra"></option>
+          <option value="Rocam"></option>
+          <option value="Urbà"></option>
+        </select>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_espai">Tipus Espai:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="tipus_espai" th:field="*{tipusEspai}"/>
+        <select class="form-control" id="tipus_espai" th:field="*{tipusEspai}">
+          <option value="No seleccionat">Selecciona el tipus d'espai</option>
+          <option value="Platja"></option>
+          <option value="Riu"></option>
+          <option value="Llac"></option>
+          <option value="Estany"></option>
+          <option value="Bosc"></option>
+        </select>
       </div>
     </div>
 
@@ -49,21 +68,21 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="descripcio">Descripcio:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="descripcio" th:field="*{descripcio}"/>
+        <textarea class="form-control" id="descripcio" th:field="*{descripcio}" rows="4"></textarea>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="llargaria">Llargaria:</label>
       <div class="col-sm-4">
-        <input type="number" class="form-control" id="llargaria" th:field="*{llargaria}"/>
+        <input type="text" class="form-control" id="llargaria" th:field="*{llargaria}"/>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="amplaria">Amplaria:</label>
       <div class="col-sm-4">
-        <input type="number" class="form-control" id="amplaria" th:field="*{amplaria}"/>
+        <input type="text" class="form-control" id="amplaria" th:field="*{amplaria}"/>
       </div>
     </div>
 
@@ -77,7 +96,7 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="comentaris">Comentaris:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="comentaris" th:field="*{comentaris}"/>
+        <textarea class="form-control" id="comentaris" th:field="*{comentaris}" rows="4"></textarea>
       </div>
     </div>
 

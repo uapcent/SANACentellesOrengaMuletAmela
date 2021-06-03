@@ -41,11 +41,13 @@
             </tr>
             <tr>
                 <th scope="row">Hora d'apertura</th>
-                <td th:text="${franjaespai.horaInici}"></td>
+                <td th:if="${franjaespai != null}" th:text="${franjaespai.horaInici}"></td>
+                <td th:unless="${franjaespai != null}">Cap</td>
             </tr>
             <tr>
                 <th scope="row">Hora de tancada</th>
-                <td th:text="${franjaespai.horaFi}"></td>
+                <td th:if="${franjaespai != null}" th:text="${franjaespai.horaFi}"></td>
+                <td th:unless="${franjaespai != null}">Vacío</td>
             </tr>
             <tr>
                 <th scope="row">Ubicació Geogràfica</th>
