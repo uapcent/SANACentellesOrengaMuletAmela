@@ -113,13 +113,8 @@ public class ReservaController {
         List<Reserva> reservas = reservaDao.getReserves(); //Obtenemos todas las reservas hasta la fecha.
 
         //Comprova que no hi hajen reserves en eixe dia
-
-
-        Reserva ultimaReserva = reservas.get(reservas.size()-1);
-        String codigoUltimaReserva = ultimaReserva.getCodi();
-        String [] ultimoNumeroReserva = codigoUltimaReserva.split("R0"); //Sacamos la parte del numero de la reserva
-        int numeroActualReserva = Integer.valueOf(ultimoNumeroReserva[1]) + 1;
-        reserva.setCodi("R0" + numeroActualReserva); //Codigo de la reserva asignado automaticamente.
+        int numeroActualReserva = reservas.size();
+        reserva.setCodi("R0" + (numeroActualReserva+1)); //Codigo de la reserva asignado automaticamente.
         reserva.setDataCreacio(LocalDate.now()); //Ponemos como fecha de creación la fecha de ese dia según el pc de esa persona
         reserva.setDataExpiracio(reserva.getDataAsignacio()); //Para la fecha de expiración ponemos que sea igual que la que elige para visitar el espacio.
         reserva.setEstat("Activo"); //Estado asignado automaticamente al reservar.
