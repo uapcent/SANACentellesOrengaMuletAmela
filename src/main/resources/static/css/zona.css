@@ -9,6 +9,12 @@ body, div, form, input, select, p {
     font-size: 14px;
     color: #666;
 }
+body{
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
+}
+
 h1 {
     margin: 0;
     color: #000000;
@@ -74,7 +80,7 @@ form {
 }
 
 footer {
-    position: fixed;
+    /*position: fixed;*/
     bottom: 5%;
     width: 100%;
 }

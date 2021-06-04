@@ -5,6 +5,7 @@ import es.uji.ei102720coma.SANA.dao.ReservaDao;
 import es.uji.ei102720coma.SANA.dao.ReservaZonaDao;
 import es.uji.ei102720coma.SANA.dao.ZonaDao;
 import es.uji.ei102720coma.SANA.model.*;
+import es.uji.ei102720coma.SANA.services.DiaYaOcupadoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +49,11 @@ public class ReservaController {
     //Llista de les reserves de un ciutadà
     @RequestMapping(value = "/listreservesciutada")
     public String listReservesCiutada(Model model, HttpSession session){
+        if(session.getAttribute("ciutada") == null) {
+            model.addAttribute("user", new UserDetails());
+            session.setAttribute("nextUrl", "reserva/listreservesciutada");
+            return "login";
+        }
         Ciutada ciutada = (Ciutada) session.getAttribute("ciutada");
         String dni_ciutada = ciutada.getDniCiutada();
         List<Reserva> listReservesCiudada = reservaDao.getReserves(dni_ciutada);
@@ -123,8 +129,18 @@ public class ReservaController {
         reservaZona.setNomEspai(reserva.getNomEspai());
         String codigoZona = (String) session.getAttribute("codi_zona");
         reservaZona.setNomZona(codigoZona);
-        reservaDao.addReserva(reserva);
-        reservaZonaDao.addReservaZona(reservaZona);
+
+        System.out.println("Buenas señor, mostrando reservas en " + reserva.getNomEspai() + ": "+ codigoZona +" en el dia "+ reserva.getDataAsignacio().toString());
+
+        try{
+            reservaDao.getReservesZona(reserva.getNomEspai(), codigoZona, reserva.getDataAsignacio());
+            reservaDao.addReserva(reserva);
+            reservaZonaDao.addReservaZona(reservaZona);
+        }
+        catch (DiaYaOcupadoException ex){
+            return "reserva/add";
+        }
+
         return "reserva/correcto";
     }
 

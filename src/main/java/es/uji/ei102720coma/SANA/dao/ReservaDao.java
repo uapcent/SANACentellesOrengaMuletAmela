@@ -1,12 +1,15 @@
 package es.uji.ei102720coma.SANA.dao;
 
 import es.uji.ei102720coma.SANA.model.Reserva;
+import es.uji.ei102720coma.SANA.services.DiaYaOcupadoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,8 @@ public class ReservaDao {
     }
 
     /*Afegir Reserva a la base de dades*/
-    public void addReserva(Reserva reserva){
+    public void addReserva(Reserva reserva) {
+
         jdbcTemplate.update("INSERT INTO Reserva VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 reserva.getCodi(),
                 reserva.getDni(),
@@ -97,6 +101,23 @@ public class ReservaDao {
         try {
             return jdbcTemplate.query(
                     "SELECT * FROM Reserva WHERE dni=?", new ReservaRowMapper(), dni_ciutada);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Reserva> getReservesZona(String nom_espai, String nom_zona, LocalDate data) throws DiaYaOcupadoException {
+        try {
+
+            List<Reserva> llista = jdbcTemplate.query(
+                    "SELECT * FROM Reserva AS res JOIN Reserva_Zona AS zona ON res.codi=zona.codi_reserva WHERE estat='Activo' AND zona.nom_espai=? AND nom_zona=? AND data_asignacio=?;",
+                    new ReservaRowMapper(), nom_espai, nom_zona, data);
+            if (!llista.isEmpty()){
+                System.out.println(llista.size());
+                throw new DiaYaOcupadoException("Elige otro dia");
+            }
+            return llista;
         }
         catch(EmptyResultDataAccessException e) {
             return new ArrayList<>();
