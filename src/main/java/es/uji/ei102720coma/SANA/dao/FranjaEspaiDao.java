@@ -31,6 +31,14 @@ public class FranjaEspaiDao {
 
     }
 
+    public void updateFranjaEspai(FranjaEspai franjaEspai) {
+        jdbcTemplate.update("UPDATE Franja_Espai SET hora_inici =?, hora_fi =? WHERE nom_espai =?",
+                franjaEspai.getHoraInici(),
+                franjaEspai.getHoraFi(),
+                franjaEspai.getNomEspai());
+    }
+
+
     /* Obté la franja amb el nom donat. Torna null si no existeix. */
     public FranjaEspai getFranjaEspai(String nomEspai) {
         try {

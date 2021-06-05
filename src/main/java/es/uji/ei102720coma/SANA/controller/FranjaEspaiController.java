@@ -1,5 +1,6 @@
 package es.uji.ei102720coma.SANA.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import es.uji.ei102720coma.SANA.dao.FranjaEspaiDao;
 import es.uji.ei102720coma.SANA.model.FranjaEspai;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/franjaEspai")
+@RequestMapping("/franjaespai")
 public class FranjaEspaiController {
 
     private FranjaEspaiDao franjaEspaiDao;
@@ -25,13 +26,15 @@ public class FranjaEspaiController {
     @RequestMapping("/list")
     public String listFranjesEspai(Model model){
         model.addAttribute("franjesEspai", franjaEspaiDao.getFranjes());
-        return "franjaEspai/list";
+        return "franjaespai/list";
     }
 
-    @RequestMapping(value="/add")
-    public String addFranjaEspai(Model model) {
-        model.addAttribute("franjaEspai", new FranjaEspai());
-        return "franjaEspai/add";
+    @RequestMapping(value="/add/{nom_espai}")
+    public String addFranjaEspai(Model model, @PathVariable String nom_espai) {
+        FranjaEspai franjaEspai = new FranjaEspai();
+        franjaEspai.setNomEspai(nom_espai);
+        model.addAttribute("franjaEspai", franjaEspai);
+        return "franjaespai/add";
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
@@ -47,10 +50,25 @@ public class FranjaEspaiController {
                     System.out.println(objectError.getCode());
                 }
             }
-            return "franjaEspai/add";
+            return "franjaespai/add";
         }
         franjaEspaiDao.addFranja(franjaEspai);
-        return "redirect:list";
+        return "espaipublic/gestionarespai";
+    }
+
+    @RequestMapping(value = "/update/{nom_espai}", method = RequestMethod.GET)
+    public String editFranjaEspai(Model model, @PathVariable String nom_espai) {
+        model.addAttribute("franjaEspai", franjaEspaiDao.getFranjaEspai(nom_espai));
+        return "franjaespai/update";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String processUpdateSubmit(@ModelAttribute("franjaEspai") FranjaEspai franjaEspai, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return "franjaespai/update";
+        }
+        franjaEspaiDao.updateFranjaEspai(franjaEspai);
+        return "espaipublic/gestionarespai";
     }
 
     @RequestMapping(value="/delete/{nom_espai}")

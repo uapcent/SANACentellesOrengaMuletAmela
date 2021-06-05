@@ -72,15 +72,15 @@
             <tr>
                 <th scope="row">Ruta imatges</th>
                 <td>
-                    <span th:if="${gestioespai.imatges == 'NULL'}">Vacío</span>
-                    <span th:unless="${gestioespai.imatges == 'NULL'}" th:text="${gestioespai.imatges}"></span>
+                    <span th:if="${gestioespai.imatges == null}">Vacío</span>
+                    <span th:unless="${gestioespai.imatges == null}" th:text="${gestioespai.imatges}"></span>
                 </td>
             </tr>
             <tr>
                 <th scope="row">Comentaris</th>
                 <td>
-                    <span th:if="${gestioespai.comentaris == 'NULL'}">Vacío</span>
-                    <span th:unless="${gestioespai.comentaris == 'NULL'}" th:text="${gestioespai.comentaris}"></span>
+                    <span th:if="${gestioespai.comentaris == null}">Vacío</span>
+                    <span th:unless="${gestioespai.comentaris == null}" th:text="${gestioespai.comentaris}"></span>
                 </td>
             </tr>
         </tbody>
@@ -88,6 +88,12 @@
     <div th:if="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
         <button type="button">Editar espai</button>
         <a th:href="@{/zona/gestionarzonesespai/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar zones</button></a>
+        <div th:if="${franjaespai == null}">
+            <a th:href="@{/franjaespai/add/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Añade franja horaria</button></a>
+        </div>
+        <div th:unless="${franjaespai == null}">
+            <a th:href="@{/franjaespai/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Edita la franja horaria</button></a>
+        </div>
         <button type="button">Gestionar serveis permanents</button>
         <button type="button">Gestionar serveis estacionals</button>
     </div>
