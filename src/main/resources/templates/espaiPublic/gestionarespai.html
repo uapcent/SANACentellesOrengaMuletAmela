@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SANA</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
@@ -87,7 +87,7 @@
     </table>
     <div th:if="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
         <button type="button">Editar espai</button>
-        <button type="button">Gestionar zones</button>
+        <a th:href="@{/zona/gestionarzonesespai/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar zones</button></a>
         <button type="button">Gestionar serveis permanents</button>
         <button type="button">Gestionar serveis estacionals</button>
     </div>

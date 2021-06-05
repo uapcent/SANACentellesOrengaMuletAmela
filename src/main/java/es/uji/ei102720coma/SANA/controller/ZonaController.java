@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/zona")
 public class ZonaController {
@@ -84,10 +86,12 @@ public class ZonaController {
         return "zona/list";
     }
 
-    @RequestMapping(value = "/listzonesespai/{nom_espai}")
-    public String listZonasEspacio(Model model, @PathVariable String nom_espai) {
+    @RequestMapping(value = {"/listzonesespai/{nom_espai}","/gestionarzonesespai/{nom_espai}"})
+    public String listZonasEspacio(Model model, HttpSession session, @PathVariable String nom_espai) {
         model.addAttribute("zonasespacio", zonaDao.getZonesEspai(nom_espai));
         model.addAttribute("nomespaipublic", nom_espai);
+        if(session.getAttribute("gestor") != null)
+            return "zona/gestionarzonesespai";
         return "zona/listzonesespai";
 
     }
