@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Informacio serveis permanents</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Servicios permanentes disponibles en <span th:text="${nom_espai}"></span></h1>
+    <div th:if="${#lists.isEmpty(serveisespai)}">
+        <br>
+        <h4>En este momento este espacio no contiene servicios permanentes asignados. Añade un usando el botón!</h4>
+        <button type="button">Añadir servicio permanente</button>
+    </div>
+    <br>
+    <table th:unless="${#lists.isEmpty(serveisespai)}" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom Servei</th>
+            <th>Lloc de contracte</th>
+            <th>Hora apertura</th>
+            <th>Hora tancament</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="serveipermanent : ${informacioserveisperms}">
+            <td th:text="${serveipermanent.nom}"></td>
+            <td th:text="${serveipermanent.llocContracte}"></td>
+            <td th:text="${serveipermanent.horaInici}"></td>
+            <td th:text="${serveipermanent.horaFi}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/serveipermanent/serveisnoasignatsespai/{nom_espai}(nom_espai=${nom_espai})}"><button type="button">Añadir servicio permanente</button></a>
+</div>
+</body>
+</html>

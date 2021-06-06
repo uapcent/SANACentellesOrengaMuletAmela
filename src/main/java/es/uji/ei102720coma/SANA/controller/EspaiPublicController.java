@@ -38,9 +38,11 @@ public class EspaiPublicController {
         return "espaipublic/list";
     }
 
-    @RequestMapping(value="/add")
-    public String addEspaiPublic(Model model) {
-        model.addAttribute("espaipublic", new EspaiPublic());
+    @RequestMapping(value="/add/{nom_municipi}")
+    public String addEspaiPublic(Model model, @PathVariable String nom_municipi) {
+        EspaiPublic espaiPublic = new EspaiPublic();
+        espaiPublic.setNomMunicipi(nom_municipi);
+        model.addAttribute("espaipublic", espaiPublic);
         return "espaipublic/add";
     }
 

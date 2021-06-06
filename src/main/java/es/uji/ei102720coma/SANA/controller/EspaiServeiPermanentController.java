@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,16 +71,20 @@ public class EspaiServeiPermanentController {
         return "redirect:../../list";
     }
 
-    @RequestMapping("/listespai/{nom_espai}")
-    public String listaServeisPermanentsEspai(@PathVariable String nom_espai, Model model) {
+    @RequestMapping(value = {"/listespai/{nom_espai}", "/gestionarserveisperm/{nom_espai}"})
+    public String listaServeisPermanentsEspai(@PathVariable String nom_espai, Model model, HttpSession session) {
         List<ServeiPermanent> informacionServeiPerm = new ArrayList<>();
-        List<EspaiServeiPermanent> listaServeisPermEspais = espaiServeiPermanentDao.getEspaisServeisPermanents(nom_espai);
+        List<EspaiServeiPermanent> listaServeisPermEspais = espaiServeiPermanentDao.getEspaisServeisPermanents(nom_espai); //Recibimos los servicios permanentes que hay en un espacio.
         for(EspaiServeiPermanent espaiServeiPermanent : listaServeisPermEspais) {
-            informacionServeiPerm.add(serveiPermanentDao.getServeiPermanent(espaiServeiPermanent.getNomServeiPermanent()));
+            informacionServeiPerm.add(serveiPermanentDao.getServeiPermanent(espaiServeiPermanent.getNomServeiPermanent())); //Obtenemos la información de cada espacio
         }
-        model.addAttribute("serveisespai", listaServeisPermEspais);
-        model.addAttribute("informacioserveisperms", informacionServeiPerm);
-        model.addAttribute("nom_espai", nom_espai);
+        model.addAttribute("serveisespai", listaServeisPermEspais); //Espacios activos en el espcacio
+        model.addAttribute("informacioserveisperms", informacionServeiPerm); //Información global de los espacios.
+        model.addAttribute("nom_espai", nom_espai); //Nombre del espacio
+        if(session.getAttribute("gestor") != null) {
+            return "espaiserveipermanent/gestionarserveisperm";
+        }
         return "espaiserveipermanent/listespai";
     }
+
 }

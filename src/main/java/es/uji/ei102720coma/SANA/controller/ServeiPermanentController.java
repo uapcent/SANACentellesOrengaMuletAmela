@@ -1,6 +1,8 @@
 package es.uji.ei102720coma.SANA.controller;
 
+import es.uji.ei102720coma.SANA.dao.EspaiServeiPermanentDao;
 import es.uji.ei102720coma.SANA.dao.ServeiPermanentDao;
+import es.uji.ei102720coma.SANA.model.EspaiServeiPermanent;
 import es.uji.ei102720coma.SANA.model.ServeiPermanent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/serveipermanent")
 public class ServeiPermanentController {
@@ -25,10 +29,29 @@ public class ServeiPermanentController {
         this.serveiPermanentDao = serveiPermanentDao;
     }
 
+    @Autowired
+    private EspaiServeiPermanentDao espaiServeiPermanentDao;
+
     @RequestMapping("/list")
     public String listServeisPermanents(Model model) {
         model.addAttribute("serveispermanents", serveiPermanentDao.getServeisPermanents());
         return "serveipermanent/list";
+    }
+
+    @RequestMapping(value = "/serveisnoasignatsespai/{nom_espai}")
+    public String listServeisNoAsignats(Model model, @PathVariable String nom_espai) {
+        List<ServeiPermanent> listaServeisPermanents = serveiPermanentDao.getServeisPermanents();
+        List<EspaiServeiPermanent> listaServeisPermanentsEspai = espaiServeiPermanentDao.getEspaisServeisPermanents(nom_espai);
+        for(ServeiPermanent serveiPermanent : listaServeisPermanents) { //Nos quedamos con los servicios que todavía no se hayan asignado a ese espacio.
+            for(EspaiServeiPermanent espaiServeiPermanent : listaServeisPermanentsEspai) {
+                if(serveiPermanent.getNom().equals(espaiServeiPermanent.getNomServeiPermanent())) {
+                    listaServeisPermanents.remove(serveiPermanent);
+                }
+            }
+        }
+        model.addAttribute("serveisnoasignats", listaServeisPermanents);
+        model.addAttribute("nomespai", nom_espai);
+        return "/serveipermanent/serveisnoasignatsespai";
     }
 
     @RequestMapping(value="/add")

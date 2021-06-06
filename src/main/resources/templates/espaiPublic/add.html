@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
   <title>Gestionar els espais publics</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+
 </head>
 <body>
-<div class="container">
-  <h2>Nou espai public</h2>
+<div class="container" layout:fragment="content">
+  <h2>Creación de un nuevo espacio público</h2>
   <br>
   <p style="font-style: italic">(*) camps obligatoris</p>
   <form class="form-horizontal" action="#" th:action="@{/espaipublic/add}"
         th:object="${espaipublic}" method="post">
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom">Nom Espai:</label>
+      <label class="control-label col-sm-2" for="nom">Nombre espacio:*</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom" th:field="*{nom}"/>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="tipus_acces">Tipus Acces:</label>
+      <label class="control-label col-sm-2" for="tipus_acces">Tipo de acceso:*</label>
       <div class="col-sm-4">
         <select class="form-control" id="tipus_acces" th:field="*{tipusAcces}">
           <option value="No seleccionat">Selecciona el tipus d'Accés</option>
@@ -32,76 +34,76 @@
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="tipus_sol">Tipus Sol:</label>
+      <label class="control-label col-sm-2" for="tipus_sol">Tipo de terreno:*</label>
       <div class="col-sm-4">
         <select class="form-control" id="tipus_sol" th:field="*{tipusSol}">
           <option value="No seleccionat">Selecciona el tipus de sòl</option>
-          <option value="Arena"></option>
-          <option value="Piedra"></option>
-          <option value="Grava"></option>
-          <option value="Urbano"></option>
+          <option value="Arena">Arena</option>
+          <option value="Piedra">Piedra</option>
+          <option value="Grava">Grava</option>
+          <option value="Urbano">Urbano</option>
         </select>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="tipus_espai">Tipus Espai:</label>
+      <label class="control-label col-sm-2" for="tipus_espai">Tipo de espacio:*</label>
       <div class="col-sm-4">
         <select class="form-control" id="tipus_espai" th:field="*{tipusEspai}">
           <option value="No seleccionat">Selecciona el tipus d'espai</option>
-          <option value="Playa"></option>
-          <option value="Rio"></option>
-          <option value="Lago"></option>
-          <option value="Estanque"></option>
-          <option value="Bosque"></option>
+          <option value="Playa">Playa</option>
+          <option value="Rio">Rio</option>
+          <option value="Lago">Lago</option>
+          <option value="Estanque">Estanque</option>
+          <option value="Bosque">Bosque</option>
         </select>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="localitzacio_geografica">Localitzacio Geografica:</label>
+      <label class="control-label col-sm-2" for="localitzacio_geografica">Localización Geográfica:*</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="localitzacio_geografica" th:field="*{localitzacioGeografica}"/>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="descripcio">Descripcio:</label>
+      <label class="control-label col-sm-2" for="descripcio">Descripción:*</label>
       <div class="col-sm-4">
         <textarea class="form-control" id="descripcio" th:field="*{descripcio}" rows="4"></textarea>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="llargaria">Llargaria:</label>
+      <label class="control-label col-sm-2" for="llargaria">Largaria:*</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="llargaria" th:field="*{llargaria}"/>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="amplaria">Amplaria:</label>
+      <label class="control-label col-sm-2" for="amplaria">Anchura:*</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="amplaria" th:field="*{amplaria}"/>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="orientacio">Orientacio:</label>
+      <label class="control-label col-sm-2" for="orientacio">Orientación:*</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="orientacio" th:field="*{orientacio}"/>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="comentaris">Comentaris:</label>
+      <label class="control-label col-sm-2" for="comentaris">Comentarios:</label>
       <div class="col-sm-4">
         <textarea class="form-control" id="comentaris" th:field="*{comentaris}" rows="4"></textarea>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="imatges">Imatges:</label>
+      <label class="control-label col-sm-2" for="imatges">Imagenes:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="imatges" th:field="*{imatges}"/>
       </div>
@@ -110,16 +112,15 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="nom_municipi">Nom Municipi:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="nom_municipi" th:field="*{nomMunicipi}"/>
+        <input type="text" class="form-control" id="nom_municipi" th:field="*{nomMunicipi}" readonly="readonly"/>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-4">
-        <button type="submit" class="btn btn-primary">Afegeix Espai Public</button>
+        <button type="submit" class="btn btn-primary">Añade espacio publico</button>
       </div>
     </div>
-
   </form>
 </div>
 </body>

@@ -19,10 +19,10 @@
     <table th:unless="${#lists.isEmpty(listespaismunicipi)}" class="table table-striped">
         <thead>
             <tr>
-                <th>Nom de l'espai</th>
-                <th>Tipus accés espai</th>
-                <th>Tipus sòl</th>
-                <th>Tipus espai</th>
+                <th>Nombre del espacio</th>
+                <th>Tipo de acceso</th>
+                <th>Tipo de terreno</th>
+                <th>Tipo de espacio</th>
                 <th></th>
             </tr>
         </thead>
@@ -36,7 +36,7 @@
             </tr>
         </tbody>
     </table>
-    <button type="button">Afegeix un espai</button>
+    <a th:href="@{/espaipublic/add/{nom_municipi}(nom_municipi=${session.gestor.nomMunicipi})}"><button type="button">Afegeix un espai</button></a>
 </div>
 </body>
 </html>

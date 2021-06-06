@@ -86,7 +86,7 @@
         </tbody>
     </table>
     <div th:if="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
-        <button type="button">Editar espai</button>
+        <a th:href="@{/espaipublic/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Editar espai</button></a>
         <a th:href="@{/zona/gestionarzonesespai/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar zones</button></a>
         <div th:if="${franjaespai == null}">
             <a th:href="@{/franjaespai/add/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Añade franja horaria</button></a>
@@ -94,12 +94,12 @@
         <div th:unless="${franjaespai == null}">
             <a th:href="@{/franjaespai/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Edita la franja horaria</button></a>
         </div>
-        <button type="button">Gestionar serveis permanents</button>
+        <a th:href="@{/espaiserveipermanent/gestionarserveisperm/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar serveis permanents</button></a>
         <button type="button">Gestionar serveis estacionals</button>
     </div>
     <div th:unless="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
-        <button type="button">Editar espai</button>
-        <button type="button">Gestionar serveis permanents</button>
+        <a th:href="@{/espaipublic/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Editar espai</button></a>
+        <a th:href="@{/espaiserveipermanent/gestionarserveisperm/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar serveis permanents</button></a>
         <button type="button">Gestionar serveis estacionals</button>
     </div>
 </div>
