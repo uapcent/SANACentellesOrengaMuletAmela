@@ -100,7 +100,8 @@ public class ReservaController {
     }
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
-    public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva, HttpSession session,BindingResult bindingResult) {
+    public String processAddSubmit(@ModelAttribute("reserva") Reserva reserva, Model model,
+                                   HttpSession session,BindingResult bindingResult) {
         ReservaValidator reservaValidator = new ReservaValidator();
         reservaValidator.validate(reserva, bindingResult);
         if (bindingResult.hasErrors()){
@@ -130,7 +131,8 @@ public class ReservaController {
         String codigoZona = (String) session.getAttribute("codi_zona");
         reservaZona.setNomZona(codigoZona);
 
-        System.out.println("Buenas señor, mostrando reservas en " + reserva.getNomEspai() + ": "+ codigoZona +" en el dia "+ reserva.getDataAsignacio().toString());
+        //System.out.println("Buenas señor, mostrando reservas en " + reserva.getNomEspai() + ": "+ codigoZona +" en el dia "+ reserva.getDataAsignacio().toString());
+
 
         try{
             reservaDao.getReservesZona(reserva.getNomEspai(), codigoZona, reserva.getDataAsignacio());
@@ -138,6 +140,7 @@ public class ReservaController {
             reservaZonaDao.addReservaZona(reservaZona);
         }
         catch (DiaYaOcupadoException ex){
+            session.setAttribute("errorFecha", true);
             return "reserva/add";
         }
 

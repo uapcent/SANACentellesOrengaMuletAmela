@@ -90,6 +90,7 @@ public class ZonaController {
     public String listZonasEspacio(Model model, HttpSession session, @PathVariable String nom_espai) {
         model.addAttribute("zonasespacio", zonaDao.getZonesEspai(nom_espai));
         model.addAttribute("nomespaipublic", nom_espai);
+        session.removeAttribute("errorFecha");
         if(session.getAttribute("gestor") != null)
             return "zona/gestionarzonesespai";
         return "zona/listzonesespai";

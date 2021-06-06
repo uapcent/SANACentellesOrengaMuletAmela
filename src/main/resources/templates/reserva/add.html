@@ -13,7 +13,7 @@
 <div class="container" layout:fragment="content" th:object="${session}">
     <h2>Reservar zona <span th:text="${session.codi_zona}"></span> en <span th:text="${reserva.nomEspai}"></span></h2>
     <br>
-    <h3>Detalls de la reserva</h3>
+    <h3>Detalles de la reserva</h3>
     <form class="form-horizontal" action="#" th:action="@{/reserva/add}"
           th:object="${reserva}"  method="post">
 
@@ -25,14 +25,14 @@
         </div> -->
 
         <div class="form-group row">
-             <label class="control-label col-sm-2" for="dni">Dni Ciutada:</label>
+             <label class="control-label col-sm-2" for="dni">Dni Ciudadano:</label>
              <div class="col-sm-4">
                  <input type="text" class="form-control" id="dni" th:field="*{dni}" readonly="readonly"/>
              </div>
          </div>
 
          <div class="form-group row">
-              <label class="control-label col-sm-2" for="nom_espai">Nom Espai:</label>
+              <label class="control-label col-sm-2" for="nom_espai">Nombre Espacio:</label>
               <div class="col-sm-4">
                   <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" readonly="readonly"/>
               </div>
@@ -53,7 +53,7 @@
            </div> -->
 
           <div class="form-group row">
-              <label class="control-label col-sm-2" for="num_persones">Cantitat de persones:</label>
+              <label class="control-label col-sm-2" for="num_persones">Nuúmero de personas:</label>
              <div class="col-sm-4">
                  <!-- <input type="number" class="form-control" id="num_persones" th:field="*{numPersones}" /> -->
                  <select class="form-control" type="text" id="num_persones" th:field="*{numPersones}">
@@ -65,13 +65,20 @@
           </div>
 
           <div class="form-group row">
-              <label class="control-label col-sm-2" for="data_asignacio">Elegix la data d'anada:</label>
+              <label class="control-label col-sm-2" for="data_asignacio">Elije la fecha de ida:</label>
               <div class="col-sm-4">
                   <input type="date" class="form-control" id="data_asignacio" th:field="*{dataAsignacio}"/>
                   <span th:if="${#fields.hasErrors('dataAsignacio')}" th:errors="*{dataAsignacio}" style="color: red"></span>
               </div>
           </div>
-
+        <div class="form-group row">
+            <label class="control-label col-sm-2"></label>
+            <div class="col-sm-4" th:object="${session}">
+                <p style="color:#FF0000" th:unless="*{errorFecha == null}">
+                    Dia ya ocupado, elige otro
+                </p>
+            </div>
+        </div>
           <!-- <div class="form-group row">
                <label class="control-label col-sm-2" for="data_expiracio">Data Expiracio:</label>
                <div class="col-sm-4">
@@ -80,14 +87,14 @@
            </div> -->
 
           <div class="form-group row">
-              <label class="control-label col-sm-2" for="hora_inici_espai">Hora d'apertura de l'espai:</label>
+              <label class="control-label col-sm-2" for="hora_inici_espai">Hora de apertura del espacio:</label>
               <div class="col-sm-4">
                   <input type="time" class="form-control" id="hora_inici_espai" th:field="*{horaIniciEspai}" readonly="readonly"/>
               </div>
           </div>
 
         <div class="form-group row">
-             <label class="control-label col-sm-2" for="hora_fi_espai">Hora de tancada de l'espai:</label>
+             <label class="control-label col-sm-2" for="hora_fi_espai">Hora de cierre del espacio:</label>
              <div class="col-sm-4">
                  <input type="time" class="form-control" id="hora_fi_espai" th:field="*{horaFiEspai}" readonly="readonly"/>
              </div>
@@ -95,7 +102,7 @@
 
         <div class="form-group row">
             <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit">Afegeix Reserva</button>
+                <button type="submit">Añadir Reserva</button>
             </div>
         </div>
     </form>

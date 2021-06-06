@@ -29,5 +29,7 @@ public class ReservaValidator implements Validator {
         if(reserva.getDataAsignacio().compareTo(hoy) < 0) {
             errors.rejectValue("dataAsignacio", "Valor incorrecte", "La data ha de ser per a hui o un dia posterior");
         }
+
+
     }
 }
