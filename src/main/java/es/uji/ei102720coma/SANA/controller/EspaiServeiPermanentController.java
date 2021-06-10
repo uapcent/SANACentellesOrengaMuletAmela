@@ -87,4 +87,9 @@ public class EspaiServeiPermanentController {
         return "espaiserveipermanent/listespai";
     }
 
+    @RequestMapping(value = "/add/{nom_espai}/{nom_servei_perm}")
+    public String anyadirEspaiServeiPerm(Model model, @PathVariable String nom_espai, @PathVariable String nom_servei_perm) {
+        espaiServeiPermanentDao.addEspaiServeiPermanent(nom_espai,nom_servei_perm);
+        return "espaiserveipermanent/anyadidocorrecto";
+    }
 }

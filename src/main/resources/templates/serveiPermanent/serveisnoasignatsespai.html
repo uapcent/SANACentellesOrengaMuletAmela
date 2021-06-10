@@ -30,7 +30,7 @@
             <td th:text="${serveipermanent.llocContracte}"></td>
             <td th:text="${serveipermanent.horaInici}"></td>
             <td th:text="${serveipermanent.horaFi}"></td>
-            <td><a th:href="@{/}" class="btn btn-success">Añade el servicio</a></td>
+            <td><a th:href="@{/espaiserveipermanent/add/{nom_espai}/{nom_servei_permanent}(nom_espai=${nomespai},nom_servei_permanent=${serveipermanent.nom})}" class="btn btn-success">Añade el servicio</a></td>
         </tr>
         </tbody>
     </table>

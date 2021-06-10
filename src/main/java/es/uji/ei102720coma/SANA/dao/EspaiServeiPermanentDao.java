@@ -27,6 +27,12 @@ public class EspaiServeiPermanentDao {
                 espaiServeiPermanent.getNomServeiPermanent());
     }
 
+    public void addEspaiServeiPermanent(String nomEspai, String nomServeiPermanent) {
+        jdbcTemplate.update("INSERT INTO Espai_Servei_Perm VALUES(?, ?)",
+                nomEspai,
+                nomServeiPermanent);
+    }
+
     public void deleteEspaiServeiPermanent(String nom, String nomServei) {
         jdbcTemplate.update("DELETE FROM Espai_Servei_Perm WHERE nom_espai =? AND nom_servei_perm =?", nom, nomServei);
     }
