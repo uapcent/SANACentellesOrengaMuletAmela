@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
   <title>Modifica una franja de espacio</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
-<h2>Modificar una franja d'espai</h2>
+<div class="container" layout:fragment="content">
+<h2>Modificaca la franja horaria</h2>
 <form action="#" th:action="@{/franjaespai/update}"
       th:object="${franjaEspai}" method="post">
-  <table>
-    <tr>
-      <td><label>Nom Espai</label></td>
-      <td><input type="text" th:field="*{nomEspai}" /></td>
-    </tr>
-    <tr>
-      <td><label>Hora Inicio</label></td>
-      <td><input type="time" th:field="*{horaInici}" /></td>
-    </tr>
-    <tr>
-      <td><label>Hora Fin</label></td>
-      <td><input type="time" th:field="*{horaFi}" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="submit" value="Modificar franja de espacio" /></td>
-    </tr>
-  </table>
+  <div class="form-group row">
+    <label class="control-label col-sm-2" for="nom_espai">Nombre del espacio:</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" readonly="readonly"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="control-label col-sm-2" for="hora_inici">Hora inicio:</label>
+    <div class="col-sm-4">
+      <input type="time" class="form-control" id="hora_inici" th:field="*{horaInici}" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="control-label col-sm-2" for="hora_fin">Hora fin:</label></td>
+    <div class="col-sm-4">
+      <input type="time" class="form-control" id="hora_fin" th:field="*{horaFi}" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-4">
+      <button type="submit" class="btn btn-primary">Modifica la franja horaria</button>
+    </div>
+  </div>
 </form>
+</div>
 </body>
 </html>
