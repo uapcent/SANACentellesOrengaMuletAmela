@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios estacionales no asignados al espacio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Servicios estacionales por asignar en <span th:text="${nomespai}"></span></h1>
+    <div th:if="${#lists.isEmpty(serveisnoasignats)}">
+        <br>
+        <h4>Este espacio tiene todos los servicios estacionales asignados!</h4>
+    </div>
+    <br>
+    <table th:unless="${#lists.isEmpty(serveisnoasignats)}" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre servicio</th>
+            <th>Lugar de contrato</th>
+            <th>Hora de apertura</th>
+            <th>Hora de cierre</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="serveiestacional : ${serveisnoasignats}">
+            <td th:text="${serveiestacional.nom}"></td>
+            <td th:text="${serveiestacional.llocContracte}"></td>
+            <td th:text="${serveiestacional.horaInici}"></td>
+            <td th:text="${serveiestacional.horaFi}"></td>
+            <td><a th:href="@{/periodeserveiestacional/add/{nom_espai}/{nom_servei}(nom_espai=${nomespai}, nom_servei=${serveiestacional.nom})}" class="btn btn-success" role="button">Añade el servicio</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

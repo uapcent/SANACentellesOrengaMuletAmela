@@ -1,7 +1,9 @@
 package es.uji.ei102720coma.SANA.controller;
 
 
+import es.uji.ei102720coma.SANA.dao.PeriodeServeiEstacionalDao;
 import es.uji.ei102720coma.SANA.dao.ServeiEstacionalDao;
+import es.uji.ei102720coma.SANA.model.PeriodeServeiEstacional;
 import es.uji.ei102720coma.SANA.model.ServeiEstacional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/serveiestacional")
 public class ServeiEstacionalController {
@@ -25,10 +29,31 @@ public class ServeiEstacionalController {
         this.serveiEstacionalDao = serveiEstacionalDao;
     }
 
+    @Autowired
+    PeriodeServeiEstacionalDao periodeServeiEstacionalDao;
+
     @RequestMapping("/list")
     public String listServeisEstacionals(Model model) {
         model.addAttribute("serveisestacionals", serveiEstacionalDao.getServeisEstacionals());
         return "serveiestacional/list";
+    }
+
+    @RequestMapping(value = "/serveisnoasignatsespai/{nom_espai}")
+    public String listServeisNoAsignats(Model model, @PathVariable String nom_espai) {
+        List<ServeiEstacional> listaServeisEstacionals = serveiEstacionalDao.getServeisEstacionals();
+        List<PeriodeServeiEstacional> listaServeisEstacionalsEspai = periodeServeiEstacionalDao.getPeriodeServeisEstacionalsEspai(nom_espai);
+        for(int i = 0; i < listaServeisEstacionalsEspai.size(); i++) {
+            PeriodeServeiEstacional periodeServeiEstacional = listaServeisEstacionalsEspai.get(i);
+            for(int j = 0; j < listaServeisEstacionals.size(); j++) {
+                ServeiEstacional serveiEstacional = listaServeisEstacionals.get(j);
+                if(serveiEstacional.getNom().equals(periodeServeiEstacional.getNomServeiEstacional())) {
+                    listaServeisEstacionals.remove(serveiEstacional);
+                }
+            }
+        }
+        model.addAttribute("serveisnoasignats", listaServeisEstacionals);
+        model.addAttribute("nomespai", nom_espai);
+        return "serveiestacional/serveisnoasignatsespai";
     }
 
     @RequestMapping(value="/add")

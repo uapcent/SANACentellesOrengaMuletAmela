@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión servicios estacionales</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Servicios estacionales asignados al espacio <span th:text="${nom_espai}"></span></h1>
+    <div th:if="${#lists.isEmpty(serveiespai)}">
+        <br>
+        <h4>En este momento este espacio no cuenta con servicios estacionales asignados. Añade uno!</h4>
+        <button type="button">Añade un servicio estacional</button>
+    </div>
+    <br>
+    <table th:unless="${#lists.isEmpty(serveiespai)}" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nombre Servicio</th>
+            <th>Lugar de contrato</th>
+            <th>Hora apertura</th>
+            <th>Hora cierre</th>
+            <th>Día de apertura</th>
+            <th>Día de cierre</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="serveiestacional : ${informacioserveisest}" >
+            <td th:text="${serveiestacional.key.nom}"></td>
+            <td th:text="${serveiestacional.key.llocContracte}"></td>
+            <td th:text="${serveiestacional.key.horaInici}"></td>
+            <td th:text="${serveiestacional.key.horaFi}"></td>
+            <td th:text="${serveiestacional.value.dataInici}"></td>
+            <td th:text="${serveiestacional.value.dataFi}"></td>
+            <td><a th:href="@{/}" class="btn btn-warning" role="button">Editar</a></td>
+            <td><a th:href="@{/}" class="btn btn-danger" role="button">Elimina</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/serveiestacional/serveisnoasignatsespai/{nom_espai}(nom_espai=${nom_espai})}"><button type="button">Añade un servicio estacional</button></a>
+</div>
+</body>
+</html>

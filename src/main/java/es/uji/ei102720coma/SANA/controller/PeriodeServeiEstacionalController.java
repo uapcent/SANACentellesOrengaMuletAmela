@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,9 +42,12 @@ public class PeriodeServeiEstacionalController {
         return "periodeserveiestacional/list";
     }
 
-    @RequestMapping(value="/add")
-    public String addPeriodeServeiEstacional(Model model) {
-        model.addAttribute("periodeserveiestacional", new PeriodeServeiEstacional());
+    @RequestMapping(value="/add/{nom_espai}/{nom_servei}")
+    public String addPeriodeServeiEstacional(Model model, @PathVariable String nom_espai, @PathVariable String nom_servei) {
+        PeriodeServeiEstacional periodeServeiEstacional = new PeriodeServeiEstacional();
+        periodeServeiEstacional.setNomEspai(nom_espai);
+        periodeServeiEstacional.setNomServeiEstacional(nom_servei);
+        model.addAttribute("periodeserveiestacional", periodeServeiEstacional);
         return "periodeserveiestacional/add";
     }
 
@@ -63,7 +67,7 @@ public class PeriodeServeiEstacionalController {
             return "periodeserveiestacional/add";
         }
         periodeServeiEstacionalDao.addPeriodeServeiEstacional(periodeServeiEstacional);
-        return "redirect:list";
+        return "periodeserveiestacional/anyadircorrecto";
     }
 
     @RequestMapping(value="/update/{nom_espai}/{nom_servei_estacional}", method = RequestMethod.GET)
@@ -97,8 +101,8 @@ public class PeriodeServeiEstacionalController {
         return "redirect:../../list";
     }
 
-    @RequestMapping("/listsestespai/{nom_espai}")
-    public String listServeisEstacionals(Model model, @PathVariable String nom_espai) {
+    @RequestMapping(value = {"/listsestespai/{nom_espai}", "/gestionarserveisest/{nom_espai}"})
+    public String listServeisEstacionals(Model model, @PathVariable String nom_espai, HttpSession session) {
         List<PeriodeServeiEstacional> listaServeisEstacionals = periodeServeiEstacionalDao.getPeriodeServeisEstacionalsEspai(nom_espai);
         HashMap<ServeiEstacional, PeriodeServeiEstacional> mapaServeisEst = new HashMap<>();
         for(PeriodeServeiEstacional periodeServeiEstacional : listaServeisEstacionals) {
@@ -107,6 +111,9 @@ public class PeriodeServeiEstacionalController {
         model.addAttribute("serveiespai", listaServeisEstacionals);
         model.addAttribute("informacioserveisest", mapaServeisEst);
         model.addAttribute("nom_espai", nom_espai);
+        if(session.getAttribute("gestor") != null) {
+            return "periodeserveiestacional/gestionarserveisest";
+        }
         return "periodeserveiestacional/listsestespai";
     }
 }
