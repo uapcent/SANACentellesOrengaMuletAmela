@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Modifica el controlador d'un espai</title>
+  <title>Modifica el controlador de un espacio</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar un controlador de l'espai</h2>
+<h2>Modificar un controlador del espacio</h2>
 <form action="#" th:action="@{/controladorespai/update}"
       th:object="${controladorespai}" method="post">
   <table>
@@ -15,11 +15,11 @@
     <td><input type="text" th:field="*{dniControlador}" /></td>
     </tr>
     <tr>
-      <td><label>Nom del Espai</label></td>
+      <td><label>Nom del Espacio</label></td>
       <td><input type="text" th:field="*{nomEspai}" /></td>
     </tr>
     <tr>
-      <td colspan="2"><input type="submit" value="Modificar el controlador del l'espai" /></td>
+      <td colspan="2"><input type="submit" value="Modificar el controlador del espacio" /></td>
     </tr>
   </table>
 </form>

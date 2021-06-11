@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar els ciutadans</title>
+    <title>Gestionar los ciudadanos</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-    <h2>Nou ciutada</h2>
+    <h2>Nuevo ciudadano</h2>
     <form class="form-horizontal" action="#" th:action="@{/ciutada/add}"
           th:object="${ciutada}" method="post">
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="dni">Dni Ciutada:</label>
+            <label class="control-label col-sm-2" for="dni">Dni Ciudadano:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="dni" th:field="*{dniCiutada}" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="nom">Nom:</label>
+            <label class="control-label col-sm-2" for="nom">Nombre:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="nom" th:field="*{nom}" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="cognom">Cognom:</label>
+            <label class="control-label col-sm-2" for="cognom">Apellidos:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="cognom" th:field="*{cognom}" />
             </div>
@@ -35,14 +35,14 @@
 
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="data_naixement">Data Naixement:</label>
+            <label class="control-label col-sm-2" for="data_naixement">Fecha Nacimiento:</label>
             <div class="col-sm-4">
                 <input type="date" class="form-control" id="data_naixement" th:field="*{dataNaixement}"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="adreça">Adresa:</label>
+            <label class="control-label col-sm-2" for="adreça">Dirección:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="adreça" th:field="*{adresa}"/>
             </div>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="email">Contrasenya:</label>
+            <label class="control-label col-sm-2" for="email">Contraseña:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="contrasenya" th:field="*{contrasenya}"/>
             </div>
@@ -64,7 +64,7 @@
 
         <div class="form-group row">
             <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit" class="btn btn-primary">Afegeix Ciutada</button>
+                <button type="submit" class="btn btn-primary">Añadir Ciudadano</button>
             </div>
         </div>
 

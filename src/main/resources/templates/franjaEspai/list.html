@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar Franjes Espai</title>
+    <title>Gestionar Franjas Espacio</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
-    <h1>Llista de franjes dels espais</h1>
+    <h1>Lista de franjas de los espacios</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Nom</th>
-            <th>Hora inici</th>
-            <th>Hora fi</th>
+            <th>Nombre</th>
+            <th>Hora inicio</th>
+            <th>Hora fin</th>
             <th></th>
             <th></th>
         </tr>
@@ -24,12 +24,12 @@
             <td th:text="${franjaEspai.horaInici}"></td>
             <td th:text="${franjaEspai.horaFi}"></td>
 
-            <td><a th:href="@{/franjaEspai/delete/{nom_espai}(nom_espai=${franjaEspai.nomEspai})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/franjaEspai/delete/{nom_espai}(nom_espai=${franjaEspai.nomEspai})}" class="btn btn-danger" role="button">Borrar</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a href="add" class="btn btn-success" role="button">Afegeix franja horaria</a>
+    <a href="add" class="btn btn-success" role="button">Añade franja horaria</a>
 </div>
 </body>
 </html>

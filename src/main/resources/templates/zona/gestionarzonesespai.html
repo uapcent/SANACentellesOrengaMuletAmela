@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Gestionar Zones SANA</title>
+    <title>Gestionar Zonas SANA</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
@@ -10,21 +10,21 @@
 <div class="container" layout:fragment="content">
     <h1><span th:text="${nomespaipublic}"></span></h1>
     <br>
-    <h3>Zones disponibles en el espai natural</h3>
+    <h3>Zonas disponibles en el espacio natural</h3>
     <div th:if="${#lists.isEmpty(zonasespacio)}">
         <br>
-        <p>En aquest moment no hi ha zones disponibles per a aquest espai. Torna en un altre moment.</p>
+        <p>En este momento no hay zonas disponibles per a este espacio. Vuelve en otro momento.</p>
     </div>
     <br>
-    <p style="font-style: italic">Utilitza el botó 'Modificar' per a cambiar informació de una zona.</p>
+    <p style="font-style: italic">Utiliza el botón 'Modificar' para cambiar información de una zona.</p>
     <table th:unless="${#lists.isEmpty(zonasespacio)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom de l'espai</th>
+            <th>Nombre del espacio</th>
             <th>Zona</th>
-            <th>Llargaria (en metres)</th>
-            <th>Aplaria (en metres)</th>
-            <th>Capacitat màxima de persones</th>
+            <th>Longitud (en metros)</th>
+            <th>Amplitud (en metrps)</th>
+            <th>Capacidad máxima de personas</th>
             <th></th>
             <th></th>
         </tr>

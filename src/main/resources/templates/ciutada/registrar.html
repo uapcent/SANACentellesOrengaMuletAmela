@@ -16,10 +16,10 @@
 
         <form action="#" th:action="@{/ciutada/add}"
             th:object="${ciutada}" method="post">
-            <h1>Crear un nou compte</h1>
+            <h1>Crear una nueva cuenta</h1>
             <fieldset>
                 <legend>
-                    <h3>Introdueix les teves dades</h3>
+                    <h3>Introduce tus datos</h3>
                 </legend>
                 <div class="form-group">
                     <label class="labelBoot" for="dni">Dni: </label>
@@ -28,23 +28,23 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="labelBoot" for="nom">Nom: </label>
+                    <label class="labelBoot" for="nom">Nombre: </label>
                     <input type="text" class="form-control" id="nom" th:field="*{nom}" required/>
                 </div>
 
                 <div class="form-group">
-                    <label class="labelBoot" for="cognom">Cognom: </label>
+                    <label class="labelBoot" for="cognom">Apellidos: </label>
                     <input type="text" class="form-control" id="cognom" th:field="*{cognom}" required/>
                 </div>
 
                 <div class="form-group">
-                    <label class="labelBoot" for="data_naixement">Data naixement: </label>
+                    <label class="labelBoot" for="data_naixement">Fecha nacimiento: </label>
                     <input type="date" class="form-control" id="data_naixement" th:field="*{dataNaixement}"/>
                     <!--<input type="date" class="form-control" id="data_naixement" th:field="*{dataNaixement}" required/>-->
                 </div>
 
                 <div class="form-group">
-                    <label class="labelBoot" for="adreça">Adresa: </label>
+                    <label class="labelBoot" for="adreça">Dirección: </label>
                     <input type="text" class="form-control" id="adreça" th:field="*{adresa}" required/>
                 </div>
 
@@ -54,11 +54,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="labelBoot" for="email">Contrasenya: </label>
+                    <label class="labelBoot" for="email">Contraseña: </label>
                     <input type="password" class="form-control" id="contrasenya" th:field="*{contrasenya}" required/>
                 </div>
             </fieldset>
-            <button type="submit">Crear compte</button>
+            <button type="submit">Crear cuenta</button>
         </form>
     </div>
 </body>

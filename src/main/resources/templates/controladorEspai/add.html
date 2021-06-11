@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Gestionar els Controladors en Espais</title>
+  <title>Gestionar los Controladores en Espacios</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-  <h2>Nou Controlador en un Espai</h2>
+  <h2>Nuevo Controlador en un Espaio</h2>
   <form class="form-horizontal" action="#" th:action="@{/controladorespai/add}"
         th:object="${controladorespai}" method="post">
 
@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom_espai">Nom del Espai:</label>
+      <label class="control-label col-sm-2" for="nom_espai">Nombre del Espaio:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" />
       </div>
@@ -28,7 +28,7 @@
 
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-4">
-        <button type="submit" class="btn btn-primary">Afegeix Controlador en el Espai</button>
+        <button type="submit" class="btn btn-primary">Añade Controlador en el Espacio</button>
       </div>
     </div>
 

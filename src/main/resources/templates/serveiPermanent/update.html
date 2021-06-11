@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Modifica un Servei Permanent</title>
+    <title>Modifica un Servicio Permanente</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar un Servei Permanent</h2>
+<h2>Modificar un Servicio Permanente</h2>
 <form action="#" th:action="@{/serveipermanent/update}"
       th:object="${serveipermanent}" method="post">
     <table>
         <tr>
-            <td><label>Nom Servei</label></td>
+            <td><label>Nombre Servicio</label></td>
             <td><input type="text" th:field="*{nom}" /></td>
         </tr>
         <tr>
-            <td><label>Lloc de Contracte</label></td>
+            <td><label>Lugar de Contrato</label></td>
             <td><input type="text" th:field="*{llocContracte}" /></td>
         </tr>
         <tr>
-            <td><label>Hora Inici</label></td>
+            <td><label>Hora Inicio</label></td>
             <td><input type="time" th:field="*{horaInici}" /></td>
         </tr>
         <tr>
-            <td><label>Hora Fi</label></td>
+            <td><label>Hora Fin</label></td>
             <td><input type="time" th:field="*{horaFi}" /></td>
         </tr>
         <tr>
-            <td><label>Data Inici</label></td>
+            <td><label>Fecha Inicio</label></td>
             <td><input type="date" th:field="*{dataInici}" /></td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
             <td><input type="date" th:field="*{dataFi}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Modificar Servei Permanent" /></td>
+            <td colspan="2"><input type="submit" value="Modificar Servicio Permanente" /></td>
         </tr>
     </table>
 </form>

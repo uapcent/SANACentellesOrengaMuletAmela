@@ -4,20 +4,26 @@
     <div>
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Inici <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/espaipublic/list">Llista de espais públics</a>
+                <a class="nav-link" href="/espaipublic/list">Lista de espacios públicos</a>
             </li>
             <li class="nav-item"
             th:unless="*{ciutada == null}">
-                <a class="nav-link" href="/reserva/listreservesciutada">Les meves reserves</a>
+                <a class="nav-link" href="/reserva/listreservesciutada">Mis reservas</a>
             </li>
 
             <li class="nav-item"
                 th:unless="*{gestor == null}">
-                <a class="nav-link" href="/espaipublic/listespaismunicipi">Manejar parques</a>
+                <a class="nav-link" href="/espaipublic/listespaismunicipi">Gestionar parques</a>
             </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/espaipublic/list">Panel informativo</a>
+            </li>
+            <!--
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Mes links
@@ -27,7 +33,7 @@
                     <a class="dropdown-item" href="#">Algo 2</a>
                     <a class="dropdown-item" href="#">Algo 3</a>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
 </nav>

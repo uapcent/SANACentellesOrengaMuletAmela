@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Modifica un periode servei estacional</title>
+    <title>Modifica un periodo servicio estacional</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar un periode servei estacional</h2>
+<h2>Modificar un periodo servicio estacional</h2>
 <form action="#" th:action="@{/periodeserveiestacional/update}"
       th:object="${periodeserveiestacional}" method="post">
     <table>
         <tr>
-            <td><label>Nom Espai</label></td>
+            <td><label>Nombre Espacio</label></td>
             <td><input type="text" th:field="*{nomEspai}" /></td>
         </tr>
         <tr>
-            <td><label>Nom Servei</label></td>
+            <td><label>Nombre Servicio</label></td>
             <td><input type="text" th:field="*{nomServeiEstacional}" /></td>
         </tr>
         <tr>
-            <td><label>Data Inici</label></td>
+            <td><label>Fecha Inicio</label></td>
             <td><input type="date" th:field="*{dataInici}" /></td>
         </tr>
         <tr>
-            <td><label>Data Fi</label></td>
+            <td><label>Fecha Fin</label></td>
             <td><input type="date" th:field="*{dataFi}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="Modificar un periode servei estacional" /></td>
+            <td colspan="2"><input type="submit" value="Modificar un periodo servicio estacional" /></td>
         </tr>
     </table>
 </form>

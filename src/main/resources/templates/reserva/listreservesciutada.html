@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
-    <title>Gestionar Reserves</title>
+    <title>Gestionar Reservas</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Les teves reserves</h1>
+    <h1>Tus reservas</h1>
     <div th:if="${#lists.isEmpty(llistaReserves)}">
         <br>
-        <h4>En aquest moment este espai no conté serveis estacionals disponibles. Torna en un altre moment.</h4>
+        <h4>En este momento este espacio no contiene servicios estacionales disponibles. Vuelve en un otro momento.</h4>
     </div>
     <table th:unless="${#lists.isEmpty(llistaReserves)}"
            class="table table-striped">
@@ -19,15 +19,15 @@
         <tr>
             <th>Codi</th>
             <!--<th>Dni</th>-->
-            <th>Nom del Espai</th>
+            <th>Nombre del Espacio</th>
             <th>Zona</th>
-            <th>Data de creació</th>
-            <th>Estat</th>
-            <th>Num persones</th>
-            <th>Data asignació</th>
-            <th>Data expiració</th>
-            <th>Hora inici espai</th>
-            <th>Hora fi espai</th>
+            <th>Fecha de creación</th>
+            <th>Estado</th>
+            <th>Num personas</th>
+            <th>Fecha asignación</th>
+            <th>Fecha expiración</th>
+            <th>Hora inicio espacio</th>
+            <th>Hora fin espacio</th>
             <th></th>
             <th></th>
         </tr>

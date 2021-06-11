@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar Serveis Estacionals</title>
+    <title>Gestionar Servicios Estacionales</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
-    <h1>Llista de Serveis Estacionals</h1>
+    <h1>Lista de Servicios Estacionales</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Nom</th>
-            <th>Lloc contracte</th>
-            <th>Hora inici</th>
-            <th>Hora fi</th>
+            <th>Nombre</th>
+            <th>Lugar contrato</th>
+            <th>Hora inicio</th>
+            <th>Hora fin</th>
             <th></th>
             <th></th>
         </tr>
@@ -25,14 +25,14 @@
             <td th:text="${serveiestacional.llocContracte}"></td>
             <td th:text="${serveiestacional.horaInici}"></td>
             <td th:text="${serveiestacional.horaFi}"></td>
-            <td><a th:href="@{/serveiestacional/update/{nom}(nom=${serveiestacional.nom})}" class="btn btn-warning" role="button">Edita</a>
+            <td><a th:href="@{/serveiestacional/update/{nom}(nom=${serveiestacional.nom})}" class="btn btn-warning" role="button">Editar</a>
             </td>
-            <td><a th:href="@{/serveiestacional/delete/{nom}(nom=${serveiestacional.nom})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/serveiestacional/delete/{nom}(nom=${serveiestacional.nom})}" class="btn btn-danger" role="button">Borrar</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a href="add" class="btn btn-success" role="button">Afegeix Servei Estacional</a>
+    <a href="add" class="btn btn-success" role="button">Añadir Servicio Estacional</a>
 </div>
 </body>
 </html>

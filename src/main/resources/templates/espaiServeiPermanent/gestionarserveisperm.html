@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Informacio serveis permanents</title>
+    <title>Información servicios permanentes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
@@ -18,10 +18,10 @@
     <table th:unless="${#lists.isEmpty(serveisespai)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom Servei</th>
-            <th>Lloc de contracte</th>
+            <th>Nombre Servicio</th>
+            <th>Lugar de contrato</th>
             <th>Hora apertura</th>
-            <th>Hora tancament</th>
+            <th>Hora cierre</th>
         </tr>
         </thead>
         <tbody>

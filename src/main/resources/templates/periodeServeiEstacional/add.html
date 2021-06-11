@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Gestionar els Periodes dels Serveis Estacionals</title>
+  <title>Gestionar los Periodos de los Servicios Estacionales</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-  <h2>Nou Periode Servei Estacional</h2>
+  <h2>Nuevo Periode Servicio Estacional</h2>
   <form class="form-horizontal" action="#" th:action="@{/periodeserveiestacional/add}"
         th:object="${periodeserveiestacional}" method="post">
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom_espai">Nom Espai:</label>
+      <label class="control-label col-sm-2" for="nom_espai">Nombre Espacio:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom_servei_est">Nom Servei:</label>
+      <label class="control-label col-sm-2" for="nom_servei_est">Nombre Servicio:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom_servei_est" th:field="*{nomServeiEstacional}" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="data_inici">Data Inici:</label>
+      <label class="control-label col-sm-2" for="data_inici">Fecha Inicio:</label>
       <div class="col-sm-4">
         <input type="date" class="form-control" id="data_inici" th:field="*{dataInici}" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="data_fi">Data Fi:</label>
+      <label class="control-label col-sm-2" for="data_fi">Fecha Fin:</label>
       <div class="col-sm-4">
         <input type="date" class="form-control" id="data_fi" th:field="*{dataFi}" />
       </div>
@@ -42,7 +42,7 @@
 
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-4">
-        <button type="submit" class="btn btn-primary">Afegeix Periode Servei Estacional</button>
+        <button type="submit" class="btn btn-primary">Añadir Periode Servicio Estacional</button>
       </div>
     </div>
 

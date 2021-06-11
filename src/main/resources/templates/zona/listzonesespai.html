@@ -10,21 +10,21 @@
 <div class="container" layout:fragment="content">
     <h1><span th:text="${nomespaipublic}"></span></h1>
     <br>
-    <h3>Zones disponibles per a reservar</h3>
+    <h3>Zonas disponibles para reservar</h3>
     <div th:if="${#lists.isEmpty(zonasespacio)}">
         <br>
-        <p>En aquest moment no hi ha zones disponibles per a aquest espai. Torna en un altre moment.</p>
+        <p>En este momento no hay zonas disponibles para este espacio. Vuelve en otro momento.</p>
     </div>
     <br>
-    <p style="font-style: italic">Utilitza el botó 'Reservar' per poder reservar la zona.</p>
+    <p style="font-style: italic">Utiliza el botón 'Reservar' para poder reservar la zona.</p>
     <table th:unless="${#lists.isEmpty(zonasespacio)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom de l'espai</th>
+            <th>Nombre del espacio</th>
             <th>Zona</th>
-            <th>Llargaria (en metres)</th>
-            <th>Aplaria (en metres)</th>
-            <th>Capacitat màxima de persones</th>
+            <th>Longitud (en metros)</th>
+            <th>Amplitud (en metros)</th>
+            <th>Capacidad máxima de personas</th>
             <th></th>
         </tr>
         </thead>

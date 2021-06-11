@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar Reserves en Zona</title>
+    <title>Gestionar Reservas en Zona</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
-    <h1>Llista de Reserves en Zona</h1>
+    <h1>Lista de Reservas en Zona</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Codi</th>
-            <th>Nom espai</th>
-            <th>Nom Zona</th>
+            <th>Código</th>
+            <th>Nombre espacio</th>
+            <th>Nombre Zona</th>
             <th></th>
             <th></th>
         </tr>
@@ -23,12 +23,12 @@
             <td th:text="${reservazona.codiReserva}"></td>
             <td th:text="${reservazona.nomEspai}"></td>
             <td th:text="${reservazona.nomZona}"></td>
-            <td><a th:href="@{/reservazona/delete/{codi_reserva}(codi_reserva=${reservazona.codiReserva})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/reservazona/delete/{codi_reserva}(codi_reserva=${reservazona.codiReserva})}" class="btn btn-danger" role="button">Borrar</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a href="add" class="btn btn-success" role="button">Afegeix reserva en zona</a>
+    <a href="add" class="btn btn-success" role="button">Añadir reserva en zona</a>
 </div>
 </body>
 </html>

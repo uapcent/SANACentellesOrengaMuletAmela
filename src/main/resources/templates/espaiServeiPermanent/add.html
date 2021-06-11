@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Gestionar els Serveis Permanents en Espais Publics</title>
+  <title>Gestionar los Servicios Permanentes en Espacios Públicos</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-  <h2>Nou Servei Permanent en un Espai</h2>
+  <h2>Nuevo Servicio Permanente en un Espacio</h2>
   <form class="form-horizontal" action="#" th:action="@{/espaiserveipermanent/add}"
         th:object="${espaiserveipermanent}" method="post">
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom_espai">Nom Espai:</label>
+      <label class="control-label col-sm-2" for="nom_espai">Nombre Espacio:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" />
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="control-label col-sm-2" for="nom_servei_perm">Nom Servei:</label>
+      <label class="control-label col-sm-2" for="nom_servei_perm">Nombre Servicio:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="nom_servei_perm" th:field="*{nomServeiPermanent}" />
       </div>
@@ -28,7 +28,7 @@
 
     <div class="form-group row">
       <div class="col-sm-offset-2 col-sm-4">
-        <button type="submit" class="btn btn-primary">Afegeix Servei Permanent en l'Espai</button>
+        <button type="submit" class="btn btn-primary">Añade Servicio Permanente en el Espacio</button>
       </div>
     </div>
 

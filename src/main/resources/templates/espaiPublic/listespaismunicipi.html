@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Espais del Municipi</title>
+    <title>Espacios del Municipio</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content" th:object="${session}">
-    <h1>Espais del municipi: <span th:text="${session.gestor.nomMunicipi}"></span></h1>
+    <h1>Espacios del municipio: <span th:text="${session.gestor.nomMunicipi}"></span></h1>
     <div th:if="${#lists.isEmpty(listespaismunicipi)}">
         <br>
-        <h4>En aquest moment no hi ha Espais en aquest municipi. Afegeix un espai públic!</h4>
-        <button type="button">Afegir espai públic</button>
+        <h4>En este momento no hay Espacios en este municipio. Añade uno!</h4>
+        <button type="button">Añadir un espacio público</button>
     </div>
     <br>
-    <p style="font-style: italic">Utilitza el botó 'Gestionar' per fer gestions sobre un espai.</p>
+    <p style="font-style: italic">Utiliza el botón 'Gestionar' para hacer gestiones sobre un espacio.</p>
     <table th:unless="${#lists.isEmpty(listespaismunicipi)}" class="table table-striped">
         <thead>
             <tr>
@@ -32,11 +32,11 @@
                 <td th:text="${espaipublic.tipusAcces}"></td>
                 <td th:text="${espaipublic.tipusSol}"></td>
                 <td th:text="${espaipublic.tipusEspai}"></td>
-                <td><a th:href="@{/espaipublic/gestionarespai/{nom_espai}(nom_espai=${espaipublic.nom})}" class="btn btn-info btn-lg" role="button">Gestionar espai</a></td>
+                <td><a th:href="@{/espaipublic/gestionarespai/{nom_espai}(nom_espai=${espaipublic.nom})}" class="btn btn-info btn-lg" role="button">Gestionar espacio</a></td>
             </tr>
         </tbody>
     </table>
-    <a th:href="@{/espaipublic/add/{nom_municipi}(nom_municipi=${session.gestor.nomMunicipi})}"><button type="button">Afegeix un espai</button></a>
+    <a th:href="@{/espaipublic/add/{nom_municipi}(nom_municipi=${session.gestor.nomMunicipi})}"><button type="button">añade un espacio</button></a>
 </div>
 </body>
 </html>

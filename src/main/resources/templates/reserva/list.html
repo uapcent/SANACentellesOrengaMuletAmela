@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar Reserves</title>
+    <title>Gestionar Reservas</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
-    <h1>Llista de Reserves</h1>
+    <h1>Lista de Reservas</h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Codi</th>
+            <th>Codigo</th>
             <th>Dni</th>
-            <th>Nom del Espai</th>
-            <th>Data de creació</th>
-            <th>Estat</th>
-            <th>Num persones</th>
-            <th>Data asignació</th>
-            <th>Data expiració</th>
-            <th>Hora inici espai</th>
-            <th>Hora fi espai</th>
+            <th>Nombre del Espacio</th>
+            <th>Fecha de creación</th>
+            <th>Estado</th>
+            <th>Num personas</th>
+            <th>Fecha asignación</th>
+            <th>fecha expiración</th>
+            <th>Hora inicio espacio</th>
+            <th>Hora fin espacio</th>
             <th></th>
             <th></th>
         </tr>
@@ -39,12 +39,12 @@
             <td th:text="${reserva.horaFiEspai}"></td>
             <td><a th:href="@{/reserva/update/{codi}(codi=${reserva.codi})}" class="btn btn-warning" role="button">Edita</a>
             </td>
-            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.codi})}" class="btn btn-danger" role="button">Esborra</a>
+            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.codi})}" class="btn btn-danger" role="button">Borra</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a href="add" class="btn btn-success" role="button">Afegeix reserva</a>
+    <a href="add" class="btn btn-success" role="button">Añade reserva</a>
 </div>
 </body>
 </html>

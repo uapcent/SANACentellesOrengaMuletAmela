@@ -7,12 +7,12 @@
 </head>
 <body>
 <div class="container">
-  <h1>Llista de Emails</h1>
+  <h1>Lista de Emails</h1>
   <table class="table table-striped">
     <thead>
     <tr>
       <th>Email</th>
-      <th>Contrasenya</th>
+      <th>Contraseña</th>
       <th></th>
       <th></th>
     </tr>
@@ -23,12 +23,12 @@
       <td th:text="${email.contrasenya}"></td>
       <td><a th:href="@{/email/update/{email}(email=${email.email})}" class="btn btn-warning" role="button">Edita</a>
       </td>
-      <td><a th:href="@{/email/delete/{email}(email=${email.email})}" class="btn btn-danger" role="button">Esborra</a>
+      <td><a th:href="@{/email/delete/{email}(email=${email.email})}" class="btn btn-danger" role="button">Borra</a>
       </td>
     </tr>
     </tbody>
   </table>
-  <a href="add" class="btn btn-success" role="button">Afegeix email</a>
+  <a href="add" class="btn btn-success" role="button">Añade email</a>
 </div>
 </body>
 </html>

@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Modifica un ciutada</title>
+    <title>Modificar un ciudadano</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h2>Modificar un ciutada</h2>
+<h2>Modificar un ciudadano</h2>
 <form action="#" th:action="@{/ciutada/update}"
       th:object="${ciutada}" method="post">
     <table>
         <tr>
-            <td><label>Dni Ciutada</label></td>
+            <td><label>Dni Ciudadano</label></td>
             <td><input type="text" th:field="*{dniCiutada}" /></td>
         </tr>
         <tr>
-            <td><label>Nom</label></td>
+            <td><label>Nombre</label></td>
             <td><input type="text" th:field="*{nom}" /></td>
         </tr>
         <tr>
-            <td><label>Cognom</label></td>
+            <td><label>Apellidos</label></td>
             <td><input type="text" th:field="*{cognom}" /></td>
         </tr>
         <tr>
-            <td><label>Data Naixement</label></td>
+            <td><label>Fecha Nacimiento</label></td>
             <td><input type="date" th:field="*{dataNaixement}" /></td>
         </tr>
         <tr>
-            <td><label>Adresa</label></td>
+            <td><label>Dirección</label></td>
             <td><input type="text" th:field="*{adresa}" /></td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
             <td><input type="text" th:field="*{email}" /></td>
         </tr>
         <tr>
-            <td><label>Contrasenya</label></td>
+            <td><label>Contraseña</label></td>
             <td><input type="text" th:field="*{contrasenya}" /></td>
         </tr>
         <tr>

@@ -18,24 +18,24 @@
   <div>
     <h1>SANA</h1>
     <h2>Safe Access to Natural Areas</h2>
-    <h4> Aquesta pàgina conté una llista de totes les arees naturals registrades, on es podrá consultar la seva
-      ocupació, o reservar una zona si es un espai restringit. <br>
-      Clica açí si vols consultar els espais públics disponibles
+    <h4> Esta página contiene una lista de todas las areas naturales registradas, donde se podrá consultar su
+      ocupación, o reservar una zona si es un espacio restringido. <br>
+      Clica aquí si quieres consultar los espacios públicos disponibles
     </h4>
     <form class="no-padding" action="/espaipublic/list">
-      <button type="submit" >Llista d'espais Públic</button>
+      <button type="submit" >Lista de espacios Públicos</button>
     </form>
   </div>
   <div th:object="${session}"
     th:unless="*{ciutada == null}">
 
-    <h4>Per a poder fer una reserva, es necessita un compte en SANA</h4>
+    <h4>Para poder hacer una reserva, se necessita una cuenta en SANA</h4>
 
     <form class="no-padding" action="/login" th:href="@{/login}">
-      <button type="submit" >Iniciar sesió</button>
+      <button type="submit" >Iniciar sesión</button>
     </form>
     <form class="no-padding" action="/ciutada/registrar">
-      <button type="submit">Crear compte</button>
+      <button type="submit">Crear cuenta</button>
     </form>
 
   </div>

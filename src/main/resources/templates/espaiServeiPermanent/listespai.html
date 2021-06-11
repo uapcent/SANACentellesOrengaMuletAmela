@@ -2,25 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Informacio serveis permanents</title>
+    <title>Información servicios permanentes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Serveis permanents disponibles en <span th:text="${nom_espai}"></span></h1>
+    <h1>Servicios permanentes disponibles en <span th:text="${nom_espai}"></span></h1>
     <div th:if="${#lists.isEmpty(serveisespai)}">
         <br>
-        <h4>En aquest moment este espai no conté serveis permanents disponibles. Torna en un altre moment.</h4>
+        <h4>En este momento este espacio no contiene servicios permanentes disponibles. Vuelve en otro momento.</h4>
     </div>
     <br>
     <table th:unless="${#lists.isEmpty(serveisespai)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom Servei</th>
-            <th>Lloc de contracte</th>
+            <th>Nombre Servicio</th>
+            <th>Lugar de contracto</th>
             <th>Hora apertura</th>
-            <th>Hora tancament</th>
+            <th>Hora cierre</th>
         </tr>
         </thead>
         <tbody>

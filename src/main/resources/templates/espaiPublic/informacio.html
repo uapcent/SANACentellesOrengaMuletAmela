@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <meta charset="UTF-8">
-    <title>Espais Publics</title>
+    <title>Espacios Públicos</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Información de l'espai públic: <span th:text="${espaipublic.nom}"></span></h1>
+    <h1>Información del espacio público: <span th:text="${espaipublic.nom}"></span></h1>
     <br>
     <br>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col"><b>Característiques</b></th>
-                <th scope="col"><b>Informació</b></th>
+                <th scope="col"><b>Caracteristicas</b></th>
+                <th scope="col"><b>Información</b></th>
             </tr>
         </thead>
         <tbody>
@@ -25,50 +25,50 @@
         </tr>
         </tbody>
         <tr>
-            <th scope="row">Municipi</th>
+            <th scope="row">Municipio</th>
             <td th:text="${espaipublic.nomMunicipi}"></td>
         </tr>
         <tr>
-            <th scope="row">Acces a l'espai</th>
+            <th scope="row">Acceso al espacio</th>
             <td th:text="${espaipublic.tipusAcces}"></td>
         </tr>
         <tr>
-            <th scope="row">Sòl de l'espai</th>
+            <th scope="row">Terreo del espacio</th>
             <td th:text="${espaipublic.tipusSol}"></td>
         </tr>
         <tr>
-            <th scope="row">Tipues d'Espai</th>
+            <th scope="row">Tipos de Espacio</th>
             <td th:text="${espaipublic.tipusEspai}"></td>
         </tr>
         <tr>
-            <th scope="row">Ubicació Geogràfica</th>
+            <th scope="row">Ubicación Geográfica</th>
             <td th:text="${espaipublic.localitzacioGeografica}"></td>
         </tr>
         <tr>
-            <th scope="row">Amplaria de l'espai (en metres)</th>
+            <th scope="row">Amplitud del espacio (en metros)</th>
             <td th:text="${espaipublic.amplaria}"></td>
         </tr>
         <tr>
-            <th scope="row">Llargaria de l'espai (en metres)</th>
+            <th scope="row">Longitud del espacio (en metros)</th>
             <td th:text="${espaipublic.llargaria}"></td>
         </tr>
         <tr>
-            <th scope="row">Orientacio</th>
+            <th scope="row">Orientación</th>
             <td th:text="${espaipublic.orientacio}"></td>
         </tr>
         <tr>
-            <th scope="row">Descripció</th>
+            <th scope="row">Descripción</th>
             <td th:text="${espaipublic.descripcio}"></td>
         </tr>
     </table>
     <div th:if="${#strings.equals(espaipublic.tipusAcces, 'Restringido')}">
-            <a th:href="@{/zona/listzonesespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar zones disponibles</button></a>
-            <a th:href="@{/espaiserveipermanent/listespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar serveis permanents</button></a>
-            <a th:href="@{/periodeserveiestacional/listsestespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar serveis estacionals</button></a>
+            <a th:href="@{/zona/listzonesespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar zonas disponibles</button></a>
+            <a th:href="@{/espaiserveipermanent/listespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar servicios permanentes</button></a>
+            <a th:href="@{/periodeserveiestacional/listsestespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar servicios estacionales</button></a>
     </div>
     <div th:unless="${#strings.equals(espaipublic.tipusAcces, 'Restringido')}">
-        <a th:href="@{/espaiserveipermanent/listespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar serveis permanents</button></a>
-        <a th:href="@{/periodeserveiestacional/listsestespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar serveis estacionals</button></a>
+        <a th:href="@{/espaiserveipermanent/listespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar servicios permanentes</button></a>
+        <a th:href="@{/periodeserveiestacional/listsestespai/{nom_espai}(nom_espai=${espaipublic.nom})}"><button type="button">Consultar servicios estacionales</button></a>
     </div>
 </div>
 </body>

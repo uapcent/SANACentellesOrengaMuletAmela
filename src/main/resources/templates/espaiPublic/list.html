@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
-    <title>Espais Publics</title>
+    <title>Espacios Públicos</title>
     <meta charset="UTF-8" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Espais Publics disponibles</h1>
+    <h1>Espacios Públicos disponibles</h1>
     <div th:if="${#lists.isEmpty(espaispublics)}">
-        <p>En aquest moment no hi han Espais Públics Disponibles. Torna en un alte moment.</p>
+        <p>En este momento no hay Espacios Públicos Disponibles. Vuelve en un otro momento.</p>
     </div>
     <br>
-    <p style="font-style: italic">Utilitza el botó 'Més informació' per trobar més informació sobre l'espai.</p>
+    <p style="font-style: italic">Utiliza el botón 'Más información' para encontrar más información sobre el espacio.</p>
     <table th:unless="${#lists.isEmpty(espaispublics)}" class="table table-striped">
         <thead>
         <tr>
-            <th>Nom de l'espai</th>
-            <th>Tipus accés a l'espai</th>
-            <th>Tipus sòl</th>
-            <th>Tipus espai</th>
-            <th>Municipi on es troba</th>
+            <th>Nombre del espacio</th>
+            <th>Tipo acceso al espaio</th>
+            <th>Tipo terreno</th>
+            <th>Tipo espaio</th>
+            <th>Municipio dónde se encuentra</th>
             <th></th>
         </tr>
         </thead>
@@ -32,7 +32,7 @@
             <td th:text="${espaipublic.tipusSol}"></td>
             <td th:text="${espaipublic.tipusEspai}"></td>
             <td th:text="${espaipublic.nomMunicipi}"></td>
-            <td><a th:href="@{/espaipublic/informacio/{nom}(nom=${espaipublic.nom})}" class="btn btn-info btn-lg" role="button">Més informació</a>
+            <td><a th:href="@{/espaipublic/informacio/{nom}(nom=${espaipublic.nom})}" class="btn btn-info btn-lg" role="button">Más información</a>
             </td>
         </tr>
         </tbody>

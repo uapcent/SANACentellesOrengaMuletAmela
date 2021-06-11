@@ -1,13 +1,13 @@
 <div class="loggeduser" th:object="${session}">
     <p th:if="*{ciutada == null && gestor == null}">
-        No autenticat <a href="/login" th:href="@{/login}">Entrar</a>
+        No autenticado <a href="/login" th:href="@{/login}">Entrar</a>
     </p>
     <p th:unless="*{ciutada == null}">
-        Autenticat com <span th:text="*{ciutada.email}"></span> <a
-            href="/logout" th:href="@{/logout}">Eixir</a>
+        Autenticado como <span th:text="*{ciutada.email}"></span> <a
+            href="/logout" th:href="@{/logout}">Salir</a>
     </p>
     <p th:unless="*{gestor == null}">
-        Autenticat com <span th:text="*{gestor.email}"></span> <a
-            href="/logout" th:href="@{/logout}">Eixir</a>
+        Autenticado como <span th:text="*{gestor.email}"></span> <a
+            href="/logout" th:href="@{/logout}">Salir</a>
     </p>
 </div>

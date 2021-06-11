@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Gestionar els Serveis Estacionals</title>
+    <title>Gestionar los Servicis Estacionales</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
-    <h2>Nou Servei Estacional</h2>
+    <h2>Nuevo Servicio Estacional</h2>
     <form class="form-horizontal" action="#" th:action="@{/serveiestacional/add}"
           th:object="${serveiestacional}" method="post">
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="nom">Nom Servei:</label>
+            <label class="control-label col-sm-2" for="nom">Nombre Servei:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="nom" th:field="*{nom}" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="lloc_contracte">Lloc de Contracte:</label>
+            <label class="control-label col-sm-2" for="lloc_contracte">Lugar de Contrato:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="lloc_contracte" th:field="*{llocContracte}" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="hora_inici">Hora inici:</label>
+            <label class="control-label col-sm-2" for="hora_inici">Hora inicio:</label>
             <div class="col-sm-4">
                 <input type="time" class="form-control" id="hora_inici" th:field="*{horaInici}" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-sm-2" for="hora_fi">Hora fi:</label>
+            <label class="control-label col-sm-2" for="hora_fi">Hora fin:</label>
             <div class="col-sm-4">
                 <input type="time" class="form-control" id="hora_fi" th:field="*{horaFi}" />
             </div>
@@ -42,7 +42,7 @@
 
         <div class="form-group row">
             <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit" class="btn btn-primary">Afegeix Servei Estacional</button>
+                <button type="submit" class="btn btn-primary">Añadir Servicio Estacional</button>
             </div>
         </div>
 
