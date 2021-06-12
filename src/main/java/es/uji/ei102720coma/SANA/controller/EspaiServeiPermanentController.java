@@ -65,10 +65,37 @@ public class EspaiServeiPermanentController {
         return "redirect:list";
     }
 
+    @RequestMapping(value="/update/{nom_espai}/{nom_servei_perm}", method = RequestMethod.GET)
+    public String editServeiPermanent(Model model, @PathVariable String nom_espai, @PathVariable String nom_servei_perm) {
+        model.addAttribute("nom_espai", nom_espai);
+        model.addAttribute("espaiserveipermanent", serveiPermanentDao.getServeiPermanent(nom_servei_perm));
+        return "espaiserveipermanent/update";
+    }
+
+    @RequestMapping(value="/update", method = RequestMethod.POST)
+    public String processUpdateSubmit(@ModelAttribute("espaiserveipermanent") ServeiPermanent serveiPermanent, @ModelAttribute("nom_espai") String nom_espai, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            for (Object object : bindingResult.getAllErrors()) {
+                if(object instanceof FieldError) {
+                    FieldError fieldError = (FieldError) object;
+                    System.out.println(fieldError.getCode());
+                }
+                if(object instanceof ObjectError) {
+                    ObjectError objectError = (ObjectError) object;
+                    System.out.println(objectError.getCode());
+                }
+            }
+            return "espaiserveipermanent/update";
+        }
+        serveiPermanentDao.updateServeiPermanent(serveiPermanent);
+        System.out.println("alo");
+        return "gestionarserveisperm/" + nom_espai;
+    }
+
     @RequestMapping(value="/delete/{nom_espai}/{nom_servei_perm}")
     public String processDelete(@PathVariable String nom_espai, @PathVariable String nom_servei_perm) {
         espaiServeiPermanentDao.deleteEspaiServeiPermanent(nom_espai, nom_servei_perm);
-        return "redirect:../../list";
+        return "espaiserveipermanent/anyadidocorrecto";
     }
 
     @RequestMapping(value = {"/listespai/{nom_espai}", "/gestionarserveisperm/{nom_espai}"})
