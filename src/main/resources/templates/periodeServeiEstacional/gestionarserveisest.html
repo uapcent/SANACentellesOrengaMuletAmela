@@ -36,8 +36,8 @@
             <td th:text="${serveiestacional.key.horaFi}"></td>
             <td th:text="${serveiestacional.value.dataInici}"></td>
             <td th:text="${serveiestacional.value.dataFi}"></td>
-            <td><a th:href="@{/}" class="btn btn-warning" role="button">Editar</a></td>
-            <td><a th:href="@{/}" class="btn btn-danger" role="button">Elimina</a></td>
+            <td><a th:href="@{/periodeserveiestacional/update/{nom_espai}/{nom_servei}(nom_espai=${nom_espai}, nom_servei=${serveiestacional.key.nom})}" class="btn btn-warning" role="button">Editar</a></td>
+            <td><a th:href="@{/periodeserveiestacional/delete/{nom_espai}/{nom_servei}(nom_espai=${nom_espai}, nom_servei=${serveiestacional.key.nom})}" class="btn btn-danger" onclick="return confirm('Estás seguro?')" role="button">Eliminar</a></td>
         </tr>
         </tbody>
     </table>

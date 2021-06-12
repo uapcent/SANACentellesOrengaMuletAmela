@@ -103,7 +103,7 @@ public class ServeiEstacionalController {
             return "serveiestacional/update";
         }
         serveiEstacionalDao.updateServeiEstacional(serveiEstacional);
-        return "redirect:list";
+        return "serveiestacional/success";
     }
 
     @RequestMapping(value="/delete/{nom}")

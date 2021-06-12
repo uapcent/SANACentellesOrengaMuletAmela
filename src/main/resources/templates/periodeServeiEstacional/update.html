@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
     <title>Modifica un periodo servicio estacional</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-</head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/zona.css"></head>
 <body>
+<div class="container" layout:fragment="content">
 <h2>Modificar un periodo servicio estacional</h2>
-<form action="#" th:action="@{/periodeserveiestacional/update}"
+<form class="form-horizontal" action="#" th:action="@{/periodeserveiestacional/update}"
       th:object="${periodeserveiestacional}" method="post">
-    <table>
-        <tr>
-            <td><label>Nombre Espacio</label></td>
-            <td><input type="text" th:field="*{nomEspai}" /></td>
-        </tr>
-        <tr>
-            <td><label>Nombre Servicio</label></td>
-            <td><input type="text" th:field="*{nomServeiEstacional}" /></td>
-        </tr>
-        <tr>
-            <td><label>Fecha Inicio</label></td>
-            <td><input type="date" th:field="*{dataInici}" /></td>
-        </tr>
-        <tr>
-            <td><label>Fecha Fin</label></td>
-            <td><input type="date" th:field="*{dataFi}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Modificar un periodo servicio estacional" /></td>
-        </tr>
-    </table>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" for="nomServeiEstacional">Nombre Servicio:</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="nomServeiEstacional" th:field="*{nomServeiEstacional}" readonly/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" for="dataInici">Fecha Inicio:</label>
+        <div class="col-sm-4">
+            <input type="date" class="form-control" id="dataInici" th:field="*{dataInici}" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-sm-2" for="dataFi">Fecha Fin:</label>
+        <div class="col-sm-4">
+            <input type="date" class="form-control" id="dataFi" th:field="*{dataFi}" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-4">
+            <button type="submit">Modificar un periodo servicio estacional</button>
+        </div>
+    </div>
+
 </form>
+</div>
 </body>
 </html>

@@ -12,4 +12,10 @@ public class IndexController {
         model.addAttribute("user", new UserDetails());
         return "index";
     }
+
+    @RequestMapping("/panel")
+    public String panel(Model model){
+        model.addAttribute("user", new UserDetails());
+        return "panel";
+    }
 }

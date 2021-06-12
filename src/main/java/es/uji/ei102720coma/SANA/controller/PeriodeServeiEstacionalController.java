@@ -92,13 +92,13 @@ public class PeriodeServeiEstacionalController {
             return "periodeserveiestacional/update";
         }
         periodeServeiEstacionalDao.updateServeiPermanent(periodeServeiEstacional);
-        return "redirect:list";
+        return "periodeserveiestacional/successo";
     }
 
     @RequestMapping(value="/delete/{nom_espai}/{nom_servei_estacional}")
     public String processDelete(@PathVariable String nom_espai, @PathVariable String nom_servei_estacional) {
         periodeServeiEstacionalDao.deletePeriodeServeiEstacional(nom_espai, nom_servei_estacional);
-        return "redirect:../../list";
+        return "periodeserveiestacional/successo";
     }
 
     @RequestMapping(value = {"/listsestespai/{nom_espai}", "/gestionarserveisest/{nom_espai}"})

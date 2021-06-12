@@ -108,6 +108,15 @@ label {
     vertical-align: middle;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150%;
+}
+
+
+
 .labelBoot {
     padding: 0 5px;
     text-align: left;
