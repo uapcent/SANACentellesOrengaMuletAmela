@@ -34,6 +34,8 @@ public class ZonaController {
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("zona") Zona zona, BindingResult bindingResult) {
+        ZonaValidator zonaValidator = new ZonaValidator();
+        zonaValidator.validate(zona, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
@@ -59,6 +61,8 @@ public class ZonaController {
 
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(@ModelAttribute("zona") Zona zona, BindingResult bindingResult) {
+        ZonaValidator zonaValidator = new ZonaValidator();
+        zonaValidator.validate(zona, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {

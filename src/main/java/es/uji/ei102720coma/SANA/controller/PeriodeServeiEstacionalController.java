@@ -53,6 +53,8 @@ public class PeriodeServeiEstacionalController {
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("periodeserveiestacional") PeriodeServeiEstacional periodeServeiEstacional, BindingResult bindingResult) {
+        PeriodeServeiEstacionalValidator periodeServeiEstacionalValidator = new PeriodeServeiEstacionalValidator();
+        periodeServeiEstacionalValidator.validate(periodeServeiEstacional, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
@@ -78,6 +80,8 @@ public class PeriodeServeiEstacionalController {
 
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(@ModelAttribute("periodeserveiestacional") PeriodeServeiEstacional periodeServeiEstacional, BindingResult bindingResult) {
+        PeriodeServeiEstacionalValidator periodeServeiEstacionalValidator = new PeriodeServeiEstacionalValidator();
+        periodeServeiEstacionalValidator.validate(periodeServeiEstacional, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {

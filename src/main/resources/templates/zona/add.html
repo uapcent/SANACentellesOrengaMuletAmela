@@ -23,20 +23,23 @@
             <label class="control-label col-sm-2" for="codi">Código Zona:</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="codi" th:field="*{codi}" />
+                <span th:if="${#fields.hasErrors('codi')}" th:errors="*{codi}" class="error" style="color: red"></span>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="control-label col-sm-2" for="llargaria">Longitud:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="llargaria" th:field="*{llargaria}" />
+                <input type="number" class="form-control" id="llargaria" th:field="*{llargaria}" />
+                <span th:if="${#fields.hasErrors('llargaria')}" th:errors="*{llargaria}" class="error" style="color: red"></span>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="control-label col-sm-2" for="amplaria">Amplitud:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="amplaria" th:field="*{amplaria}"/>
+                <input type="number" class="form-control" id="amplaria" th:field="*{amplaria}"/>
+                <span th:if="${#fields.hasErrors('amplaria')}" th:errors="*{amplaria}" class="error" style="color: red"></span>
             </div>
         </div>
 
@@ -44,6 +47,7 @@
             <label class="control-label col-sm-2" for="capacitat_maxima">Capacidad Máxima:</label>
             <div class="col-sm-4">
                 <input type="number" class="form-control" id="capacitat_maxima" th:field="*{capacitatMaxima}"/>
+                <span th:if="${#fields.hasErrors('capacitatMaxima')}" th:errors="*{capacitatMaxima}" class="error" style="color: red"></span>
             </div>
         </div>
 

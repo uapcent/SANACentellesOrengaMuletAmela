@@ -17,39 +17,42 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="nom">Nombre espacio:*</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="nom" th:field="*{nom}" required/>
+        <input type="text" class="form-control" id="nom" th:field="*{nom}" placeholder="Nombre del espacio"/>
+        <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_acces">Tipo de acceso:*</label>
       <div class="col-sm-4">
-        <select class="form-control" id="tipus_acces" th:field="*{tipusAcces}" required>
+        <select class="form-control" id="tipus_acces" th:field="*{tipusAcces}" >
           <option value="No seleccionat">Selecciona el tipo de Acceso</option>
           <option value="Abierto">Abierto</option>
           <option value="Restringido">Restringido</option>
           <option value="Cerrado">Cerrado</option>
         </select>
+        <span th:if="${#fields.hasErrors('tipusAcces')}" th:errors="*{tipusAcces}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_sol">Tipo de terreno:*</label>
       <div class="col-sm-4">
-        <select class="form-control" id="tipus_sol" th:field="*{tipusSol}" required>
+        <select class="form-control" id="tipus_sol" th:field="*{tipusSol}" >
           <option value="No seleccionat">Selecciona el tipo de terreno</option>
           <option value="Arena">Arena</option>
           <option value="Piedra">Piedra</option>
           <option value="Grava">Grava</option>
           <option value="Urbano">Urbano</option>
         </select>
+        <span th:if="${#fields.hasErrors('tipusSol')}" th:errors="*{tipusSol}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="tipus_espai">Tipo de espacio:*</label>
       <div class="col-sm-4">
-        <select class="form-control" id="tipus_espai" th:field="*{tipusEspai}" required>
+        <select class="form-control" id="tipus_espai" th:field="*{tipusEspai}" >
           <option value="No seleccionat">Selecciona el tipo de espacio</option>
           <option value="Playa">Playa</option>
           <option value="Rio">Rio</option>
@@ -57,55 +60,61 @@
           <option value="Estanque">Estanque</option>
           <option value="Bosque">Bosque</option>
         </select>
+        <span th:if="${#fields.hasErrors('tipusEspai')}" th:errors="*{tipusEspai}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="localitzacio_geografica">Localización Geográfica:*</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="localitzacio_geografica" th:field="*{localitzacioGeografica}"required/>
+        <input type="text" class="form-control" id="localitzacio_geografica" th:field="*{localitzacioGeografica}" placeholder="Longitud:-0.000,Latitud:0.000"/>
+        <span th:if="${#fields.hasErrors('localitzacioGeografica')}" th:errors="*{localitzacioGeografica}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="descripcio">Descripción:*</label>
       <div class="col-sm-4">
-        <textarea class="form-control" id="descripcio" th:field="*{descripcio}" rows="4" required></textarea>
+        <textarea class="form-control" id="descripcio" th:field="*{descripcio}" rows="4" placeholder="Descripción"></textarea>
+        <span th:if="${#fields.hasErrors('descripcio')}" th:errors="*{descripcio}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="llargaria">Largaria:*</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="llargaria" th:field="*{llargaria}" required/>
+        <input type="number" class="form-control" id="llargaria" th:field="*{llargaria}" />
+        <span th:if="${#fields.hasErrors('llargaria')}" th:errors="*{llargaria}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="amplaria">Anchura:*</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="amplaria" th:field="*{amplaria}" required/>
+        <input type="number" class="form-control" id="amplaria" th:field="*{amplaria}" />
+        <span th:if="${#fields.hasErrors('amplaria')}" th:errors="*{amplaria}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="orientacio">Orientación:*</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="orientacio" th:field="*{orientacio}" required/>
+        <input type="text" class="form-control" id="orientacio" th:field="*{orientacio}" placeholder="Orientacion"/>
+        <span th:if="${#fields.hasErrors('orientacio')}" th:errors="*{orientacio}" class="error" style="color: red"></span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="comentaris">Comentarios:</label>
       <div class="col-sm-4">
-        <textarea class="form-control" id="comentaris" th:field="*{comentaris}" rows="4"></textarea>
+        <textarea class="form-control" id="comentaris" th:field="*{comentaris}" rows="4" placeholder="Comentarios"></textarea>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="control-label col-sm-2" for="imatges">Imagenes:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="imatges" th:field="*{imatges}"/>
+        <input type="text" class="form-control" id="imatges" th:field="*{imatges}" placeholder="/src/imagen.jpeg"/>
       </div>
     </div>
 

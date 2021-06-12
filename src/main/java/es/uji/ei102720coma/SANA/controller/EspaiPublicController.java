@@ -48,6 +48,8 @@ public class EspaiPublicController {
 
     @RequestMapping(value="/add", method= RequestMethod.POST)
     public String processAddSubmit(@ModelAttribute("espaipublic") EspaiPublic espaiPublic, BindingResult bindingResult) {
+        EspaiPublicValidator espaiPublicValidator = new EspaiPublicValidator();
+        espaiPublicValidator.validate(espaiPublic, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
@@ -62,7 +64,7 @@ public class EspaiPublicController {
             return "espaipublic/add";
         }
         espaiPublicDao.addEspaiPublic(espaiPublic);
-        return "redirect:list";
+        return "espaipublic/operacioncompletada";
     }
 
     @RequestMapping(value="/update/{nom}", method = RequestMethod.GET)
@@ -73,6 +75,8 @@ public class EspaiPublicController {
 
     @RequestMapping(value="/update", method = RequestMethod.POST)
     public String processUpdateSubmit(@ModelAttribute("espaipublic") EspaiPublic espaiPublic, BindingResult bindingResult) {
+        EspaiPublicValidator espaiPublicValidator = new EspaiPublicValidator();
+        espaiPublicValidator.validate(espaiPublic, bindingResult);
         if (bindingResult.hasErrors()){
             for (Object object : bindingResult.getAllErrors()) {
                 if(object instanceof FieldError) {
@@ -87,7 +91,7 @@ public class EspaiPublicController {
             return "espaipublic/update";
         }
         espaiPublicDao.updateEspaiPublic(espaiPublic);
-        return "redirect:list";
+        return "espaipublic/operacioncompletada";
     }
 
     @RequestMapping(value="/delete/{nom}")

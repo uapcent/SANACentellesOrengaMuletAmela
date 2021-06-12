@@ -23,7 +23,6 @@
         <label class="control-label col-sm-2" for="tipus_acces">Tipo de acceso:*</label>
         <div class="col-sm-4">
             <select class="form-control" id="tipus_acces" th:field="*{tipusAcces}">
-                <option value="No seleccionat">Selecciona el tipo de Acceso</option>
                 <option value="Abierto">Abierto</option>
                 <option value="Restringido">Restringido</option>
                 <option value="Cerrado">Cerrado</option>
@@ -35,7 +34,6 @@
         <label class="control-label col-sm-2" for="tipus_sol">Tipo de terreno:*</label>
         <div class="col-sm-4">
             <select class="form-control" id="tipus_sol" th:field="*{tipusSol}">
-                <option value="No seleccionat">Selecciona el tipo de terreno</option>
                 <option value="Arena">Arena</option>
                 <option value="Piedra">Piedra</option>
                 <option value="Grava">Grava</option>
@@ -48,7 +46,6 @@
         <label class="control-label col-sm-2" for="tipus_espai">Tipo de espacio:*</label>
         <div class="col-sm-4">
             <select class="form-control" id="tipus_espai" th:field="*{tipusEspai}">
-                <option value="No seleccionat">Selecciona el tipo de espacio</option>
                 <option value="Playa">Playa</option>
                 <option value="Rio">Rio</option>
                 <option value="Lago">Lago</option>
@@ -62,6 +59,7 @@
         <label class="control-label col-sm-2" for="localitzacio_geografica">Localización Geográfica:*</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" id="localitzacio_geografica" th:field="*{localitzacioGeografica}"/>
+            <span th:if="${#fields.hasErrors('localitzacioGeografica')}" th:errors="*{localitzacioGeografica}" class="error" style="color: red"></span>
         </div>
     </div>
 
@@ -69,20 +67,23 @@
         <label class="control-label col-sm-2" for="descripcio">Descripción:*</label>
         <div class="col-sm-4">
             <textarea class="form-control" id="descripcio" th:field="*{descripcio}" rows="4"></textarea>
+            <span th:if="${#fields.hasErrors('descripcio')}" th:errors="*{descripcio}" class="error" style="color: red"></span>
         </div>
     </div>
 
     <div class="form-group row">
         <label class="control-label col-sm-2" for="llargaria">Largaria:*</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="llargaria" th:field="*{llargaria}"/>
+            <input type="number" class="form-control" id="llargaria" th:field="*{llargaria}"/>
+            <span th:if="${#fields.hasErrors('llargaria')}" th:errors="*{llargaria}" class="error" style="color: red"></span>
         </div>
     </div>
 
     <div class="form-group row">
         <label class="control-label col-sm-2" for="amplaria">Anchura:*</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="amplaria" th:field="*{amplaria}"/>
+            <input type="number" class="form-control" id="amplaria" th:field="*{amplaria}"/>
+            <span th:if="${#fields.hasErrors('amplaria')}" th:errors="*{amplaria}" class="error" style="color: red"></span>
         </div>
     </div>
 
@@ -90,6 +91,7 @@
         <label class="control-label col-sm-2" for="orientacio">Orientación:*</label>
         <div class="col-sm-4">
             <input type="text" class="form-control" id="orientacio" th:field="*{orientacio}"/>
+            <span th:if="${#fields.hasErrors('orientacio')}" th:errors="*{orientacio}" class="error" style="color: red"></span>
         </div>
     </div>
 

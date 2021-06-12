@@ -24,6 +24,7 @@
         <label class="control-label col-sm-2" for="dataInici">Fecha Inicio:</label>
         <div class="col-sm-4">
             <input type="date" class="form-control" id="dataInici" th:field="*{dataInici}" />
+            <span th:if="${#fields.hasErrors('dataInici')}" th:errors="*{dataInici}" class="error" style="color: red"></span>
         </div>
     </div>
 
@@ -31,6 +32,7 @@
         <label class="control-label col-sm-2" for="dataFi">Fecha Fin:</label>
         <div class="col-sm-4">
             <input type="date" class="form-control" id="dataFi" th:field="*{dataFi}" />
+            <span th:if="${#fields.hasErrors('dataFi')}" th:errors="*{dataFi}" class="error" style="color: red"></span>
         </div>
     </div>
 
