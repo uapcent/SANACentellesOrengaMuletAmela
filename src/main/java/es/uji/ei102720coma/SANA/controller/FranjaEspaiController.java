@@ -53,7 +53,7 @@ public class FranjaEspaiController {
             return "franjaespai/add";
         }
         franjaEspaiDao.addFranja(franjaEspai);
-        return "espaipublic/gestionarespai";
+        return "franjaespai/transaccioncorrecta";
     }
 
     @RequestMapping(value = "/update/{nom_espai}", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class FranjaEspaiController {
             return "franjaespai/update";
         }
         franjaEspaiDao.updateFranjaEspai(franjaEspai);
-        return "espaipublic/gestionarespai";
+        return "franjaespai/transaccioncorrecta";
     }
 
     @RequestMapping(value="/delete/{nom_espai}")

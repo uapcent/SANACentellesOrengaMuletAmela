@@ -24,9 +24,11 @@ public class ZonaController {
     @Autowired
     public void setZonaDao(ZonaDao zonaDao){ this.zonaDao = zonaDao; }
 
-    @RequestMapping(value="/add")
-    public String addZona(Model model) {
-        model.addAttribute("zona", new Zona());
+    @RequestMapping(value="/add/{nom_espai}")
+    public String addZona(Model model, @PathVariable String nom_espai) {
+        Zona zona = new Zona();
+        zona.setNomEspai(nom_espai);
+        model.addAttribute("zona", zona);
         return "zona/add";
     }
 
@@ -46,7 +48,7 @@ public class ZonaController {
             return "zona/add";
         }
         zonaDao.addZona(zona);
-        return "redirect:list";
+        return "zona/infotransaccion";
     }
 
     @RequestMapping(value="/update/{nom_espai}/{codi}", method = RequestMethod.GET)
@@ -71,7 +73,7 @@ public class ZonaController {
             return "zona/update";
         }
         zonaDao.updateZona(zona);
-        return "redirect:list";
+        return "zona/infotransaccion";
     }
 
     @RequestMapping(value="/delete/{nom_espai}/{codi}")

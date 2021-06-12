@@ -96,9 +96,16 @@
         </div>
         <a th:href="@{/espaiserveipermanent/gestionarserveisperm/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar serveis permanents</button></a>
         <a th:href="@{/periodeserveiestacional/gestionarserveisest/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar servicios estacionales</button></a>
+        <a th:href="@{/}"><button type="button">Gestionar reservas</button></a>
     </div>
     <div th:unless="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
         <a th:href="@{/espaipublic/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Editar espacio</button></a>
+        <div th:if="${franjaespai == null}">
+            <a th:href="@{/franjaespai/add/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Añade franja horaria</button></a>
+        </div>
+        <div th:unless="${franjaespai == null}">
+            <a th:href="@{/franjaespai/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Edita la franja horaria</button></a>
+        </div>
         <a th:href="@{/espaiserveipermanent/gestionarserveisperm/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar servicios permanentes</button></a>
         <a th:href="@{/periodeserveiestacional/gestionarserveisest/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar servicios estacionales</button></a>
     </div>

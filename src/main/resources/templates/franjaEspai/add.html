@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
   <title>Gestionar las franjas de espacios</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
-<div class="container">
+<div class="container" layout:fragment="content">
   <h2>Nueva franja de espacio</h2>
   <form class="form-horizontal" action="#" th:action="@{/franjaespai/add}"
         th:object="${franjaEspai}" method="post">
@@ -14,7 +15,7 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="nom_espai">Nombre Espacio:</label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" />
+        <input type="text" class="form-control" id="nom_espai" th:field="*{nomEspai}" readonly="readonly"/>
       </div>
     </div>
 
@@ -37,7 +38,6 @@
         <button type="submit" class="btn btn-primary">Añade Franja de Espacio</button>
       </div>
     </div>
-
   </form>
 </div>
 </body>

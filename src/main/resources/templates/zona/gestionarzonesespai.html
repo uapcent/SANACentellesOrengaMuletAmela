@@ -36,11 +36,12 @@
             <td th:text="${zona.llargaria}"></td>
             <td th:text="${zona.amplaria}"></td>
             <td th:text="${zona.capacitatMaxima}"></td>
-            <td><a th:href="@{/zona/update/{nom_espai}/{codi_zona}(nom_espai=${zona.nomEspai}, codi_zona=${zona.codi})}" class="btn btn-success" role="button">Modificar</a></td>
-            <td><a th:href="@{/zona/delete/{nom_espai}/{codi_zona}(nom_espai=${zona.nomEspai}, codi_zona=${zona.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-success" role="button">Borrar zona</a></td>
+            <td><a th:href="@{/zona/update/{nom_espai}/{codi_zona}(nom_espai=${zona.nomEspai}, codi_zona=${zona.codi})}" class="btn btn-warning" role="button">Modificar</a></td>
+            <td><a th:href="@{/zona/delete/{nom_espai}/{codi_zona}(nom_espai=${zona.nomEspai}, codi_zona=${zona.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Borrar zona</a></td>
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/zona/add/{nom_espai}(nom_espai=${nomespaipublic})}"><button type="button">Añadir zona al espacio</button></a>
 </div>
 </body>
 </html>
