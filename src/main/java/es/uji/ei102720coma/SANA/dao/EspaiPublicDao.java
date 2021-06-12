@@ -2,6 +2,8 @@ package es.uji.ei102720coma.SANA.dao;
 
 
 import es.uji.ei102720coma.SANA.model.EspaiPublic;
+import es.uji.ei102720coma.SANA.model.Reserva;
+import es.uji.ei102720coma.SANA.model.ReservaZona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -82,6 +84,29 @@ public class EspaiPublicDao {
             return jdbcTemplate.query("SELECT * FROM Espai_Public WHERE nom_municipi =?", new EspaiPublicRowMapper(), nomMunicipi);
         }catch (EmptyResultDataAccessException e) {
             return new ArrayList<>();
+        }
+    }
+
+    public List<Reserva> getReserves(String nomEspai) {
+        try {
+            return jdbcTemplate.query(
+                    "SELECT * FROM Reserva WHERE nom_espai=?", new ReservaRowMapper(), nomEspai);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return new ArrayList<>();
+        }
+    }
+
+    /* Obté la Reserva amb el codi donat. Torna null si no existeix. */
+    public ReservaZona getReservaZona(String codiReserva) {
+        try {
+            return jdbcTemplate.queryForObject(
+                    "SELECT * FROM Reserva_Zona WHERE codi_reserva =?",
+                    new ReservaZonaRowMapper(),
+                    codiReserva);
+        }
+        catch(EmptyResultDataAccessException e) {
+            return null;
         }
     }
 }

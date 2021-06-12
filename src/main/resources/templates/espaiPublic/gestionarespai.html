@@ -96,7 +96,7 @@
         </div>
         <a th:href="@{/espaiserveipermanent/gestionarserveisperm/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar serveis permanents</button></a>
         <a th:href="@{/periodeserveiestacional/gestionarserveisest/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar servicios estacionales</button></a>
-        <a th:href="@{/}"><button type="button">Gestionar reservas</button></a>
+        <a th:href="@{/espaipublic/listreservesmunicipi/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Gestionar reservas</button></a>
     </div>
     <div th:unless="${#strings.equals(gestioespai.tipusAcces, 'Restringido')}">
         <a th:href="@{/espaipublic/update/{nom_espai}(nom_espai=${gestioespai.nom})}"><button type="button">Editar espacio</button></a>
