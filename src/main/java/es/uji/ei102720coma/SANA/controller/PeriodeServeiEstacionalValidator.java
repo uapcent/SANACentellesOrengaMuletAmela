@@ -27,5 +27,13 @@ public class PeriodeServeiEstacionalValidator implements Validator {
             errors.rejectValue("dataFi", "obligatorio", "ERROR: La fecha de fin debe ser igual o posterior al dia de hoy");
         }
 
+        if(periodeServeiEstacional.getDataInici().compareTo(periodeServeiEstacional.getDataFi()) > 0) {
+            errors.rejectValue("dataInici",  "obligatori", "ERROR: La data de inici no pot ser major a la data de fi");
+        }
+
+        if(periodeServeiEstacional.getDataFi().compareTo(periodeServeiEstacional.getDataInici()) < 0) {
+            errors.rejectValue("dataFi", "obligatori", "ERROR: La data de fi no pot ser menor a la data de inici");
+        }
+
     }
 }
