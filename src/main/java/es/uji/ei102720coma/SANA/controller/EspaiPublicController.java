@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 
@@ -123,14 +124,22 @@ public class EspaiPublicController {
             session.setAttribute("nextUrl", "espaipublic/listreservesmunicipi/"+nomEspai);
             return "login";
         }
-
+        int numReservasHoy = 0;
         List<Reserva> listReservesMuncipi = espaiPublicDao.getReserves(nomEspai);
+
+        for (Reserva reserva : listReservesMuncipi){
+            if (reserva.getDataAsignacio().equals(LocalDate.now()))
+                numReservasHoy++;
+        }
+
+
         HashMap<Reserva, ReservaZona> reservaZonaHashMap = new HashMap<>();
         for (Reserva reserva : listReservesMuncipi){
             ReservaZona zona = espaiPublicDao.getReservaZona(reserva.getCodi());
 
             reservaZonaHashMap.put(reserva, zona);
         }
+        model.addAttribute("numReserves", numReservasHoy);
         model.addAttribute("reservaZonaHashMap", reservaZonaHashMap);
         model.addAttribute("llistaReserves", listReservesMuncipi);
         model.addAttribute("nomEspai", nomEspai);

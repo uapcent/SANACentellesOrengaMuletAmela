@@ -9,6 +9,7 @@
 <body>
 <div class="container" layout:fragment="content">
     <h1>Reservas del área <span th:text="${nomEspai}"></span>:</h1>
+    <h2> Reservas de hoy: <span th:text="${numReserves}"></span></h2>
     <div th:if="${#lists.isEmpty(llistaReserves)}">
         <br>
         <h4>En este momento este espacio no contiene reservas disponibles. Vuelve en un otro momento.</h4>
@@ -46,8 +47,10 @@
             <td th:text="${reserva.key.horaIniciEspai}"></td>
             <td th:text="${reserva.key.horaFiEspai}"></td>
             <!--<td><a th:href="@{/reserva/update/{codi}(codi=${reserva.key.codi})}" class="btn btn-warning" role="button">Editar</a>
-            --></td>
-            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Cancelar</a>
+            </td>-->
+
+            <td th:if="${reserva.key.estat != 'cancelada'}">
+                <a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Cancelar</a>
             </td>
         </tr>
         </tbody>

@@ -52,7 +52,7 @@ public class ReservaDao {
 
     /* Esborra la reserva de la base de dades */
     public void cancelReserva(String codi) {
-        jdbcTemplate.update("UPDATE Reserva SET estat = 'cancel·lada' WHERE codi = '" + codi + "'");
+        jdbcTemplate.update("UPDATE Reserva SET estat = 'cancelada' WHERE codi = '" + codi + "'");
 
     }
 

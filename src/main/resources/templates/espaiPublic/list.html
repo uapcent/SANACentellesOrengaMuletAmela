@@ -9,6 +9,7 @@
 <body>
 <div class="container" layout:fragment="content">
     <h1>Espacios Públicos disponibles</h1>
+    <h3>Solo necesitas hacer reserva para los espacios Restringidos, los demás son libres de acceso</h3>
     <div th:if="${#lists.isEmpty(espaispublics)}">
         <p>En este momento no hay Espacios Públicos Disponibles. Vuelve en un otro momento.</p>
     </div>

@@ -173,9 +173,15 @@ public class ReservaController {
     }
 
     @RequestMapping(value="/delete/{codi}")
-    public String processDelete(@PathVariable String codi) {
+    public String processDelete(HttpSession session, @PathVariable String codi) {
         //reservaZonaDao.deleteReservaZona(codi);
         reservaDao.cancelReserva(codi);
+        if(session.getAttribute("ciutada") != null) {
+            return "reserva/correcto";
+        }
+        if(session.getAttribute("gestor") != null) {
+            return "espaipublic/operacioncompletada";
+        }
         return "redirect:../list";
     }
 

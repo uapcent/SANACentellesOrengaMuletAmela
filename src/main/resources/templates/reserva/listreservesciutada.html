@@ -45,9 +45,11 @@
             <td th:text="${reserva.key.dataExpiracio}"></td>
             <td th:text="${reserva.key.horaIniciEspai}"></td>
             <td th:text="${reserva.key.horaFiEspai}"></td>
-            <td><a th:href="@{/reserva/update/{codi}(codi=${reserva.key.codi})}" class="btn btn-warning" role="button">Editar</a>
+            <td th:if="${reserva.key.estat != 'cancelada'}">
+                <a th:href="@{/reserva/update/{codi}(codi=${reserva.key.codi})}" class="btn btn-warning" role="button">Editar</a>
             </td>
-            <td><a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Cancelar</a>
+            <td th:if="${reserva.key.estat != 'cancelada'}">
+                <a th:href="@{/reserva/delete/{codi}(codi=${reserva.key.codi})}" onclick="return confirm('Estás seguro?')" class="btn btn-danger" role="button">Cancelar</a>
             </td>
         </tr>
         </tbody>
