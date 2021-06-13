@@ -23,6 +23,7 @@ public class UserProvider implements UserDao {
     @Autowired
     public void setCiutadaDao(CiutadaDao ciutadaDao){ this.ciutadaDao = ciutadaDao; }
 
+
     @Override
     public UserDetails loadUserByUsername(String email, String password) {
         BasicPasswordEncryptor passwordEncryptor = new BasicPasswordEncryptor();

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Gestión del espaio público: <span th:text="${gestioespai.nom}"></span></h1>
+    <h1>Gestión del espacio público: <span th:text="${gestioespai.nom}"></span></h1>
     <br>
     <br>
     <table class="table">
@@ -36,7 +36,7 @@
                 <td th:text="${gestioespai.tipusSol}"></td>
             </tr>
             <tr>
-                <th scope="row">Tipo de Espacio</th>
+                <th scope="row">Tipo de espacio</th>
                 <td th:text="${gestioespai.tipusEspai}"></td>
             </tr>
             <tr>
@@ -45,12 +45,12 @@
                 <td th:unless="${franjaespai != null}">Vacío</td>
             </tr>
             <tr>
-                <th scope="row">Hora de tancada</th>
+                <th scope="row">Hora de cierre</th>
                 <td th:if="${franjaespai != null}" th:text="${franjaespai.horaFi}"></td>
                 <td th:unless="${franjaespai != null}">Vacío</td>
             </tr>
             <tr>
-                <th scope="row">Ubicación Geográfica</th>
+                <th scope="row">Ubicación geográfica</th>
                 <td th:text="${gestioespai.localitzacioGeografica}"></td>
             </tr>
             <tr>

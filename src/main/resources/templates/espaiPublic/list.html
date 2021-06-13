@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/base}">
 <head>
-    <title>Espacios Públicos</title>
+    <title>Espacios públicos</title>
     <meta charset="UTF-8" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/zona.css" th:href="@{/css/zona.css}"/>
 </head>
 <body>
 <div class="container" layout:fragment="content">
-    <h1>Espacios Públicos disponibles</h1>
-    <h3>Solo necesitas hacer reserva para los espacios Restringidos, los demás son libres de acceso</h3>
+    <h1>Espacios públicos disponibles</h1>
+    <h3>Solo necesitas hacer reserva para los espacios restringidos, los demás son libres de acceso</h3>
     <div th:if="${#lists.isEmpty(espaispublics)}">
         <p>En este momento no hay Espacios Públicos Disponibles. Vuelve en un otro momento.</p>
     </div>
@@ -19,9 +19,9 @@
         <thead>
         <tr>
             <th>Nombre del espacio</th>
-            <th>Tipo acceso al espaio</th>
+            <th>Tipo acceso al espacio</th>
             <th>Tipo terreno</th>
-            <th>Tipo espaio</th>
+            <th>Tipo espacio</th>
             <th>Municipio dónde se encuentra</th>
             <th></th>
         </tr>
