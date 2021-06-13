@@ -62,7 +62,7 @@ public class EspaiServeiPermanentController {
             return "espaiserveipermanent/add";
         }
         espaiServeiPermanentDao.addEspaiServeiPermanent(espaiServeiPermanent);
-        return "redirect:list";
+        return "espaiserveipermanent/anyadidocorrecto";
     }
 
     @RequestMapping(value="/update/{nom_espai}/{nom_servei_perm}", method = RequestMethod.GET)
@@ -88,8 +88,7 @@ public class EspaiServeiPermanentController {
             return "espaiserveipermanent/update";
         }
         serveiPermanentDao.updateServeiPermanent(serveiPermanent);
-        System.out.println("alo");
-        return "gestionarserveisperm/" + nom_espai;
+        return "espaiserveipermanent/anyadidocorrecto";
     }
 
     @RequestMapping(value="/delete/{nom_espai}/{nom_servei_perm}")

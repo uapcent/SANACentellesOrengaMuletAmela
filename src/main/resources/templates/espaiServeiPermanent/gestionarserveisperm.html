@@ -12,7 +12,6 @@
     <div th:if="${#lists.isEmpty(serveisespai)}">
         <br>
         <h4>En este momento este espacio no contiene servicios permanentes asignados. Añade un usando el botón!</h4>
-        <button type="button">Añadir servicio permanente</button>
     </div>
     <br>
     <table th:unless="${#lists.isEmpty(serveisespai)}" class="table table-striped">

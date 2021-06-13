@@ -12,7 +12,6 @@
     <div th:if="${#lists.isEmpty(serveiespai)}">
         <br>
         <h4>En este momento este espacio no cuenta con servicios estacionales asignados. Añade uno!</h4>
-        <button type="button">Añade un servicio estacional</button>
     </div>
     <br>
     <table th:unless="${#lists.isEmpty(serveiespai)}" class="table table-striped">

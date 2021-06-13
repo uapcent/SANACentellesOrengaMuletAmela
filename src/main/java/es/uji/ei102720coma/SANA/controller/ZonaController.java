@@ -83,7 +83,7 @@ public class ZonaController {
     @RequestMapping(value="/delete/{nom_espai}/{codi}")
     public String processDelete(@PathVariable String nom_espai, @PathVariable String codi) {
         zonaDao.deleteZona(codi, nom_espai);
-        return "redirect:../../list";
+        return "zona/infotransaccion";
     }
 
     @RequestMapping("/list")

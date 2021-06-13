@@ -42,7 +42,7 @@
             <tr>
                 <th scope="row">Hora de apertura</th>
                 <td th:if="${franjaespai != null}" th:text="${franjaespai.horaInici}"></td>
-                <td th:unless="${franjaespai != null}">Cerrado</td>
+                <td th:unless="${franjaespai != null}">Vacío</td>
             </tr>
             <tr>
                 <th scope="row">Hora de tancada</th>
